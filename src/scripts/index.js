@@ -24,19 +24,81 @@ document.getElementsByClassName('start-btn').addEventListener('click', function(
 });
 
 
-// function changeLinkStyles(linkContainer) {
-//   const links = document.querySelectorAll('.nav-links');
-
-//   links.forEach(link => {
-//       link.classList.remove('active');
-//   });
-  
-
-//   linkContainer.classList.add('active');
-
-// }
 
 
+
+const sections = document.querySelectorAll('div[id]')
+    
+const scrollActive = () =>{
+  	const scrollDown = window.scrollY
+
+	sections.forEach(current =>{
+		const sectionHeight = current.offsetHeight,
+			  sectionTop = current.offsetTop - 58,
+			  sectionId = current.getAttribute('id'),
+			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+
+		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
+			sectionsClass.classList.add('active-link')
+		}else{
+			sectionsClass.classList.remove('active-link')
+		}                                                    
+	})
+}
+window.addEventListener('scroll', scrollActive)
+
+
+
+
+
+
+
+const sections2 = document.querySelectorAll('div[id]')
+    
+const scrollActive2 = () =>{
+  	const scrollDown = window.scrollY
+
+	sections2.forEach(current =>{
+		const sectionHeight = current.offsetHeight,
+			  sectionTop = current.offsetTop - 58,
+			  sectionId = current.getAttribute('id'),
+			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+
+		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
+			sectionsClass.classList.add('active-link')
+		}else{
+			sectionsClass.classList.remove('active-link')
+		}                                                    
+	})
+}
+window.addEventListener('scroll', scrollActive2)
+
+
+
+
+
+
+
+
+const sections3 = document.querySelectorAll('h2[id]')
+    
+const scrollActive3 = () =>{
+  	const scrollDown = window.scrollY
+
+	sections1.forEach(current =>{
+		const sectionHeight = current.offsetHeight,
+			  sectionTop = current.offsetTop - 58,
+			  sectionId = current.getAttribute('id'),
+			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+
+		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
+			sectionsClass.classList.add('active-link')
+		}else{
+			sectionsClass.classList.remove('active-link')
+		}                                                    
+	})
+}
+window.addEventListener('scroll', scrollActive3)
 
 
 
