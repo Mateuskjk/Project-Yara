@@ -124,7 +124,3 @@ const scrollActive4 = () =>{
 	})
 }
 window.addEventListener('scroll', scrollActive4)
-
-
-
-
