@@ -421,6 +421,15 @@ nav .bars-menu{
   display: none;
 }
 
+.name-yara{
+  font-weight: bold;
+  color: #abdbe3;
+}
+
+.name-region{
+  font-weight: bold;
+  color: #3cb057;
+}
 
 @media only screen and (max-width: 720px){
   .logo{
@@ -601,15 +610,131 @@ nav .bars-menu{
   }
 }
 
+@media only screen and (max-width: 1920px){
+  .exclusives{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 30px;
+  }
 
+  .exclusives div:nth-child(1),
+  .exclusives div:nth-child(2),
+  .exclusives div:nth-child(3),
+  .exclusives div:nth-child(4),
+  .exclusives div:nth-child(5) {
+    grid-row: 1;
+  }
 
+  .exclusives div:nth-child(6),
+  .exclusives div:nth-child(7),
+  .exclusives div:nth-child(8),
+  .exclusives div:nth-child(9),
+  .exclusives div:nth-child(10) {
+    grid-row: 2;
+  }
 
-.name-yara{
-  font-weight: bold;
-  color: #abdbe3;
+  .exclusives div img{
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+  }
+
+  .exclusives div{
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    :hover{
+      backdrop-filter: blur(10px);
+      color: #fff;
+    }
+    cursor: pointer;
+  }
+
+  .exclusives div span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
 }
 
-.name-region{
-  font-weight: bold;
-  color: #3cb057;
+@media only screen and (max-width: 1440px){
+  .search-bar{
+    background: #fff;
+    width: 89%;
+    margin: 30px auto;
+    padding: 6px 10px 6px 30px;
+    border-radius: 50px;
+  }
+
+  .search-bar form{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .search-bar form input{
+    display: block;
+    border: 0;
+    outline: none;
+    background: transparent;
+  }
+
+  .search-bar form select{
+    display: block;
+    border: 0;
+    outline: none;
+    background: transparent;
+  }
+
+  .search-bar form select option{
+    width: 100%;
+    font-size: 1vw;
+    padding: 0 5px;
+    text-align: center;
+  }
+
+  .search-bar form button{
+    background: #ff5361;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .search-bar form button img {
+    width: 20px;
+    margin-top: 7px;
+  }
+
+  .search-input{
+    flex: 1;
+  }
+
+  .search-input form select option{
+    flex: 1;
+  }
+
+  .search-bar form label{
+    font-weight: 600;
+  }
+
+  
+  .search-bar form input,
+  .search-bar form select {
+    margin-right: 10px;
+  }
 }
+
+
+
+
+
+
+
+
+
