@@ -114,6 +114,7 @@ const btn = document.querySelector("#send");
 btn.addEventListener("click", function(e){
 	e.preventDefault();
 
+<<<<<<< HEAD
 	const inputOrigem = document.querySelector("#from");
 	const inputDestino = document.querySelector("#to");
 	const inputData1 = document.querySelector("#date1");
@@ -139,3 +140,26 @@ btn.addEventListener("click", function(e){
 	console.log(passName)
 })
 // =======================================================
+=======
+
+
+const sections4 = document.querySelectorAll('nav[id]')
+    
+const scrollActive4 = () =>{
+  	const scrollDown = window.scrollY
+
+	sections1.forEach(current =>{
+		const sectionHeight = current.offsetHeight,
+			  sectionTop = current.offsetTop - 58,
+			  sectionId = current.getAttribute('id'),
+			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+
+		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
+			sectionsClass.classList.add('active-link')
+		}else{
+			sectionsClass.classList.remove('active-link')
+		}                                                    
+	})
+}
+window.addEventListener('scroll', scrollActive4)
+>>>>>>> ef68e63d5112712b3d8cfe59edbb0c76f37b32cf
