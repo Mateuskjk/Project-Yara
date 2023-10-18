@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/src/css/index.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script> -->
   <title>Project - Yara</title>
 </head>
 <body>
@@ -27,15 +27,15 @@
           <form >
             <div class="search-input">
               <label >Origem:</label>
-              <input type="text" placeholder="De onde você é?">
+              <input type="text" id="from" placeholder="De onde você é?">
             </div>
             <div class="search-input">
               <label >Destino:</label>
-              <input type="text" placeholder="Para onde você quer ir?">
+              <input type="text" id="to" placeholder="Para onde você quer ir?">
             </div>
             <div class="search-input">
               <label >Data de Ida:</label>
-              <input type="date" placeholder="Ida">
+              <input type="date" id="date1" placeholder="Ida">
             </div>
             <div class="search-input">
               <label >Data de Volta:</label>
@@ -57,9 +57,9 @@
             </div>
             <div class="search-input">
               <label >Passageiros:</label>
-              <input type="text" placeholder="Passageiros">
+              <input type="text" id="pass" placeholder="Passageiros">
             </div>
-            <button type="submit"><img src="/src/images/lupa.png" alt="lupa-icon" class="img-logo"></button>
+            <button type="submit" id="send"><img src="/src/images/lupa.png" alt="lupa-icon" class="img-logo"></button>
           </form>
         </div>
       </div>
