@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/css/login.css">
+  <title>Login - Yara</title>
+</head>
+<body>
+  <header class="header">
+    <nav id="navBar">
+      <a href="index.html">
+        <img src="/src/images/logo.png" alt="logo" class="logo">
+      </a>
+      <a href="#" class="register-btn">Resgistrar-se</a>
+      <img src="/src/images/menu.png" alt="menu.png" class="bars-menu" onclick="togglebtn()">
+    </nav>
+    <section class="container">
+      <h1>Seja bem-vindo ao um <br><span>novo mundo.</span></h1>
+      <div class="search-bar">
+        <form>
+          <br>
+          <div class="search-input">
+            <label>Usuário:</label>
+            <input type="text" id="tagName" placeholder="Digite seu email">
+          </div>
+          <hr>
+          <br>
+          <div class="search-input">
+            <label>Senha:</label>
+            <input type="password" name="password" id="pass" placeholder="Digite sua senha">
+            <img src="/src/images/imagesLogin/Visivel.png" id="view" alt="view" onclick="changeImageAndInput()">
+          </div>
+          <hr>
+          <br>
+          <div>
+            <a href="#">Esqueceu sua senha?</a>
+          </div>
+          <br>
+          <button type="submit" id="enviar" value="Login">Login in</button>
+          <br>
+        </form>
+      </div>
+    </section>
+  </header>
+
+  <script src="/src/scripts/login.js"></script>
+</body>
+</html>
