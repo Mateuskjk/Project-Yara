@@ -12,12 +12,29 @@ btnLogin.addEventListener("click", function(e){
 
   // console.log(userName)
   // console.log(passUser)
-
 })
 
+//Mostra e Esconde a senha do usuário ==========================
+function mostrarSenha(){
+  var inputPass = document.getElementById('pass')
+  var btnShowPass = document.getElementById('btn-senha')
 
-
-//=================================================================================================
-
+  if(inputPass.type === 'password'){
+    inputPass.setAttribute('type','text')
+    btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
+  } else{
+    inputPass.setAttribute('type','password')
+    btnShowPass.classList.replace('bi-eye-slash','bi-eye')
+  }
+}
 // ==============================================================
+
+
+
+
+
+
+
+
+
 //=================================================================================================
