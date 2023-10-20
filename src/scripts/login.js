@@ -10,6 +10,14 @@ btnLogin.addEventListener("click", function(e){
   const userName = inputUserName.value;
   const passUser = inputPassUser.value;
 
+  const loginUser = {
+    userName,
+    passUser
+  };
+
+  const arqLogin = JSON.stringify(loginUser)
+	console.log(arqLogin)
+  
   // console.log(userName)
   // console.log(passUser)
 })

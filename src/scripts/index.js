@@ -135,7 +135,7 @@ btn.addEventListener("click", function(e){
 		classeName,
 		passName,
 	};
-	console.log(pesquisaInfo)
+	// console.log(pesquisaInfo)
 
 	const arq = JSON.stringify(pesquisaInfo)
 	console.log(arq)
