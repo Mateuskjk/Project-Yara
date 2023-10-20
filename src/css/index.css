@@ -67,9 +67,9 @@ nav{
 
 .search-bar{
   background: #fff;
-  width: 89%;
+  width: 90%;
   margin: 30px auto;
-  padding: 6px 10px 6px 30px;
+  padding: 3px 5px 3px 15px;
   border-radius: 50px;
 }
 
@@ -77,6 +77,8 @@ nav{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  padding: 1%;
+  font-size: 1.2vw;
 }
 
 .search-bar form input{
@@ -84,6 +86,7 @@ nav{
   border: 0;
   outline: none;
   background: transparent;
+  font-size: .8vw;
 }
 
 .search-bar form select{
@@ -91,19 +94,20 @@ nav{
   border: 0;
   outline: none;
   background: transparent;
+  padding: .5%;
 }
 
 .search-bar form select option{
   width: 100%;
   font-size: 1vw;
-  padding: 0 5px;
+  padding: 0 3px;
   text-align: center;
 }
 
 .search-bar form button{
   background: #ff5361;
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   border: 0;
   outline: none;
@@ -111,20 +115,16 @@ nav{
 }
 
 .search-bar form button img {
-  width: 20px;
+  width: 30px;
   margin-top: 7px;
 }
 
 .search-input{
-  flex: 1;
-}
-
-.search-input form select option{
-  flex: 1;
+  flex: 1.5;
 }
 
 .search-bar form label{
-  font-weight: 600;
+  font-weight: 700;
 }
 
 

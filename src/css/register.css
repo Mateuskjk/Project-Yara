@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header{
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(/src/images/imagesLogin/banner-teatro.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10%;
+}
+
+.logo{
+  width: 140px;
+  height: auto;
+  cursor: pointer;
+}
+
+/*Botão login*/
+.register-btn{
+  background: #fff;
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 84.3vh;
+}
+
+.header h1{
+  font-size: 3.3vw;
+  font-weight: 600;
+  color: #fff;
+}
+
+.header span{
+  font-weight: 600;
+  color: #fab895;
+}
+
+
+.search-bar{
+  background: #fff;
+  width: 50%;
+  margin: 5%;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.search-bar form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.search-bar form label{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.search-bar form input{
+  width: 100%;
+  height: auto;
+  padding: 5%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  margin-inline: 10px;
+}
+
+/*Botão criar conta*/
+.account-btn{
+  background: #ff5361;
+  width: 50%;
+  height: 40px;
+  border-radius: 25px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+h3{
+  display: inline-block;
+  font-size: 14px;
+  align-items: center;
+} 
+
+.f-input{
+  display: flex;
+  flex-direction: row;
+  align-items: center;  
+  justify-content: space-around;
+  margin: 10px;
+}
