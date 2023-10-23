@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { createTable, insertPessoa, selectPessoas, selectPessoa, updatePessoa, deletePessoa } from './controler/Pessoa.js';
+import { selectDestinos, selectDestino, insertDestino, updateDestino, deleteDestino } from './controler/Destinos.js';
+import { selectUsuarios, selectUsuario, insertUsuario, updateUsuario, deleteUsuario } from './controler/Usuarios.js';
 
 const router = Router();
 
@@ -10,11 +11,20 @@ router.get('/', (req, res) =>{
   })
 })
 
-router.get('/pessoas', selectPessoas);
-router.get('/pessoa', selectPessoa);
-router.post('/pessoa', insertPessoa);
-router.put('/pessoa', updatePessoa);
-router.delete('/pessoa', deletePessoa);
+
+
+router.get('/destinos', selectDestinos);
+router.get('/destino', selectDestino);
+router.post('/destino', insertDestino);
+router.put('/destino', updateDestino);
+router.delete('/destino', deleteDestino);
+
+
+router.get('/usuarios', selectUsuarios);
+router.get('/usuario', selectUsuario);
+router.post('/usuario', insertUsuario);
+router.put('/usuario', updateUsuario);
+router.delete('/usuario', deleteUsuario);
 
 
 

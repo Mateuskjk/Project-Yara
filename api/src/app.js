@@ -2,12 +2,15 @@ import express from 'express';
 import fs from 'fs';
 import https from 'https';
 import cors from 'cors';
+import router from './routes.js';
+import { createTable } from './controler/Usuarios.js';
+
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-import router from './routes.js';
+createTable();
 app.use(router);
 
 app.listen(3000, () => {

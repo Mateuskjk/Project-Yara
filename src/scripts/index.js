@@ -137,7 +137,12 @@ btn.addEventListener("click", function(e){
 	};
 	// console.log(pesquisaInfo)
 
-	const arq = JSON.stringify(pesquisaInfo)
-	console.log(arq)
+	const pesquisaInfoJSON = JSON.stringify(pesquisaInfo);
+
+	/* const arq = JSON.stringify(pesquisaInfo) */
+	/* console.log(arq) */
+	localStorage.setItem('pesquisaInfo', pesquisaInfoJSON);
+
+	window.location.href = "ticket.html";
 })
 
