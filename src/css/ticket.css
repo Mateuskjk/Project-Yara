@@ -37,6 +37,10 @@ nav{
     font-size: 16px;
   }
 
+  .register-btn:hover{
+    background-color: #409b93;
+  }
+
   .container{
     width: 100%;
     background-color: #408b93;
@@ -162,6 +166,10 @@ nav{
     padding: 8px;
     color: #fff;
     cursor: pointer;
+  }
+
+  .btn-next:hover{
+    background-color: #409b93;
   }
 
   .footer{

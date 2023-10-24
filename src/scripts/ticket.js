@@ -64,7 +64,7 @@ if (localStorage.getItem('pesquisaInfo')) {
     const classeViagem = document.getElementById('class');
     classeViagem.textContent = "Econômico" ;
   }
-  else{
+  else {
     const classeViagem = document.getElementById('class');
     classeViagem.textContent = "Executiva";
   }
@@ -72,20 +72,21 @@ if (localStorage.getItem('pesquisaInfo')) {
   const h2Passageiro = document.getElementById('qtd-pass');
   h2Passageiro.textContent = pesquisaInfo.passName;
 
+  function gerarValorAleatorioComDuasCasasDecimais() {
+    const valorAleatorio = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+    const valorFormatado = valorAleatorio.toFixed(2);
+  
+    return "R$" + valorFormatado; 
+  }
+  
+  document.getElementById("valor-passagem").textContent = gerarValorAleatorioComDuasCasasDecimais();
+   
 } else {
   console.log("Nenhum dado encontrado.");
 }
 
-function gerarValorAleatorioComDuasCasasDecimais() {
-  const valorAleatorio = Math.random() * 300; 
-  const valorFormatado = valorAleatorio.toFixed(2);
 
-  return "R$" + valorFormatado; 
-}
 
-document.getElementById("valor-passagem").textContent = gerarValorAleatorioComDuasCasasDecimais();
-
-//================================================================================================
 
 
 
