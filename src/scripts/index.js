@@ -1,5 +1,6 @@
 
 
+
 //Esconde menu hamburger que é ativado na responsividade==
 var navBar = document.getElementById("navBar");
 
@@ -146,19 +147,175 @@ btn.addEventListener("click", function(e){
 	window.location.href = "ticket.html";
 })
 
-// fetch('http://localhost:3000/destinos')
-//   .then(response => response.json())
-//   .then(data => {
-//     // Manipule os dados, exiba os destinos na página HTML ou preencha um campo de seleção (por exemplo, um <select>)
-//     const destinos = data.destinos;
-//     const selectDestinos = document.getElementById('selectDestinos');
+// Realiza a solicitação para obter os destinos da URL
+// Realiza a solicitação para obter os destinos da URL
+fetch('http://localhost:3000/destinos')
+  .then(res => res.json())
+  .then((json) => {
+    console.log(json);
+    const ul = document.getElementById('listarDestinos');
+    json.forEach((destino) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <a href="#">
+          <span class="destino-name">${destino.destino}</span>
+        </a>
+      `;
+      ul.appendChild(li);
 
-//     destinos.forEach(destino => {
-//       const option = document.createElement('option');
-//       option.value = destino.id; // Suponha que a tabela tenha uma coluna "id"
-//       option.text = destino.nome; // Suponha que a tabela tenha uma coluna "nome"
-//       selectDestinos.appendChild(option);
-//     });
-//   })
-//   .catch(error => console.error('Erro:', error));
+      // Adiciona um ouvinte de evento de clique a cada LI
+      li.addEventListener("click", function() {
+        const destinoName = this.querySelector(".destino-name").textContent;
+        const input = document.getElementById('from');
+        input.value = destinoName;
 
+        // Volta o estilo display para "none" e remove a margem
+        this.style.display = "none";
+        this.style.margin = "0";
+      });
+    });
+  });
+
+//INPUT DO ORIGEM:
+document.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById('from');
+  input.addEventListener("keyup", filtro);
+});
+  
+// Função para filtrar destinos
+function filtro() {
+  var input, filter, ul, li, a, i, txtValue, span, count = 0;
+
+  input = document.getElementById('from');
+  ul = document.getElementById('listarDestinos');
+
+  filter = input.value.toUpperCase();
+
+  li = ul.getElementsByTagName("li");
+
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+
+    txtValue = a.textContent || a.innerText;
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+
+      count++;
+
+      span = li[i].querySelector(".destino-name");
+
+      if (span) {
+        span.innerHTML = txtValue.replace(new RegExp(filter, "gi"), (match) => {
+          return "<strong>" + match + "</strong>";
+        });
+      }
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
+  if (count === 0) {
+    ul.style.display = "none";
+		ul.style.margin = 0
+  } else {
+    ul.style.display = "block";
+		ul.style.margin = 0
+  }
+
+	if (count === 1) {
+    ul.style.display = "block";
+		ul.style.margin = 0
+  } else {
+    ul.style.display = "none";
+		ul.style.margin = 0
+  }
+}
+
+
+
+
+//INPUT DO DESTINO:
+// Realiza a solicitação para obter os destinos da URL
+fetch('http://localhost:3000/destinos')
+  .then(res => res.json())
+  .then((json) => {
+    console.log(json);
+    const ul = document.getElementById('listarDestinos');
+    json.forEach((destino) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <a href="#">
+          <span class="destino-name">${destino.destino}</span>
+        </a>
+      `;
+      ul.appendChild(li);
+
+      // Adiciona um ouvinte de evento de clique a cada LI
+      li.addEventListener("click", function() {
+        const destinoName = this.querySelector(".destino-name").textContent;
+        const input = document.getElementById('from');
+        input.value = destinoName;
+
+        // Volta o estilo display para "none" e remove a margem
+        this.style.display = "none";
+        this.style.margin = "0";
+      });
+    });
+  });
+
+//INPUT DO ORIGEM:
+document.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById('to');
+  input.addEventListener("keyup", filtroDestino);
+});
+  
+// Função para filtrar destinos
+function filtroDestino() {
+  var input, filter, ul, li, a, i, txtValue, span, count = 0;
+
+  input = document.getElementById('to');
+  ul = document.getElementById('listarDestinosVolta');
+
+  filter = input.value.toUpperCase();
+
+  li = ul.getElementsByTagName("li");
+
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+
+    txtValue = a.textContent || a.innerText;
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+
+      count++;
+
+      span = li[i].querySelector(".destino-name");
+
+      if (span) {
+        span.innerHTML = txtValue.replace(new RegExp(filter, "gi"), (match) => {
+          return "<strong>" + match + "</strong>";
+        });
+      }
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
+  if (count === 0) {
+    ul.style.display = "none";
+		ul.style.margin = 0
+  } else {
+    ul.style.display = "block";
+		ul.style.margin = 0
+  }
+
+	if (count === 1) {
+    ul.style.display = "block";
+		ul.style.margin = 0
+  } else {
+    ul.style.display = "none";
+		ul.style.margin = 0
+  }
+}

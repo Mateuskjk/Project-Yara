@@ -762,6 +762,38 @@ nav .bars-menu{
 }
 
 
+#listarDestinos{
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+#listarDestinos li a{
+  text-decoration: none;
+}
+
+#listarDestinos li a span{
+  color: #3cb057;
+}
+
+#listarDestinosVolta{
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+#listarDestinosVolta li a{
+  text-decoration: none;
+}
+
+#listarDestinosVolta li a span{
+  color: #3cb057;
+}
+
 
 
 
