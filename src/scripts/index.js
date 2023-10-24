@@ -146,3 +146,19 @@ btn.addEventListener("click", function(e){
 	window.location.href = "ticket.html";
 })
 
+// fetch('http://localhost:3000/destinos')
+//   .then(response => response.json())
+//   .then(data => {
+//     // Manipule os dados, exiba os destinos na página HTML ou preencha um campo de seleção (por exemplo, um <select>)
+//     const destinos = data.destinos;
+//     const selectDestinos = document.getElementById('selectDestinos');
+
+//     destinos.forEach(destino => {
+//       const option = document.createElement('option');
+//       option.value = destino.id; // Suponha que a tabela tenha uma coluna "id"
+//       option.text = destino.nome; // Suponha que a tabela tenha uma coluna "nome"
+//       selectDestinos.appendChild(option);
+//     });
+//   })
+//   .catch(error => console.error('Erro:', error));
+
