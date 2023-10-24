@@ -50,6 +50,7 @@ if (localStorage.getItem('pesquisaInfo')) {
 function gerarValorAleatorioComDuasCasasDecimais() {
   const valorAleatorio = Math.random() * 300; 
   const valorFormatado = valorAleatorio.toFixed(2);
+
   return "R$" + valorFormatado; 
 }
 

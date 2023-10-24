@@ -71,6 +71,7 @@ nav{
   margin: 30px auto;
   padding: 3px 5px 3px 15px;
   border-radius: 50px;
+  
 }
 
 .search-bar form{
@@ -84,9 +85,17 @@ nav{
 .search-bar form input{
   display: block;
   border: 0;
+  margin: 0;
+  padding: 0;
   outline: none;
+  width: 150px;
   background: transparent;
   font-size: .8vw;
+}
+
+#teste{
+  
+  width: 50%;
 }
 
 .search-bar form select{
@@ -711,6 +720,7 @@ nav .bars-menu{
     border: 0;
     outline: none;
     background: transparent;
+
   }
 
   .search-bar form select{
@@ -770,8 +780,19 @@ nav .bars-menu{
   text-decoration: none;
 }
 
-#listarDestinos li a{
+#listarDestinos li {
+  display: block;
+  cursor: pointer;
   text-decoration: none;
+}
+
+#listarDestinos li:hover {
+  background-color: #f0f0f0;
+}
+
+
+#listarDestinos li.hidden {
+  display: none;
 }
 
 #listarDestinos li a span{
@@ -793,6 +814,13 @@ nav .bars-menu{
 #listarDestinosVolta li a span{
   color: #3cb057;
 }
+
+.destino-name{
+  margin: 0;
+}
+
+
+
 
 
 

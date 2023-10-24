@@ -148,7 +148,6 @@ btn.addEventListener("click", function(e){
 })
 
 // Realiza a solicitação para obter os destinos da URL
-// Realiza a solicitação para obter os destinos da URL
 fetch('http://localhost:3000/destinos')
   .then(res => res.json())
   .then((json) => {
@@ -167,7 +166,7 @@ fetch('http://localhost:3000/destinos')
       li.addEventListener("click", function() {
         const destinoName = this.querySelector(".destino-name").textContent;
         const input = document.getElementById('from');
-        input.value = destinoName;
+        input.value = destinoName.trim();
 
         // Volta o estilo display para "none" e remove a margem
         this.style.display = "none";
@@ -236,12 +235,11 @@ function filtro() {
 
 
 //INPUT DO DESTINO:
-// Realiza a solicitação para obter os destinos da URL
 fetch('http://localhost:3000/destinos')
   .then(res => res.json())
   .then((json) => {
     console.log(json);
-    const ul = document.getElementById('listarDestinos');
+    const ul = document.getElementById('listarDestinosVolta');
     json.forEach((destino) => {
       const li = document.createElement("li");
       li.innerHTML = `
@@ -254,8 +252,8 @@ fetch('http://localhost:3000/destinos')
       // Adiciona um ouvinte de evento de clique a cada LI
       li.addEventListener("click", function() {
         const destinoName = this.querySelector(".destino-name").textContent;
-        const input = document.getElementById('from');
-        input.value = destinoName;
+        const input = document.getElementById('to');
+        input.value = destinoName.trim();
 
         // Volta o estilo display para "none" e remove a margem
         this.style.display = "none";
