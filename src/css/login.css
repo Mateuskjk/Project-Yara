@@ -66,28 +66,41 @@ nav{
 }
 
 
-.search-bar{
+.search-bar {
   background: #fff;
   width: 50%;
   height: 100%;
   margin: 30px auto;
   padding: 3px 5px 3px 15px;
   border-radius: 21px;
+  border: 2px solid transparent; /* Adicione uma borda transparente por padrão */
 }
 
-.search-bar form{
+.search-bar.highlight {
+  border: 5px solid;
+  border-color: #109010; /* Borda verde (#008000) quando a classe "highlight" está presente */
+}
+
+.search-bar.error {
+  border: 5px solid;
+  border-color: #ff0000; /* Borda vermelha escura (#900020) quando a classe "error" está presente */
+}
+
+
+.search-bar form {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
 }
-.search-bar form label{
+
+.search-bar form label {
   font-size: 1.5vw;
   font-weight: 600;
 }
 
-.search-bar form input{
+.search-bar form input {
   display: block;
   width: 100%;
   height: auto;
@@ -100,7 +113,7 @@ nav{
   font-size: 1vw;
 }
 
-.search-bar form button{
+.search-bar form button {
   background: #ff5361;
   width: 50%;
   height: 40px;
@@ -113,25 +126,26 @@ nav{
   margin-top: 18px;
 }
 
-#search-inputs{
+#search-inputs {
   position: relative;
   flex: 1;
 }
 
-.search-input{
+.search-input {
   width: 250px;
   line-height: 40px;
   font-size: 20px;
   padding: 0px 50px 0 20px;
 }
 
-#search-inputs i{
+#search-inputs i {
   font-size: 30px;
   cursor: pointer;
   position: absolute;
   right: 5%;
   bottom: 5%;
 }
+
 
 
 .active{
