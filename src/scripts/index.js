@@ -32,72 +32,58 @@ startButton.addEventListener('click', function() {
 
 
 //link 1 leva a uma seção do site ====================
-const sections = document.querySelectorAll('div[id]')
-    
-const scrollActive = () =>{
-  	const scrollDown = window.scrollY
+function scrollActive1() {
+  const sections1 = document.querySelectorAll("section");
 
-	sections.forEach(current =>{
-		const sectionHeight = current.offsetHeight,
-			  sectionTop = current.offsetTop - 58,
-			  sectionId = current.getAttribute('id'),
-			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+  sections1.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const link = document.querySelector(`a[href="#${section.id}"]`);
 
-		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-			sectionsClass.classList.add('active-link')
-		}else{
-			sectionsClass.classList.remove('active-link')
-		}                                                    
-	})
+    if (link && rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      link.classList.add("active");
+    } else if (link) {
+      link.classList.remove("active");
+    }
+  });
 }
-window.addEventListener('scroll', scrollActive)
 //======================================================
 
 
 
 //link 2 leva a uma seção do site ====================
-const sections2 = document.querySelectorAll('div[id]')
-    
-const scrollActive2 = () =>{
-  	const scrollDown = window.scrollY
+function scrollActive2() {
+  const sections2 = document.querySelectorAll("section");
 
-	sections2.forEach(current =>{
-		const sectionHeight = current.offsetHeight,
-			  sectionTop = current.offsetTop - 58,
-			  sectionId = current.getAttribute('id'),
-			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+  sections2.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const link = document.querySelector(`a[href="#${section.id}"]`);
 
-		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-			sectionsClass.classList.add('active-link')
-		}else{
-			sectionsClass.classList.remove('active-link')
-		}                                                    
-	})
+    if (link && rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      link.classList.add("active");
+    } else if (link) {
+      link.classList.remove("active");
+    }
+  });
 }
-window.addEventListener('scroll', scrollActive2)
 //======================================================
 
 
 //link 3 leva a uma seção do site ====================
-const sections3 = document.querySelectorAll('h2[id]')
-    
-const scrollActive3 = () =>{
-  	const scrollDown = window.scrollY
+function scrollActive3() {
+  const sections3 = document.querySelectorAll("section");
 
-	sections1.forEach(current =>{
-		const sectionHeight = current.offsetHeight,
-			  sectionTop = current.offsetTop - 58,
-			  sectionId = current.getAttribute('id'),
-			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+  sections3.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const link = document.querySelector(`a[href="#${section.id}"]`);
 
-		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-			sectionsClass.classList.add('active-link')
-		}else{
-			sectionsClass.classList.remove('active-link')
-		}                                                    
-	})
+    if (link && rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      link.classList.add("active");
+    } else if (link) {
+      link.classList.remove("active");
+    }
+  });
 }
-window.addEventListener('scroll', scrollActive3)
+
 //======================================================
 
 
