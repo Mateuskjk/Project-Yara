@@ -84,9 +84,3 @@ if (localStorage.getItem('pesquisaInfo')) {
 } else {
   console.log("Nenhum dado encontrado.");
 }
-
-
-
-
-
-

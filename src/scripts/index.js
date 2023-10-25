@@ -1,6 +1,3 @@
-
-
-
 //Esconde menu hamburger que é ativado na responsividade==
 var navBar = document.getElementById("navBar");
 

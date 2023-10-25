@@ -22,15 +22,3 @@ https.createServer({
   cert: fs.readFileSync('./src/SSL/code.crt'),
   key: fs.readFileSync('./src/SSL/code.key')
 }, app).listen(3001, () => console.log("Rodando um HTTPS"));
-
-
-
-
-
-
-
-
-
-
-
-

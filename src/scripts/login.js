@@ -44,9 +44,6 @@ btnLogin.addEventListener("click", function(e){
           document.querySelector('.search-bar').classList.remove('error');
           document.querySelector('.search-bar').classList.add('highlight');
           document.querySelector('.search-bar').classList.add('highlight');
-
-          alert("Usuário e senha estão corretos.")
-
           break; 
         }
       }
@@ -58,7 +55,7 @@ btnLogin.addEventListener("click", function(e){
         document.querySelector('.search-bar').classList.add('error');
         document.querySelector('.search-bar').classList.add('error');
 
-        alert("Usuário e senha estão Incorretos.")
+        //alert("Usuário e senha estão Incorretos.")
       }
     } else {
       // Remove a classe 'highlight' (se já existir) e adiciona uma classe para a borda vermelha escura
@@ -67,7 +64,7 @@ btnLogin.addEventListener("click", function(e){
       document.querySelector('.search-bar').classList.add('error');
       document.querySelector('.search-bar').classList.add('error');
 
-      alert("Nenhum dado de login encontrado.")
+      //alert("Nenhum dado de login encontrado.")
     }
   });
 })
