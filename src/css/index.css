@@ -93,10 +93,6 @@ nav{
   font-size: .8vw;
 }
 
-#teste{
-  
-  width: 50%;
-}
 
 .search-bar form select{
   display: block;
@@ -786,8 +782,8 @@ nav .bars-menu{
   text-decoration: none;
 }
 
-#listarDestinos li:hover {
-  background-color: #f0f0f0;
+#listarDestinos li a {
+  text-decoration: none;
 }
 
 
