@@ -1,0 +1,17 @@
+{
+  "name": "customscore",
+  "version": "1.7.0",
+  "main": "customscore.js",
+  "engines": "node 0.10",
+  "author": {
+    "name": "Will Murphy"
+  },
+  "description": "Custom underscore",
+  "readme": "ERROR: No README data found!",
+  "_id": "customscore@1.6.0",
+  "dist": {
+    "shasum": "a8504c36461773a99f61c37360c48bfff14c74cb"
+  },
+  "_from": "customscore@",
+  "_resolved": "https://registry.npmjs.org/customscore/-/customscore-1.2.0.tgz"
+}

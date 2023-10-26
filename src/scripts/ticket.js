@@ -70,7 +70,7 @@ if (localStorage.getItem('pesquisaInfo')) {
   }
 
   const h2Passageiro = document.getElementById('qtd-pass');
-  h2Passageiro.textContent = pesquisaInfo.passName;
+  h2Passageiro.textContent = pesquisaInfo.passName + " - Passageiro";
 
   function gerarValorAleatorioComDuasCasasDecimais() {
     const valorAleatorio = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
