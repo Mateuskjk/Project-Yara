@@ -45,7 +45,7 @@ btnLogin.addEventListener("click", function(e){
           document.querySelector('.search-bar').classList.add('highlight');
           document.querySelector('.search-bar').classList.add('highlight');
 
-          window.location.href = 'index.html'
+          window.location.href = 'index-with-icon.html'
           break; 
         }
       }
