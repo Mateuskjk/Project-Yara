@@ -7,7 +7,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.header{
+.header {
   min-height: 100vh;
   width: 100%;
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(/src/images/banner.jpg);
@@ -15,30 +15,30 @@
   background-position: center;
 }
 
-nav{
+nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 7%;
 }
 
-.logo{
+.logo {
   width: 130px;
   cursor: pointer;
 }
 
-.nav-links li{
+.nav-links li {
   list-style: none;
   display: inline-block;
   margin: 10px 30px;
 }
 
-.nav-links li a{
+.nav-links li a {
   text-decoration: none;
   color: #fff;
 }
 
-.register-btn{
+.register-btn {
   background: #fff;
   color: #000;
   padding: 8px 20px;
@@ -436,337 +436,10 @@ nav .bars-menu{
   color: #3cb057;
 }
 
-@media only screen and (max-width: 720px){
-  .logo{
-    position: fixed;
-    top: 1%;
-    left: 7%;
-  }
-
-  nav{
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    display: inline-block;
-    width: 100%;
-    padding: 100px 7% 0;
-    background: #83ab77;
-    text-align: right;
-    max-height: 100px;
-    overflow: hidden;
-    transition: max-height 0.5s;
-  }
-
-  nav .nav-links li{
-    margin: 10px 0;
-    display: block;
-  }
-
-  .register-btn{
-    margin: 15px 0 30px;
-    display: inline-block;
-  }
-
-  nav .bars-menu{
-    display: block;
-    position: fixed;
-    top: 4%;
-    right: 7%;
-    color: #fff;
-    font-size: 28px;
-    width: 35px;
-  }
-
-  .active::after{
-    left: -40px;
-    transform: translate(0, 50%);
-    bottom: 50%;
-  }
-
-  .hidemenu{
-    max-height: 300px;
-  }
-
-  .header h1{
-    padding-top: 120px;
-    font-size: 5vw;
-  }
-
-  .search-bar{
-    width: 90%;
-    height: 80%;
-    margin: 15px auto;
-    padding: 20px 10px 30px;
-    border-radius: 5px;
-    position: relative;
-  }
-
-  .search-bar form{
-    display: block;
-  }
-
-  .search-bar form input{
-    border-bottom: 1px solid #ddd;
-    width: 100%;
-    margin-bottom: 20px;
-    margin-top: 4px;
-    padding-bottom: 10px;
-  }
-
-  .search-bar form button{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-
-  .search-bar form select {
-    border-bottom: 1px solid #ddd;
-    width: 100%;
-    margin-bottom: 20px;
-    margin-top: 2px;
-    padding-bottom: 10px;
-  }
-
-  .search-bar form select option{
-    font-size: 4vw;
-  }
-
-  .sub-title{
-    font-size: 6vw;
-  }
-
-
-  .exclusives {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-  }
-
-  .exclusives div img{
-    max-width: 100%;
-    max-height: 15rem;
-  }
-
-  .trending {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-  }
-
-  .trending div img{
-    max-width: 100%;
-    max-height: 16rem;
-  }
-
-  .cta, .cta-2, .cta-3{
-    padding: 15% 5%;
-  }
-  
-  .cta h3, .cta-2 h3, .cta-3 h3{
-    font-size: 7vw;
-    line-height: 8vw;
-  }
-
-  .cta p, .cta-2 p, .cta-3 p{
-    font-size: 14px;
-  }
-
-  .cta-btn, .cta-btn-2, .cta-btn-3{
-    padding: 6px 15px;
-    border-radius: 4px;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-
-  .stories div img{
-    max-width: 100%;
-    max-height: 30rem;
-  }
-
-  .stories p{
-    font-size: 22px;
-  }
-
-  .about-msg{
-    font-size: 15px;
-  }
-
-  @media only screen and (max-width: 441px){
-    .header{
-      min-height: 100vh;
-      width: 100%;
-      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(/src/images/banner.jpg);
-      background-size: cover;
-      background-position: center;
-    }
-
-    .container{
-      padding: 0 7%;
-    }
-    
-    .header h1{
-      font-size: 6vw;
-      font-weight: 600;
-      color: #fff;
-      text-align: center;
-      padding-top: 30%;
-    }
-  }
+.hidemenu {
+  max-height: 0;
+  overflow: hidden;
 }
-
-@media only screen and (max-width: 1920px){
-  .exclusives{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 30px;
-  }
-
-  .exclusives div:nth-child(1),
-  .exclusives div:nth-child(2),
-  .exclusives div:nth-child(3),
-  .exclusives div:nth-child(4),
-  .exclusives div:nth-child(5) {
-    grid-row: 1;
-  }
-
-  .exclusives div:nth-child(6),
-  .exclusives div:nth-child(7),
-  .exclusives div:nth-child(8),
-  .exclusives div:nth-child(9),
-  .exclusives div:nth-child(10) {
-    grid-row: 2;
-  }
-
-  .exclusives div img{
-    width: 100%;
-    height: 90%;
-    border-radius: 10px;
-  }
-
-  .exclusives div{
-    position: relative;
-    background-color: #fff;
-    color: #000;
-    :hover{
-      backdrop-filter: blur(10px);
-      color: #fff;
-    }
-    cursor: pointer;
-  }
-
-  .exclusives div span{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-  }
-
-  .cta-3{
-    margin: 80px 0;
-    background-image: linear-gradient(to right, #78866b, transparent), url(/src/images/imagesBanners/banner-4.jpg);
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    padding: 8.1%;
-    color: #fff;
-  }
-
-  .cta h3{
-    font-size: 4vw;
-    line-height: 5.3vw;
-    font-weight: 500;
-  }
-
-  .cta-3 p{
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .cta-btn-3{
-    background: #ff5361;
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 8px;
-    margin-top: 20px;
-    display: inline-block;
-  }
-}
-
-@media only screen and (max-width: 1440px){
-  .search-bar{
-    background: #fff;
-    width: 89%;
-    margin: 30px auto;
-    padding: 6px 10px 6px 30px;
-    border-radius: 50px;
-  }
-
-  .search-bar form{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .search-bar form input{
-    display: block;
-    border: 0;
-    outline: none;
-    background: transparent;
-
-  }
-
-  .search-bar form select{
-    display: block;
-    border: 0;
-    outline: none;
-    background: transparent;
-  }
-
-  .search-bar form select option{
-    width: 100%;
-    font-size: 1vw;
-    padding: 0 5px;
-    text-align: center;
-  }
-
-  .search-bar form button{
-    background: #ff5361;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 0;
-    outline: none;
-    cursor: pointer;
-  }
-
-  .search-bar form button img {
-    width: 20px;
-    margin-top: 7px;
-  }
-
-  .search-input{
-    flex: 1;
-  }
-
-  .search-input form select option{
-    flex: 1;
-  }
-
-  .search-bar form label{
-    font-weight: 600;
-  }
-
-  
-  .search-bar form input,
-  .search-bar form select {
-    margin-right: 10px;
-  }
-}
-
 
 #listarDestinos{
   display: none;
@@ -814,3 +487,553 @@ nav .bars-menu{
 .destino-name{
   margin: 0;
 }
+
+@media only screen and (max-width: 320px){ /*IPHONE SE 2016*/
+  .logo{
+    position: fixed;
+    top: 1.5%;
+    left: 3%;
+    width:6.5rem;
+  }
+
+  nav{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: inline-block;
+    width: 100%;
+    padding: 70px 7% 0;
+    background: #000;
+    text-align: right;
+    max-height: 10px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  nav .nav-links li{
+    margin: 10px 0;
+    display: block;
+  }
+
+  .register-btn{
+    margin: 15px 0 30px;
+    display: inline-block;
+  }
+
+  nav .bars-menu{
+    display: block;
+    position: fixed;
+    top: 5.5%;
+    right: 7%;
+    color: #fff;
+    font-size: 28px;
+    width: 30px;
+  }
+
+  .active::after{
+    left: -40px;
+    transform: translate(0, 50%);
+    bottom: 50%;
+  }
+
+  .header h1{
+    padding-top: 120px;
+    font-size: 5vw;
+  }
+
+  .search-bar{
+    width: 90%;
+    height: 80%;
+    margin: 15px auto;
+    padding: 15px 15px 15px;
+    border-radius: 5px;
+    position: relative;
+    border-bottom: 1px solid ;
+  }
+
+  .search-bar form{
+    display: block;
+  }
+
+  .search-bar form label{
+    font-size: 12px;
+  }
+
+  .search-bar form input{
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 12px;
+    margin-top: 4px;
+    padding-bottom: 10px;
+    font-size: 10px;
+  }
+
+  .search-bar form button{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ff5361;
+  }
+
+  .search-bar form select {
+    border-bottom: 1px solid #ddd;
+    width: 90%;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    font-size: 10px;
+  }
+
+  .search-bar form select option{
+    font-size: 2em;
+  }
+
+  .sub-title{
+    font-size: 6vw;
+  }
+
+
+  .exclusives {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+
+  .exclusives div .img-exclusives{
+    width: 100%;
+    max-height: 18em;
+  }
+
+  .trending {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+
+  .trending div img{
+    max-width: 100%;
+    max-height: 18rem;
+  }
+
+  .cta, .cta-2, .cta-3{
+    padding: 15% 5%;
+  }
+  
+  .cta h3, .cta-2 h3, .cta-3 h3{
+    font-size: 7vw;
+    line-height: 8vw;
+  }
+
+  .cta p, .cta-2 p, .cta-3 p{
+    font-size: 14px;
+  }
+
+  .cta-btn, .cta-btn-2, .cta-btn-3{
+    padding: 6px 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .stories div img{
+    max-width: 100%;
+    max-height: 30rem;
+  }
+
+  .stories div p{
+    font-size: 12px;
+  }
+
+  .about-msg{
+    font-size: 15px;
+  }
+
+  .destino-name{
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 428px){ /*IPHONE 11, 13 PRO MAX*/
+  .logo{
+    position: fixed;
+    top: 1.5%;
+    left: 3%;
+    width:6.5rem;
+  }
+
+  nav{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: inline-block;
+    width: 100%;
+    padding: 85px 7% 0;
+    background: #000;
+    text-align: right;
+    max-height: 10px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  nav .nav-links li{
+    margin: 10px 0;
+    display: block;
+  }
+
+  .register-btn{
+    margin: 15px 0 30px;
+    display: inline-block;
+  }
+
+  nav .bars-menu{
+    display: block;
+    position: fixed;
+    top: 4%;
+    right: 7%;
+    color: #fff;
+    font-size: 20px;
+    width: 35px;
+  }
+
+  .active::after{
+    left: -40px;
+    transform: translate(0, 50%);
+    bottom: 50%;
+  }
+
+  .header h1{
+    padding-top: 120px;
+    font-size: 7vw;
+  }
+
+  .search-bar{
+    width: 98%;
+    height: 88%;
+    margin: 15px auto;
+    padding: 15px 15px 15px;
+    border-radius: 5px;
+    position: relative;
+    border-bottom: 1px solid ;
+  }
+
+  .search-bar form{
+    display: block;
+  }
+
+  .search-bar form label{
+    font-size: 14px;
+  }
+
+  .search-bar form input{
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 4px;
+    padding-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .search-bar form button{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ff5361;
+  }
+
+  .search-bar form select {
+    border-bottom: 1px solid #ddd;
+    width: 90%;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .search-bar form select option{
+    font-size: 2em;
+  }
+
+  .sub-title{
+    font-size: 7vw;
+  }
+
+
+  .exclusives {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+
+  .exclusives div .img-exclusives{
+    width: 100%;
+    max-height: 18em;
+  }
+
+  .exclusives div span h3 {
+    font-size: 8vw;
+  }
+
+  .trending {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+
+  .trending div img{
+    max-width: 100%;
+    max-height: 19rem;
+  }
+
+  .trending div h3{
+    font-size: 6vw;
+  }
+
+  .cta, .cta-2, .cta-3{
+    padding: 15% 5%;
+  }
+  
+  .cta h3, .cta-2 h3, .cta-3 h3{
+    font-size: 7.5vw;
+    line-height: 8vw;
+  }
+
+  .cta p, .cta-2 p, .cta-3 p{
+    font-size: 8px;
+  }
+
+  .cta-btn, .cta-btn-2, .cta-btn-3{
+    padding: 6px 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .stories div img{
+    max-width: 100%;
+    max-height: 30rem;
+  }
+
+  .stories p{
+    font-size: 6px;
+  }
+
+  .about-msg{
+    font-size: 15px;
+  }
+
+  .destino-name{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) { /*IPAD MINI*/
+  .logo{
+    position: fixed;
+    top: 1.5%;
+    left: 3%;
+    width:8rem;
+  }
+
+  nav{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: inline-block;
+    width: 100%;
+    padding: 90px 8% 0;
+    background: #000;
+    text-align: right;
+    max-height: 10px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  nav .nav-links li{
+    margin: 10px 0;
+    display: block;
+  }
+
+  .register-btn{
+    margin: 15px 0 30px;
+    display: inline-block;
+  }
+
+  nav .bars-menu{
+    display: flex;
+    position: fixed;
+    top: 3.7%;
+    right: 7%;
+    color: #fff;
+    font-size: 20px;
+    width: 35px;
+  }
+
+  .active::after{
+    left: -40px;
+    transform: translate(0, 50%);
+    bottom: 50%;
+  }
+
+  .header h1{
+    padding-top: 120px;
+    font-size: 5.45vw;
+  }
+
+  .search-bar{
+    width: 100%;
+    height: 95%;
+    margin: 15px auto;
+    padding: 20px 20px 20px;
+    border-radius: 5px;
+    position: relative;
+    border-bottom: 1px solid ;
+  }
+
+  .search-bar form{
+    display: block;
+  }
+
+  .search-bar form label{
+    font-size: 18px;
+  }
+
+  .search-bar form input{
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 4px;
+    padding-bottom: 8px;
+    font-size: 18px;
+  }
+
+  .search-bar form button{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 65px;
+    height: 65px;
+    border: 1px solid #ff5361;
+  }
+
+  .search-bar form select {
+    border-bottom: 1px solid #ddd;
+    width: 90%;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    font-size: 18px;
+  }
+
+  .search-bar form select option{
+    font-size: .6em;
+  }
+
+  .sub-title{
+    font-size: 6.5vw;
+  }
+
+  .exclusives {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colunas */
+    grid-template-rows: repeat(5, 1fr); /* 5 linhas */
+    grid-gap: 20px;
+  }
+
+  .exclusives div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .exclusives div .img-exclusives {
+    width: 100%;
+    max-height: 18em;
+  }
+
+  .exclusives div span h3 {
+    font-size: 5vw;
+  }
+
+  .exclusives div span p {
+  font-size: 3vw;
+  }
+
+  .trending {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    grid-template-rows: 1fr 1fr; /* Duas linhas */
+    grid-gap: 20px;
+  }
+
+  .trending div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .trending div img {
+    max-width: 100%;
+    max-height: 19rem;
+  }
+
+  .trending div h3 {
+    font-size: 4vw;
+  }
+
+
+  .cta, .cta-2, .cta-3{
+    padding: 15% 5%;
+  }
+  
+  .cta h3, .cta-2 h3, .cta-3 h3{
+    font-size: 7vw;
+    line-height: 8vw;
+  }
+
+  .cta p, .cta-2 p, .cta-3 p{
+    font-size: 18px;
+  }
+
+  .cta-btn, .cta-btn-2, .cta-btn-3{
+    padding: 6px 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .stories {
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna */
+    grid-auto-rows: auto; /* Altura automática para as linhas */
+    grid-gap: 20px; /* Espaçamento entre as linhas */
+  }
+
+  .stories div img {
+    max-width: 80%;
+    max-height: 25rem;
+  }
+
+  .stories p {
+    font-size: 28px;
+  }
+
+
+
+  .about-msg{
+    font-size: 22px;
+  }
+
+  .hidemenu {
+    max-height: 0;
+    overflow: hidden;
+  }
+}
+

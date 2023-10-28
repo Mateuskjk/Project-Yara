@@ -1,7 +1,7 @@
 //Esconde menu hamburger que é ativado na responsividade==
-var navBar = document.getElementById("navBar");
+const navBar = document.getElementById("loginButton");
 
-function togglebtn(){
+function togglebtn() {
   navBar.classList.toggle("hidemenu");
 }
 //========================================================
