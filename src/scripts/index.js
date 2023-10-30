@@ -108,26 +108,43 @@ btn.addEventListener("click", function(e){
 	const classeName = inputClasse.value;
 	const passName = inputPass.value;
 
-	//CRIANDO UM OBJETO COM AS INFORMAÇÕES CAPTURADAS NA SEARCH INPUT======================================================
-	const pesquisaInfo = {
-		fromName,
-		toName,
-		dateIdaName,
-		dateVoltaName,
-		idaEVoltaName,
-		classeName,
-		passName,
-	};
-	// console.log(pesquisaInfo)
+	// Verifique se os valores não estão vazios e não são null, none, undefined ou NaN
+	if (
+		fromName && 
+		toName && 
+		dateIdaName && 
+		dateVoltaName && 
+    idaEVoltaName &&
+		classeName && 
+		passName
+	) {
+		//CRIANDO UM OBJETO COM AS INFORMAÇÕES CAPTURADAS NA SEARCH INPUT
+		const pesquisaInfo = {
+			fromName,
+			toName,
+			dateIdaName,
+			dateVoltaName,
+      idaEVoltaName,
+			classeName,
+			passName,
+		};
 
-	const pesquisaInfoJSON = JSON.stringify(pesquisaInfo);
+    console.log(pesquisaInfo)
+		
+		if (pesquisaInfo.idaEVoltaName !== "-1") {
+			pesquisaInfo.idaEVoltaName = idaEVoltaName;
+		}
+		
+		const pesquisaInfoJSON = JSON.stringify(pesquisaInfo);
+		localStorage.setItem('pesquisaInfo', pesquisaInfoJSON);
+		
+		window.location.href = "ticket.html";
+	} else {
+		alert("Por favor, preencha todos os campos corretamente.");
+	}
+});
 
-	/* const arq = JSON.stringify(pesquisaInfo) */
-	/* console.log(arq) */
-	localStorage.setItem('pesquisaInfo', pesquisaInfoJSON);
 
-	window.location.href = "ticket.html";
-})
 
 // Realiza a solicitação para obter os destinos da URL
 fetch('http://localhost:3000/destinos')
