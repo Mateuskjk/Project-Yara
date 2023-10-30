@@ -86,11 +86,13 @@ nav{
 .search-bar.highlight {
   border: 5px solid;
   border-color: #109010; /* Borda verde (#008000) quando a classe "highlight" está presente */
+  transition: 1s;
 }
 
 .search-bar.error {
   border: 5px solid;
   border-color: #ff0000; /* Borda vermelha escura (#900020) quando a classe "error" está presente */
+  transition: 1s;
 }
 
 
