@@ -224,7 +224,7 @@ nav{
   background-size: cover;
   background-position: center;
   border-radius: 10px;
-  padding: 5%;
+  padding: 7.2%;
   color: #fff;
 }
 
@@ -271,13 +271,13 @@ nav{
 }
 
 .cta-3 h3{
-  font-size: 4vw;
-  line-height: 5.3vw;
+  font-size: 5vw;
+  line-height: 6vw;
   font-weight: 500;
 }
 
 .cta-3 p{
-  font-size: 18px;
+  font-size: 22px;
   margin: 10px 0;
 }
 
