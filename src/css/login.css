@@ -9,11 +9,80 @@
 }
 
 .header{
-  min-height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(/src/images/imagesLogin/banner-rio.jpg);
-  background-size: cover;
-  background-position: center;
+  height: 30%;
+}
+
+#navBar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px;
+  background-color: #000;
+}
+
+.logo{
+  width: 150px;
+}
+
+.register-btn{
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #000;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 72vh;
+  padding: 0 15%;
+  background-color: #abdbe3;
+}
+
+.search-bar{
+  margin-top: 15px;
+  padding: 50px;
+  border: 1px solid red;
+}
+
+.footer{
+  margin: 30px 0 10px;
+  text-align: center;
+}
+
+.footer a{
+  text-decoration: none;
+  color: #999;
+  font-size:  22px;
+  margin: 0 10px;
+}
+
+.footer hr{
+  background: #999;
+  height: 1px;
+  width: 100%;
+  border: 0;
+  margin: 20px 0;
+}
+
+.footer p{
+  padding-bottom: 15px;
+}
+
+.footer img{
+  width: 25px;
+}
+
+/* .header{
+  width: 100%;
+  background-color: #000;
 }
 
 nav{
@@ -26,20 +95,9 @@ nav{
 .logo{
   width: 12%;
   cursor: pointer;
-}
+} */
 
-.nav-links li{
-  list-style: none;
-  display: inline-block;
-  margin: 10px 30px;
-}
-
-.nav-links li a{
-  text-decoration: none;
-  color: #fff;
-}
-
-.register-btn {
+/* .register-btn {
   position: relative;
   top: 0;
   left: 0;
@@ -53,13 +111,10 @@ nav{
   background: #fff;
   color: #000;
   cursor: pointer;
-}
+} */
 
-.container{
-  padding: 0 15%;
-}
 
-.header h1{
+/* .header h1{
   font-size: 3vw;
   font-weight: 500;
   color: #fff;
@@ -73,110 +128,22 @@ nav{
 }
 
 
-.search-bar {
-  background: #fff;
-  width: 50%;
-  height: 100%;
-  margin: 30px auto;
-  padding: 3px 5px 3px 15px;
-  border-radius: 21px;
-  border: 2px solid transparent; /* Adicione uma borda transparente por padrão */
-}
+ */
 
-.search-bar.highlight {
+/* .search-bar.highlight {
   border: 5px solid;
-  border-color: #109010; /* Borda verde (#008000) quando a classe "highlight" está presente */
+  border-color: #109010; 
   transition: 1s;
+  margin-bottom: 100px;
 }
 
 .search-bar.error {
   border: 5px solid;
-  border-color: #ff0000; /* Borda vermelha escura (#900020) quando a classe "error" está presente */
+  border-color: #ff0000; 
   transition: 1s;
-}
+} */
 
-
-.search-bar form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.search-bar form label {
-  font-size: 1.5vw;
-  font-weight: 600;
-}
-
-.search-bar form input {
-  display: block;
-  width: 100%;
-  height: auto;
-  padding: 5%;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border: 0;
-  outline: none;
-  background: transparent;
-  font-size: 1vw;
-}
-
-.search-bar form button {
-  background: #ff5361;
-  width: 50%;
-  height: 40px;
-  border-radius: 25px;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-  font-size: 18px;
-  align-items: center;
-  margin-top: 18px;
-}
-
-#search-inputs {
-  position: relative;
-  flex: 1;
-}
-
-.search-input {
-  width: 250px;
-  line-height: 40px;
-  font-size: 20px;
-  padding: 0px 50px 0 20px;
-}
-
-#search-inputs i {
-  font-size: 30px;
-  cursor: pointer;
-  position: absolute;
-  right: 5%;
-  bottom: 5%;
-}
-
-.active{
-  position: relative;
-}
-
-.active::after{
-  content: '';
-  background: #fff;
-  width: 25px;
-  height: 2px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -12px;
-  border-radius: 2px;
-}
-
-.name-yara{
-  font-weight: bold;
-  color: #abdbe3;
-}
-
-@media only screen and (max-width: 720px){
+/* @media only screen and (max-width: 720px){
   .logo{
     position: fixed;
     top: 2.5%;
@@ -263,4 +230,4 @@ nav{
     font-size: 12px;
     border-bottom: none;
   }
-}
+} */

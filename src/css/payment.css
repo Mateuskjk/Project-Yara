@@ -127,7 +127,7 @@ input[type="radio"] {
   border-bottom-left-radius: 25px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-  margin: 0 auto;
+  margin-bottom: 730px;
 }
 
 .sidebtn-form{
@@ -139,7 +139,7 @@ input[type="radio"] {
   background-color: #408b93;
   color: #fff;
   font-size: 16px;
-  margin-top: 750px;
+  margin-top: 10px;
   margin-left: 90px;
   margin-bottom: 15px;
 }

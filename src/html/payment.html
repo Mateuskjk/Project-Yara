@@ -27,10 +27,10 @@
         <div class="form-container">
           <label for="payment-method">Método de Pagamento</label>
           <div class="payment-options">
-            <input type="radio" id="credit-card" name="payment-method" value="credit-card">
-            <label for="credit-card">Cartão de Crédito/Débito</label>
-            <input type="radio" id="pix" name="payment-method" value="pix">
-            <label for="pix">PIX</label>            
+            <input type="radio" id="credit-card" name="payment-method" value="cartao" checked>
+            <label for="cartao">Cartão de Crédito</label>
+            <input type="radio" id="pix" name="payment-method" value="pix">         
+            <label for="pix">PIX</label>
           </div>
 
           <input type="text" id="card-number" name="card-number" placeholder="Número do Cartão" style="grid-column: 1 / span 3;">
@@ -86,8 +86,10 @@
           <h2 class="title-resume">Valor Total:</h2>
           <h3>R$150,00</h3>
           <br>
-  
-          <input type="submit" class="sidebtn-form" value="Confirmar Compra">
+          
+          <a href="congratulations.html">
+            <input type="submit" class="sidebtn-form" value="Confirmar Compra">
+          </a>
         </div>
       </div>
     </div>
