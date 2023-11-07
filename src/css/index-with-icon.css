@@ -38,6 +38,11 @@ nav{
   color: #fff;
 }
 
+.nav-links li a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
 .register-btn{
   background: transparent;
   color: #000;
@@ -45,6 +50,12 @@ nav{
   border-radius: 20px;
   text-decoration: none;
   font-size: 14px;
+}
+
+.register-btn:hover{
+  background: #000;
+  color: #fff;
+  transition: .5s;
 }
 
 .container{
@@ -119,6 +130,10 @@ nav{
   cursor: pointer;
 }
 
+.search-bar form button:hover{
+  background: #ff4250;
+}
+
 .search-bar form button img {
   width: 30px;
   margin-top: 7px;
@@ -156,7 +171,7 @@ nav{
   background-color: #fff;
   color: #000;
   :hover{
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(25px);
     color: #fff;
   }
   cursor: pointer;
@@ -164,14 +179,19 @@ nav{
 
 .exclusives div span{
   position: absolute;
-  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 81%;
+  top: 39.9%;
   left: 50%;
+  border-radius: 10px;
   transform: translate(-50%, -50%);
   text-align: center;
   color: #fff;
 }
-
-
 
 .trending{
   display: grid;
@@ -249,6 +269,10 @@ nav{
   display: inline-block;
 }
 
+.cta-btn:hover{
+  background: #ff4250;
+}
+
 .cta-2 h3{
   font-size: 4vw;
   line-height: 5.3vw;
@@ -270,6 +294,10 @@ nav{
   display: inline-block;
 }
 
+.cta-btn-2:hover{
+  background: #ff4250;
+}
+
 .cta-3 h3{
   font-size: 5vw;
   line-height: 6vw;
@@ -289,6 +317,10 @@ nav{
   border-radius: 8px;
   margin-top: 20px;
   display: inline-block;
+}
+
+.cta-btn-3:hover{
+  background: #ff4250;
 }
 
 
@@ -329,11 +361,20 @@ swiper-slide div {
 
 .stories div{
   position: relative;
+  width: 100%;
   text-align: center;
   background-color: #fff;
   color: #000;
   :hover{
-    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 94%;
+    top: 48%;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
     color: #fff;
   }
 }
@@ -362,6 +403,10 @@ swiper-slide div {
   padding: 15px;
   border-radius: 30px;
   font-size: 20px;
+}
+
+.start-btn:hover{
+  background: #ff4250;
 }
 
 .about-msg{

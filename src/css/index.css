@@ -52,6 +52,12 @@ nav {
   font-size: 14px;
 }
 
+.register-btn:hover{
+  background: #000;
+  color: #fff;
+  transition: .5s;
+}
+
 .container{
   padding: 0 7%;
 }
@@ -122,6 +128,10 @@ nav {
   border: 0;
   outline: none;
   cursor: pointer;
+}
+
+.search-bar form button:hover{
+  background: #ff4250;
 }
 
 .search-bar form button img {
@@ -259,6 +269,10 @@ nav {
   display: inline-block;
 }
 
+.cta-btn:hover{
+  background: #ff4250;
+}
+
 .cta-2 h3{
   font-size: 4vw;
   line-height: 5.3vw;
@@ -280,6 +294,10 @@ nav {
   display: inline-block;
 }
 
+.cta-btn-2:hover{
+  background: #ff4250;
+}
+
 .cta-3 h3{
   font-size: 5vw;
   line-height: 6vw;
@@ -299,6 +317,10 @@ nav {
   border-radius: 8px;
   margin-top: 20px;
   display: inline-block;
+}
+
+.cta-btn-3:hover{
+  background: #ff4250;
 }
 
 
@@ -381,6 +403,10 @@ swiper-slide div {
   padding: 15px;
   border-radius: 30px;
   font-size: 20px;
+}
+
+.start-btn:hover{
+  background: #ff4250;
 }
 
 .about-msg{
