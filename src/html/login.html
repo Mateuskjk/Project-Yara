@@ -15,7 +15,7 @@
   <header class="header">
     <nav id="navBar">
       <a href="index.html">
-        <img src="/src/images/imagesLogo/logo YARA 2.png" alt="logo" class="logo">
+        <img src="/src/images/imagesLogo/logo YARA 4.png" alt="logo" class="logo">
       </a>
       <a href="register.html" class="register-btn">
         <h3>Resgistrar-se</h3>
@@ -25,29 +25,33 @@
   
   <section class="container">
     <h1>
-      Seja bem-vindo ao um <br><span>novo mundo.</span>
+      Seja bem-vindo <br> ao um <span>novo mundo.</span>
     </h1>
     <div class="search-bar">
       <form>
         <br>
-        <div class="search-input highlight">
+        <div id="search-inputs" class="search-input highlight">
           <label for="tagName">Usuário:</label>
           <input type="text" id="tagName" placeholder="Digite seu email">
         </div>
-        <hr>
         <br>
         <div id="search-inputs" class="search-input highlight">
           <label for="pass">Senha:</label>
           <input type="password" name="password" id="pass" placeholder="Digite sua senha">
           <i class="bi bi-eye" id="btn-senha" onclick="mostrarSenha()"></i>
         </div>
-        <hr>
         <br>
-        <div>
+        <div class="forget-me">
+          <span>
+            <input type="checkbox" name="remind" id="remind">
+            <label>Remind me later</label>
+          </span>
           <a href="#">Esqueceu sua senha?</a>
         </div>
         <br>
-        <button type="button" id="enviar" value="Login">Login in</button>
+        <div class="btnLogin">
+          <button type="button" id="enviar" value="Login">Login in</button>
+        </div>
         <br>
       </form>
     </div>
