@@ -21,6 +21,7 @@
   flex-direction: row;
   padding: 10px;
   background-color: #fff;
+  padding: 15px 10%;
 }
 
 .logo{
@@ -159,6 +160,7 @@ i.bi.bi-eye, .bi-eye-slash {
 
 .forget-me a{
   text-decoration: none;
+  color: #409b93;
 }
 
 .forget-me a:hover{

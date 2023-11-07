@@ -7,8 +7,8 @@ btnAccount.addEventListener('click', function (e) {
   const inputLastName = document.querySelector('#s-nome');
   const inputEmail = document.querySelector('#email');
   const inputConfEmail = document.querySelector('#c-email');
-  const inputSenha = document.querySelector('#passWrd');
-  const inputConfSenha = document.querySelector('#c-passWrd');
+  const inputSenha = document.querySelector('#pass');
+  const inputConfSenha = document.querySelector('#Confpass');
 
   const nome = inputFirstName.value;
   const sobrenome = inputLastName.value;
@@ -53,3 +53,29 @@ btnAccount.addEventListener('click', function (e) {
     });
   
 });
+
+function mostrarSenha(){
+  var inputPass = document.getElementById('pass')
+  var btnShowPass = document.getElementById('btn-senha')
+
+  if(inputPass.type === 'password'){
+    inputPass.setAttribute('type','text')
+    btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
+  } else{
+    inputPass.setAttribute('type','password')
+    btnShowPass.classList.replace('bi-eye-slash','bi-eye')
+  }
+}
+
+function mostrarConfSenha(){
+  var inputPass = document.getElementById('Confpass')
+  var btnShowPass = document.getElementById('btn-Confsenha')
+
+  if(inputPass.type === 'password'){
+    inputPass.setAttribute('type','text')
+    btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
+  } else{
+    inputPass.setAttribute('type','password')
+    btnShowPass.classList.replace('bi-eye-slash','bi-eye')
+  }
+}
