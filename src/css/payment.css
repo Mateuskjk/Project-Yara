@@ -52,14 +52,6 @@ nav{
 .credit-card-form{
   width: 70%;
   height: 100%;
-  border: 1px solid black;
-}
-
-
-.side-bar-info{
-  width: 20%;
-  height: 100%;
-  border: 1px solid red;
 }
 
 .form-container{
@@ -71,7 +63,7 @@ nav{
   background-color: #fff;
   padding: 50px;
   border-radius: 25px;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
@@ -120,6 +112,129 @@ input[type="radio"] {
   font-size: 16px;
 }
 
+.side-bar-info{
+  width: 30%;
+  height: 100%;
+  margin-right: 10px;
+}
+
+#sideBar{
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: #fff;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin: 0 auto;
+}
+
+.sidebtn-form{
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #408b93;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 750px;
+  margin-left: 90px;
+  margin-bottom: 15px;
+}
+
+div > h2{
+  font-weight: 500;
+  color: #408b93;
+}
+
+div > h3{
+  font-size: 22px;
+  font-weight: 600;
+  color: #000;
+}
+
+input[type="date"] {
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.title-resume{
+  font-size: 16px;
+  color: #000;
+}
+
+#pixForm{
+  display: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#pix-card-container{
+  width: 91%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 25px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.qrCode-img{
+  width: 300px;
+  margin-top: 30px;
+  border: 5px solid black;
+}
+
+#keyCode{
+  margin-top: 15px;
+  padding: 15px;
+  width: 65%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#copyBtn{
+  padding: 10px;
+  width: 25%;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background-color: #408b93;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div > h4 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+div > span{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+div > p {
+  text-align: center;
+}
 
 .footer{
   margin: 30px 0 10px;

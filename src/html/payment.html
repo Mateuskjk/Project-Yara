@@ -48,19 +48,49 @@
           <input class="btn-form" type="submit" value="Confirmar Dados">
         </div>
 
-        <div id="pixForm" class="payment-form hidden">
-          <div class="qrcode">
-            <img src="/src/images/Payment-QRcode.png" alt="Payment-QRcode" width="30px">
+        <div id="pixForm" class="payment-form" hidden>
+          <div id="pix-card-container">
+            <h4>Pague com Pix!</h4>
+            <p>Assim você pode concorrer a prêmios Vantagens, <br> Pontos de viagem para utilizar na sua próxima viagem.</p>
+            <div class="qrcode">
+              <img src="/src/images/Payment-QRcode.png" alt="Payment-QRcode" class="qrCode-img">
+            </div>
+  
+            <input type="text" id="keyCode" class="key-code" placeholder="Código de Chave Aleatória" value="1234-5678-9012-3456">
+            <button id="copyBtn" class="copy-button" onclick="copyCode()">Copiar Código</button>
+            <span class="copy-indicator" id="copyIndicator" hidden>Código Copiado!</span>
           </div>
-
-          <input type="text" class="key-code" placeholder="Código de Chave Aleatória" value="1234-5678-9012-3456">
-          <button class="copy-button" onclick="copyCode()">Copiar Código</button>
-          <span class="copy-indicator" id="copyIndicator">Código Copiado!</span>
         </div>
       </form>
     </div>
 
-    <div class="side-bar-info">ccccccccccccccc</div>
+    <div class="side-bar-info">
+      <div id="sideBar">
+        <h2>RESUMO DA COMPRA</h2>
+        <hr>
+        <div>
+          <h2 class="title-resume">Origem:</h2>
+          <h3>Manaus</h3>
+          <h2 class="title-resume">Destino:</h2>
+          <h3>Belém</h3>
+          <hr>
+          <h2 class="title-resume">Data de ida:</h2>
+          <input type="date" name="" id=""> <br>
+          <br>
+          <h2 class="title-resume">Data de volta:</h2>
+          <input type="date" name="" id="">
+          <hr>
+          <h2 class="title-resume">Classe:</h2>
+          <h3>Executiva</h3>
+          <hr>
+          <h2 class="title-resume">Valor Total:</h2>
+          <h3>R$150,00</h3>
+          <br>
+  
+          <input type="submit" class="sidebtn-form" value="Confirmar Compra">
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="footer">
