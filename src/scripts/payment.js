@@ -95,3 +95,4 @@ pixRadio.addEventListener('change', function() {
   const pixForm = document.getElementById('pix-card-container');
   window.scrollTo(0, pixForm.offsetTop);
 });
+

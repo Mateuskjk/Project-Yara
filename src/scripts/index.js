@@ -144,8 +144,6 @@ btn.addEventListener("click", function(e){
 	}
 });
 
-
-
 // Realiza a solicitação para obter os destinos da URL
 fetch('http://localhost:3000/destinos')
   .then(res => res.json())
