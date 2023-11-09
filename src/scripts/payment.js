@@ -96,3 +96,84 @@ pixRadio.addEventListener('change', function() {
   window.scrollTo(0, pixForm.offsetTop);
 });
 
+
+// Prevenir o envio do formulário
+document.getElementsByClassName("btn-form").addEventListener("submit", function (event) {
+  event.preventDefault(); // Impede o envio do formulário
+});
+
+// Validar o número do cartão de crédito
+function isValidCreditCard(cardNumber) {
+  // Expressão regular para validar números de cartão de crédito
+  var regex = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13})$/;
+
+  if (!/^\d*$/.test(cardNumber)) {
+    return false;
+  }
+  
+  if (!regex.test(cardNumber)) {
+    return false;
+  }
+
+  // Algoritmo de Luhn (verificação do dígito de verificação)
+  var sum = 0;
+  var doubleUp = false;
+  for (var i = cardNumber.length - 1; i >= 0; i--) {
+    var digit = parseInt(cardNumber.charAt(i), 10);
+    if (doubleUp) {
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+    sum += digit;
+    doubleUp = !doubleUp;
+  }
+
+  return (sum % 10 === 0);
+}
+
+// Validar a data de validade
+function isValidExpirationDate(expirationDate) {
+  // Formato MM/YY
+  var regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+  if (parts[0] < 1 || parts[0] > 12) {
+    return false;
+  }
+  
+  if (parts[1] < 0 || parts[1] > 99) {
+    return false;
+  }
+  
+  if (!regex.test(expirationDate)) {
+    return false;
+  }
+
+  // Data atual
+  var today = new Date();
+  var currentMonth = today.getMonth() + 1; // O mês atual é baseado em zero
+  var currentYear = today.getFullYear() % 100; // Apenas os dois últimos dígitos do ano
+
+  // Dividir a data de validade
+  var parts = expirationDate.split('/');
+  var inputMonth = parseInt(parts[0], 10);
+  var inputYear = parseInt(parts[1], 10);
+
+  // Data expirada
+  if (inputYear < currentYear || (inputYear === currentYear && inputMonth < currentMonth)) {
+    return false;
+  }
+
+  // Mês válido
+  if (inputMonth < 1 || inputMonth > 12) {
+    return false;
+  }
+
+  // Ano válido
+  if (inputYear < 0 || inputYear > 99) {
+    return false;
+  }
+
+  return true;
+}
