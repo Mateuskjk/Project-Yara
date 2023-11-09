@@ -98,9 +98,9 @@ pixRadio.addEventListener('change', function() {
 
 
 // Prevenir o envio do formulário
-document.getElementsByClassName("btn-form").addEventListener("submit", function (event) {
-  event.preventDefault(); // Impede o envio do formulário
-});
+// document.getElementsByClassName("btn-form").addEventListener("submit", function (event) {
+//   event.preventDefault(); // Impede o envio do formulário
+// });
 
 // Validar o número do cartão de crédito
 function isValidCreditCard(cardNumber) {
@@ -141,7 +141,7 @@ function isValidExpirationDate(expirationDate) {
   if (parts[0] < 1 || parts[0] > 12) {
     return false;
   }
-  
+
   if (parts[1] < 0 || parts[1] > 99) {
     return false;
   }
@@ -177,3 +177,74 @@ function isValidExpirationDate(expirationDate) {
 
   return true;
 }
+
+if (localStorage.getItem('pesquisaInfo')) {
+  const pesquisaInfoJSON = localStorage.getItem('pesquisaInfo');
+  const pesquisaInfo = JSON.parse(pesquisaInfoJSON);
+
+  const h3Origem = document.getElementById('origem'); 
+  h3Origem.textContent = pesquisaInfo.fromName;
+
+  const h3Destino = document.getElementById('destino');
+  h3Destino.textContent = pesquisaInfo.toName;
+
+  function converterDataYMDParaDMY(dataYMD) {
+    const partes = dataYMD.split("-");
+    const data = new Date(partes[0], partes[1] - 1, partes[2]); // Mês é baseado em 0 (janeiro é 0)
+    const dia = data.getDate();
+    const mes = data.getMonth() + 1; // Adicione 1 ao mês para corresponder ao formato desejado
+    const ano = data.getFullYear();
+    return `${dia.toString().padStart(2, "0")}/${mes.toString().padStart(2, "0")}/${ano}`;
+  }
+  
+  // Suponha que pesquisaInfo.dateIdaName contenha a data de ida no formato "yyyy-mm-dd"
+  const dataIdaYMD = pesquisaInfo.dateIdaName;
+
+  function converterDataYMDParaDMY(dataYMD) {
+    const partes = dataYMD.split("-");
+    const data = new Date(partes[0], partes[1] - 1, partes[2]); // Mês é baseado em 0 (janeiro é 0)
+    const dia = data.getDate();
+    const mes = data.getMonth() + 1; // Adicione 1 ao mês para corresponder ao formato desejado
+    const ano = data.getFullYear();
+    return `${dia.toString().padStart(2, "0")}/${mes.toString().padStart(2, "0")}/${ano}`;
+  }
+
+  const dataVoltaYMD = pesquisaInfo.dateVoltaName;
+
+  const datavolta = document.getElementById('data-volta');
+  datavolta.textContent = converterDataYMDParaDMY(dataVoltaYMD);
+
+  const h2DateIda = document.getElementById('data-ida');
+  h2DateIda.textContent = converterDataYMDParaDMY(dataIdaYMD);
+
+  const dataid = pesquisaInfo.idaEVoltaName
+
+  if(dataid === "-1") {
+    const datavolta = document.getElementById('data-volta')
+    datavolta.textContent = "Somente Ida" 
+  }
+  else{
+    const datavolta = document.getElementById('data-volta')
+    datavolta.textContent = pesquisaInfo.dateVoltaName;
+  }
+
+  const classe = pesquisaInfo.classeName;
+
+  if(classe === "1") {
+    const classeViagem = document.getElementById('class');
+    classeViagem.textContent = "Econômico" ;
+  }
+  else {
+    const classeViagem = document.getElementById('class');
+    classeViagem.textContent = "Executiva";
+  }
+}
+
+if (localStorage.getItem('valorPassagem')) {
+  const valorPassagem = JSON.parse(localStorage.getItem('valorPassagem'));
+  const valorPass = document.getElementById('valor-passagem');
+  valorPass.textContent = valorPassagem.valor;
+  console.log("Meu valor está salvo.");
+  console.log(valorPass);
+}
+

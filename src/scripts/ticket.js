@@ -57,8 +57,6 @@ if (localStorage.getItem('pesquisaInfo')) {
     datavolta.textContent = pesquisaInfo.dateVoltaName;
   }
 
-
-
   //faz uma verificação de a seleção de classe na index é executiva ou econômica.
   const classe = pesquisaInfo.classeName;
 
@@ -78,9 +76,39 @@ if (localStorage.getItem('pesquisaInfo')) {
     const valorAleatorio = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
     const valorFormatado = valorAleatorio.toFixed(2);
   
-    return "R$" + valorFormatado; 
+    return "R$" + valorFormatado;
   }
+  
+  function preencherCampoEAtualizar(valor, elemento) {
+    elemento.textContent = valor;
+  }
+  
+  // Gerar e preencher valor para o campo principal
+  const inputValue = document.querySelector("#valor-passagem");
 
+  const valorPrincipal = gerarValorAleatorioComDuasCasasDecimais();
+  preencherCampoEAtualizar(valorPrincipal, inputValue);
+
+  const inputCard2Value = document.querySelector("#valor-passagem-card2");
+  const valorPrincipalCard2 = gerarValorAleatorioComDuasCasasDecimais();
+  preencherCampoEAtualizar(valorPrincipalCard2, inputCard2Value);
+
+  const inputCard3Value = document.querySelector("#valor-passagem-card3");
+  const valorPrincipalCard3 = gerarValorAleatorioComDuasCasasDecimais();
+  preencherCampoEAtualizar(valorPrincipalCard3, inputCard3Value);
+  
+  const valorPassagem = {
+    valor: valorPrincipal,
+    valor2: valorPrincipalCard2,
+    valor3: valorPrincipalCard3
+  };
+  
+  // Armazenar no LocalStorage
+  localStorage.setItem("valorPassagem", JSON.stringify(valorPassagem));
+  
+  console.log(valorPassagem);
+  
+  // Gerar e preencher valores para os cards
   function gerarValoresAleatoriosParaTresCards() {
     const valores = [];
     for (let i = 0; i < 3; i++) {
@@ -90,15 +118,11 @@ if (localStorage.getItem('pesquisaInfo')) {
   }
   
   const valoresAleatorios = gerarValoresAleatoriosParaTresCards();
-
-  const cards = document.querySelectorAll("#valor-passagem");
-
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].textContent = valoresAleatorios[i];
-  }
   
-  document.getElementById("valor-passagem").textContent = gerarValorAleatorioComDuasCasasDecimais();
-   
-} else {
-  console.log("Nenhum dado encontrado.");
+  const cards = document.querySelectorAll(".card");
+  
+  for (let i = 0; i < cards.length; i++) {
+    preencherCampoEAtualizar(valoresAleatorios[i], cards[i]);
+  }
 }
+
