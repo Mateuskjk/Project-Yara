@@ -96,12 +96,6 @@ pixRadio.addEventListener('change', function() {
   window.scrollTo(0, pixForm.offsetTop);
 });
 
-
-// Prevenir o envio do formulário
-// document.getElementsByClassName("btn-form").addEventListener("submit", function (event) {
-//   event.preventDefault(); // Impede o envio do formulário
-// });
-
 // Validar o número do cartão de crédito
 function isValidCreditCard(cardNumber) {
   // Expressão regular para validar números de cartão de crédito
@@ -241,10 +235,23 @@ if (localStorage.getItem('pesquisaInfo')) {
 }
 
 if (localStorage.getItem('valorPassagem')) {
+  const valorPassagem = localStorage.getItem('valorPassagem');
+
+  const valorPass = document.getElementById('valor-passagem');
+  valorPass.textContent = valorPass.btnValue;
+  console.log(valorPass)
+
+  if (valorPassagem.btnValue) {
+    // Use o valor de btnValue conforme necessário
+    console.log('Valor do botão:', valorPassagem.btnValue);
+  }
+}
+
+if (localStorage.getItem('valorPassagem')) {
   const valorPassagem = JSON.parse(localStorage.getItem('valorPassagem'));
   const valorPass = document.getElementById('valor-passagem');
-  valorPass.textContent = valorPassagem.valor;
+
+  valorPass.textContent = valorPassagem.valor2;
   console.log("Meu valor está salvo.");
   console.log(valorPass);
 }
-

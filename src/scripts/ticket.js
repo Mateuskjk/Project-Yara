@@ -96,11 +96,38 @@ if (localStorage.getItem('pesquisaInfo')) {
   const inputCard3Value = document.querySelector("#valor-passagem-card3");
   const valorPrincipalCard3 = gerarValorAleatorioComDuasCasasDecimais();
   preencherCampoEAtualizar(valorPrincipalCard3, inputCard3Value);
+
+  function handleClick(event) {
+    const botao = event.target;
+    
+    // Altera o valor de false para true
+    botao.dataset.ativo = 'true';
+
+    // Verifica se algum botão tem o valor true
+    if (document.getElementById('btn1').dataset.ativo === 'true' ||
+      document.getElementById('btn2').dataset.ativo === 'true' ||
+      document.getElementById('btn3').dataset.ativo === 'true') {
+        // Adiciona o valor ao objeto valorPassagem
+      valorPassagem.btnValue = botao.dataset.ativo;
+
+      // Adiciona os valores restantes
+      valorPassagem.valor = valorPrincipal;
+      valorPassagem.valor2 = valorPrincipalCard2;
+      valorPassagem.valor3 = valorPrincipalCard3;
+
+      console.log(valorPassagem);
+    }
+  }
+
+  document.getElementById('btn1').addEventListener('click', handleClick);
+  document.getElementById('btn2').addEventListener('click', handleClick);
+  document.getElementById('btn3').addEventListener('click', handleClick);
   
   const valorPassagem = {
     valor: valorPrincipal,
     valor2: valorPrincipalCard2,
-    valor3: valorPrincipalCard3
+    valor3: valorPrincipalCard3,
+    btnValue: null
   };
   
   // Armazenar no LocalStorage
