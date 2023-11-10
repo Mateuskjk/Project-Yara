@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/src/images/Favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/src/images/Favicon/favicon-16x16.png">
   <link rel="manifest" href="/src/images/Favicon/site.webmanifest">
-  <script src="/src/scripts/payment.js" defer></script>
+  <script type="module" src="/src/scripts/payment.js" defer></script>
   <title>Pagamento - Yara</title>
 </head>
 <body>
@@ -75,10 +75,9 @@
           <h3 id="destino">Belém</h3>
           <hr>
           <h2 class="title-resume">Data de ida:</h2>
-          <input type="date" id="data-ida" name="data-ida"> <br>
-          <br>
+          <h3 id="data-ida"></h3>
           <h2 class="title-resume">Data de volta:</h2>
-          <input type="date" id="data-volta" name="data-volta">
+          <h3 id="data-volta"></h3>
           <hr>
           <h2 class="title-resume">Classe:</h2>
           <h3 id="class">Executiva</h3>

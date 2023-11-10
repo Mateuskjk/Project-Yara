@@ -32,18 +32,21 @@ if (localStorage.getItem('pesquisaInfo')) {
     const mes = data.getMonth() + 1; // Adicione 1 ao mês para corresponder ao formato desejado
     const ano = data.getFullYear();
     return `${dia.toString().padStart(2, "0")}/${mes.toString().padStart(2, "0")}/${ano}`;
-  }
-  
-  // Suponha que pesquisaInfo.dateVoltaName contenha a data no formato "yyyy-mm-dd"
-  const dataVoltaYMD = pesquisaInfo.dateVoltaName;
-  
-  // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
-  const datavolta = document.getElementById('data-volta');
-  datavolta.textContent = converterDataYMDParaDMY(dataVoltaYMD);
+}
+
+// Suponha que pesquisaInfo.dateVoltaName contenha a data no formato "yyyy-mm-dd"
+const dataVoltaYMD = pesquisaInfo.dateVoltaName;
+
+// Converta a data para um objeto Date
+const dataVoltaDate = new Date(dataVoltaYMD);
   
   // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
   const h2DateIda = document.getElementById('data-ida');
   h2DateIda.textContent = converterDataYMDParaDMY(dataIdaYMD);
+
+// Use a função para converter e exibir a data no formato "dd/mm/yyyy"
+const datavolta = document.getElementById('data-volta');
+datavolta.textContent = converterDataYMDParaDMY(dataVoltaDate);
   
   //faz uma verificação de a seleção de ida de volta na index é sim ou não
   const dataid = pesquisaInfo.idaEVoltaName

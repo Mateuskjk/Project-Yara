@@ -1,3 +1,6 @@
+import { moment } from "./api/node_modules/moment";
+
+
 const creditCardRadio = document.getElementById('credit-card');
 const pixRadio = document.getElementById('pix');
 
@@ -189,33 +192,31 @@ if (localStorage.getItem('pesquisaInfo')) {
   h3Destino.textContent = pesquisaInfo.toName;
 
   function converterDataYMDParaDMY(dataYMD) {
-    const partes = dataYMD.split("-");
-    const data = new Date(partes[0], partes[1] - 1, partes[2]); // Mês é baseado em 0 (janeiro é 0)
-    const dia = data.getDate();
-    const mes = data.getMonth() + 1; // Adicione 1 ao mês para corresponder ao formato desejado
-    const ano = data.getFullYear();
-    return `${dia.toString().padStart(2, "0")}/${mes.toString().padStart(2, "0")}/${ano}`;
+    return moment(dataYMD).format("DD/MM/YYYY");
   }
-  
-  // Suponha que pesquisaInfo.dateIdaName contenha a data de ida no formato "yyyy-mm-dd"
+
+// Suponha que pesquisaInfo.dateIdaName contenha a data de ida no formato "yyyy-mm-dd"
   const dataIdaYMD = pesquisaInfo.dateIdaName;
 
-  function converterDataYMDParaDMY(dataYMD) {
-    const partes = dataYMD.split("-");
-    const data = new Date(partes[0], partes[1] - 1, partes[2]); // Mês é baseado em 0 (janeiro é 0)
-    const dia = data.getDate();
-    const mes = data.getMonth() + 1; // Adicione 1 ao mês para corresponder ao formato desejado
-    const ano = data.getFullYear();
-    return `${dia.toString().padStart(2, "0")}/${mes.toString().padStart(2, "0")}/${ano}`;
-  }
+// Use o Moment.js para converter e exibir a data no formato "dd/mm/yyyy"
+  const h2DateIda = document.getElementById('data-ida');
+  h2DateIda.textContent = converterDataYMDParaDMY(dataIdaYMD);
 
+// Imprima o valor da variável na console
+  console.log(dataIdaYMD);
+
+// Suponha que pesquisaInfo.dateVoltaName contenha a data de volta no formato "yyyy-mm-dd"
   const dataVoltaYMD = pesquisaInfo.dateVoltaName;
 
+  // Use o Moment.js para converter e exibir a data no formato "dd/mm/yyyy"
   const datavolta = document.getElementById('data-volta');
   datavolta.textContent = converterDataYMDParaDMY(dataVoltaYMD);
 
-  const h2DateIda = document.getElementById('data-ida');
-  h2DateIda.textContent = converterDataYMDParaDMY(dataIdaYMD);
+// Imprima o valor da variável na console
+console.log(dataVoltaYMD);
+
+
+
 
   const dataid = pesquisaInfo.idaEVoltaName
 
