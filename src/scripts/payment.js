@@ -1,6 +1,3 @@
-import { moment } from "./api/node_modules/moment";
-
-
 const creditCardRadio = document.getElementById('credit-card');
 const pixRadio = document.getElementById('pix');
 
@@ -186,31 +183,24 @@ if (localStorage.getItem('pesquisaInfo')) {
   h3Destino.textContent = pesquisaInfo.toName;
 
   function converterDataYMDParaDMY(dataYMD) {
-    return moment(dataYMD).format("DD/MM/YYYY");
+    const partes = dataYMD.split("-");
+    const data = new Date(partes[0], partes[1] - 1, partes[2]); // Mês é baseado em 0 (janeiro é 0)
+    const dia = data.getDate();
+    const mes = data.getMonth() + 1; // Adicione 1 ao mês para corresponder ao formato desejado
+    const ano = data.getFullYear();
+    return `${dia.toString().padStart(2, "0")}/${mes.toString().padStart(2, "0")}/${ano}`;
   }
-
-// Suponha que pesquisaInfo.dateIdaName contenha a data de ida no formato "yyyy-mm-dd"
+  
+  // Suponha que pesquisaInfo.dateIdaName contenha a data de ida no formato "yyyy-mm-dd"
   const dataIdaYMD = pesquisaInfo.dateIdaName;
 
-// Use o Moment.js para converter e exibir a data no formato "dd/mm/yyyy"
-  const h2DateIda = document.getElementById('data-ida');
-  h2DateIda.textContent = converterDataYMDParaDMY(dataIdaYMD);
-
-// Imprima o valor da variável na console
-  console.log(dataIdaYMD);
-
-// Suponha que pesquisaInfo.dateVoltaName contenha a data de volta no formato "yyyy-mm-dd"
   const dataVoltaYMD = pesquisaInfo.dateVoltaName;
 
-  // Use o Moment.js para converter e exibir a data no formato "dd/mm/yyyy"
   const datavolta = document.getElementById('data-volta');
   datavolta.textContent = converterDataYMDParaDMY(dataVoltaYMD);
 
-// Imprima o valor da variável na console
-console.log(dataVoltaYMD);
-
-
-
+  const h2DateIda = document.getElementById('data-ida');
+  h2DateIda.textContent = converterDataYMDParaDMY(dataIdaYMD);
 
   const dataid = pesquisaInfo.idaEVoltaName
 
@@ -233,26 +223,25 @@ console.log(dataVoltaYMD);
     const classeViagem = document.getElementById('class');
     classeViagem.textContent = "Executiva";
   }
-}
 
-if (localStorage.getItem('valorPassagem')) {
-  const valorPassagem = localStorage.getItem('valorPassagem');
+  document.addEventListener('DOMContentLoaded', function() {
+    // Recupera o objeto do localStorage usando a mesma chave usada na página de origem
+    const storedData = localStorage.getItem('pesquisaInfo');
 
-  const valorPass = document.getElementById('valor-passagem');
-  valorPass.textContent = valorPass.btnValue;
-  console.log(valorPass)
+    // Verifica se os dados são uma string JSON válida
+    const storedObject = JSON.parse(storedData) || {};
 
-  if (valorPassagem.btnValue) {
-    // Use o valor de btnValue conforme necessário
-    console.log('Valor do botão:', valorPassagem.btnValue);
-  }
-}
+    // Exibe o objeto no console
+    console.log('Objeto recuperado:', storedObject);
 
-if (localStorage.getItem('valorPassagem')) {
-  const valorPassagem = JSON.parse(localStorage.getItem('valorPassagem'));
-  const valorPass = document.getElementById('valor-passagem');
+    // Exemplo de como você pode acessar a propriedade 'passagem' na página de pagamento
+    const passagemValue = storedObject.passagem;
 
-  valorPass.textContent = valorPassagem.valor2;
-  console.log("Meu valor está salvo.");
-  console.log(valorPass);
+    const valorpassagem = document.getElementById('valor-passagem');
+    valorpassagem.textContent = passagemValue;
+    console.log('Valor da passagem:', passagemValue);
+
+    
+  });
+
 }
