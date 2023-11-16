@@ -176,13 +176,13 @@ if (localStorage.getItem('pesquisaInfo')) {
     storedObject.botao = event.target.innerText;
     storedObject.dataAtivo = event.target.getAttribute('data-ativo');
     storedObject.passagem = passagem2; // Use o valor de passagem2
+    storedObject.classeViagem = classe2;
 
     storedObject.fromName = pesquisaInfo.fromName;
     storedObject.toName = pesquisaInfo.toName;
     storedObject.dateIdaName = pesquisaInfo.dateIdaName;
     storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
     storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-    storedObject.classeName = pesquisaInfo.classeName;
     storedObject.passName = pesquisaInfo.passName;
 
     localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
@@ -198,14 +198,14 @@ if (localStorage.getItem('pesquisaInfo')) {
 
     storedObject.botao = event.target.innerText;
     storedObject.dataAtivo = event.target.getAttribute('data-ativo');
-    storedObject.passagem = passagem3; // Use o valor de passagem3
+    storedObject.passagem = passagem3;
+    storedObject.classeViagem = classe3; // Use o valor de passagem3
 
     storedObject.fromName = pesquisaInfo.fromName;
     storedObject.toName = pesquisaInfo.toName;
     storedObject.dateIdaName = pesquisaInfo.dateIdaName;
     storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
     storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-    storedObject.classeName = pesquisaInfo.classeName;
     storedObject.passName = pesquisaInfo.passName;
 
     localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));

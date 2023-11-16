@@ -250,11 +250,28 @@ if (localStorage.getItem('pesquisaInfo')) {
     console.log('Objeto recuperado:', storedObject);
 
     // Exemplo de como você pode acessar a propriedade 'passagem' na página de pagamento
-    const passagemValue = storedObject.passagem
-
+    const passagemValue = storedObject.passagem;
     const valorpassagem = document.getElementById('valor-passagem');
     valorpassagem.textContent = passagemValue;
     console.log('Valor da passagem:', passagemValue);
+
+    // Exemplo de como você pode acessar a propriedade 'classe' na página de pagamento
+    const className = storedObject.classeName;
+    const classTrip = document.getElementById("class");
+    classTrip.textContent = className;
+    console.log('Classe do btn:', className);
+
+    // Exemplo de como você pode acessar a propriedade 'classe2' na página de pagamento
+    const className2 = storedObject.classeViagem;
+    const classTrip2 = document.getElementById("class");
+    classTrip2.textContent = className2;
+    console.log('Classe do btn2:', className2);
+
+    // Exemplo de como você pode acessar a propriedade 'classe3' na página de pagamento
+    const className3 = storedObject.classeViagem;
+    const classTrip3 = document.getElementById("class");
+    classTrip3.textContent = className3;
+    console.log('Classe do btn3:', className3);
   });
   // Supondo que você tenha um botão com o ID 'copyBtn'
   const copyBtn = document.getElementById('copyBtn');

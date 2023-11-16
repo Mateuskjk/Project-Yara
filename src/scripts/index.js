@@ -6,10 +6,6 @@ function eventBtn() {
 //========================================================
 
 
-
-
-
-
 //botão do final leva pro topo da página=================
 var startButton = document.querySelector('.start-btn');
 startButton.addEventListener('click', function() {
