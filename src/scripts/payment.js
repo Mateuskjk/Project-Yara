@@ -255,11 +255,6 @@ if (localStorage.getItem('pesquisaInfo')) {
     valorpassagem.textContent = passagemValue;
     console.log('Valor da passagem:', passagemValue);
 
-    // Exemplo de como você pode acessar a propriedade 'classe' na página de pagamento
-    const className = storedObject.classeName;
-    const classTrip = document.getElementById("class");
-    classTrip.textContent = className;
-    console.log('Classe do btn:', className);
 
     // Exemplo de como você pode acessar a propriedade 'classe2' na página de pagamento
     const className2 = storedObject.classeViagem;

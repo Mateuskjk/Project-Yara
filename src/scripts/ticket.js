@@ -74,36 +74,32 @@ if (localStorage.getItem('pesquisaInfo')) {
 
   const classe = pesquisaInfo.classeName;
 
-  if(classe === "1") {
+  if (classe === "1") {
     const classeViagem = document.getElementById('class');
-    classeViagem.textContent = "Econômico" ;
-  }
-  else {
+    classeViagem.textContent = "Econômico";
+  } else {
     const classeViagem = document.getElementById('class');
     classeViagem.textContent = "Executiva";
   }
 
   const classes = ["Econômico", "Executiva", "VIP"];
 
-  const classe2 = classes[Math.floor(Math.random() * classes.length)];
-
-  while (classe2 === pesquisaInfo.classeName) {
+  let classe2;
+  do {
     classe2 = classes[Math.floor(Math.random() * classes.length)];
-  }
+  } while (classe2 === classe); // Ensure classe2 is not the same as btn1's class
 
   const classeViagem2 = document.getElementById('class2');
   classeViagem2.textContent = classe2;
 
-  const classes3 = ["Econômico", "Executiva", "VIP"];
-
-  const classe3 = classes3[Math.floor(Math.random() * classes3.length)];
-
-  while (classe3 === pesquisaInfo.classeName) {
-    classe3 = classes3[Math.floor(Math.random() * classes3.length)];
-  }
+  let classe3;
+  do {
+    classe3 = classes[Math.floor(Math.random() * classes.length)];
+  } while (classe3 === classe || classe3 === classe2); // Ensure classe3 is different from btn1's class and classe2
 
   const classeViagem3 = document.getElementById('class3');
   classeViagem3.textContent = classe3;
+
 
 
   const h2Passageiro = document.getElementById('qtd-pass');
@@ -150,22 +146,28 @@ if (localStorage.getItem('pesquisaInfo')) {
   function handleClick(event) {
     const storedData = localStorage.getItem('pesquisaInfo');
     const storedObject = JSON.parse(storedData) || {};
-
+  
     storedObject.botao = event.target.innerText;
     storedObject.dataAtivo = event.target.getAttribute('data-ativo');
     storedObject.passagem = passagem;
-
+  
+    // Retrieve the selected class from the clicked button
+    const selectedClass = event.target.parentElement.querySelector('span').textContent;
+    storedObject.classeName = selectedClass;
+  
     storedObject.fromName = pesquisaInfo.fromName;
     storedObject.toName = pesquisaInfo.toName;
     storedObject.dateIdaName = pesquisaInfo.dateIdaName;
     storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
     storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-    storedObject.classeName = pesquisaInfo.classeName;
     storedObject.passName = pesquisaInfo.passName;
-
+  
+    console.log(storedObject);
+  
     localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
     window.location.href = 'payment.html';
   }
+  
 
   document.getElementById('btn2').addEventListener('click', handleClick2)
 
