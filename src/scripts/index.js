@@ -6,18 +6,7 @@ function eventBtn() {
 //========================================================
 
 
-//Desativa o input Data de Volta =========================
-document.getElementById('select').addEventListener('change', function(){
-  var selectValue = parseInt(this.value);
-  var input = document.getElementById('volta');
 
-  if(selectValue < 0) {
-    document.getElementById('volta').disabled = true
-  } else {
-    document.getElementById('volta').disabled = false
-  }
-});
-//========================================================
 
 
 //botão do final leva pro topo da página=================
@@ -84,64 +73,80 @@ function scrollActive3() {
 }
 
 //======================================================
+// Supondo que você já definiu a variável pesquisaInfo antes
+let excecaoDetectada = false;
 
+document.getElementById('select').addEventListener('change', function () {
+    var selectValue = parseInt(this.value);
+    var input = document.getElementById('volta');
 
-// Função de captura dos valores na Search Bar===========
+    if (selectValue < 0) {
+      input.disabled = true;
+    } else {
+      input.disabled = false;
+    }
+});
+
 const btn = document.querySelector("#send");
 
-btn.addEventListener("click", function(e){
-	e.preventDefault();
+btn.addEventListener("click", function (e) {
+    e.preventDefault();
 
-	const inputOrigem = document.querySelector("#from");
-	const inputDestino = document.querySelector("#to");
-	const inputData1 = document.querySelector("#date1");
-	const inputData2 = document.querySelector("#volta");
-	const inputIdaEVolta = document.querySelector("#select");
-	const inputClasse = document.querySelector("#classe");
-	const inputPass = document.querySelector("#pass");
+    // Verifique se a exceção foi detectada
+    if (excecaoDetectada) {
+      console.log('Exceção detectada! Redirecionando...');
+      window.location.href = "ticket.html";
+      return;
+    }
 
-	const fromName = inputOrigem.value;
-	const toName = inputDestino.value;
-	const dateIdaName = inputData1.value;
-	const dateVoltaName = inputData2.value;
-	const idaEVoltaName = inputIdaEVolta.value;
-	const classeName = inputClasse.value;
-	const passName = inputPass.value;
+    const inputOrigem = document.querySelector("#from");
+    const inputDestino = document.querySelector("#to");
+    const inputData1 = document.querySelector("#date1");
+    const inputData2 = document.querySelector("#volta");
+    const inputIdaEVolta = document.querySelector("#select");
+    const inputClasse = document.querySelector("#classe");
+    const inputPass = document.querySelector("#pass");
 
-	// Verifique se os valores não estão vazios e não são null, none, undefined ou NaN
-	if (
-		fromName && 
-		toName && 
-		dateIdaName && 
-		dateVoltaName && 
-    idaEVoltaName &&
-		classeName && 
-		passName
-	) {
-		//CRIANDO UM OBJETO COM AS INFORMAÇÕES CAPTURADAS NA SEARCH INPUT
-		const pesquisaInfo = {
-			fromName,
-			toName,
-			dateIdaName,
-			dateVoltaName,
+    const fromName = inputOrigem.value;
+    const toName = inputDestino.value;
+    const dateIdaName = inputData1.value;
+    const dateVoltaName = inputData2.value;
+    const idaEVoltaName = inputIdaEVolta.value;
+    const classeName = inputClasse.value;
+    const passName = inputPass.value;
+
+    // Criando um objeto com as informações capturadas na Search Input
+    const pesquisaInfo = {
+      fromName,
+      toName,
+      dateIdaName,
+      dateVoltaName,
       idaEVoltaName,
-			classeName,
-			passName,
-		};
+      classeName,
+      passName
+    };
 
-    console.log(pesquisaInfo)
-		
-		if (pesquisaInfo.idaEVoltaName !== "-1") {
-			pesquisaInfo.idaEVoltaName = idaEVoltaName;
-		}
-		
-		const pesquisaInfoJSON = JSON.stringify(pesquisaInfo);
-		localStorage.setItem('pesquisaInfo', pesquisaInfoJSON);
-		
-		window.location.href = "ticket.html";
-	} else {
-		alert("Por favor, preencha todos os campos corretamente.");
-	}
+    // Verifique se os valores não estão vazios e não são null, none, undefined ou NaN
+    if (
+      fromName &&
+      toName &&
+      dateIdaName &&
+      dateVoltaName &&
+      idaEVoltaName &&
+      classeName &&
+      passName
+    ) {
+        // Converte o objeto em JSON
+      const pesquisaInfoJSON = JSON.stringify(pesquisaInfo);
+
+        // Define o JSON no localStorage
+      localStorage.setItem('pesquisaInfo', pesquisaInfoJSON);
+
+        // Redireciona para a próxima página
+      window.location.href = "ticket.html";
+    } else {
+      alert("Por favor, preencha todos os campos corretamente.");
+    }
 });
 
 // Realiza a solicitação para obter os destinos da URL

@@ -104,6 +104,20 @@ nav {
   font-size: .8vw;
 }
 
+.search-input input[type="date"] {
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  
+}
+
+#select{
+  margin-left: 18%;
+}
+
+#classe{
+  margin-left: 10%;
+}
 
 .search-bar form select{
   display: block;
