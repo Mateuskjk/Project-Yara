@@ -10,46 +10,68 @@ if (localStorage.getItem('pesquisaInfo')) {
   const h2Origem = document.getElementById('origem'); 
   h2Origem.textContent = pesquisaInfo.fromName;
 
+  const h2Origem2 = document.getElementById('origem2'); 
+  h2Origem2.textContent = pesquisaInfo.fromName;
+
+  const h2Origem3 = document.getElementById('origem3'); 
+  h2Origem3.textContent = pesquisaInfo.fromName;
+
   const h2Destino = document.getElementById('destino');
   h2Destino.textContent = pesquisaInfo.toName;
 
-  function converterDataYMDParaDMY(dataYMD) {
-    const partes = dataYMD.split("-");
-    const data = new Date(partes[0], partes[1] - 1, partes[2]); // Mês é baseado em 0 (janeiro é 0)
-    const dia = data.getDate();
-    const mes = data.getMonth() + 1; // Adicione 1 ao mês para corresponder ao formato desejado
-    const ano = data.getFullYear();
-    return `${dia.toString().padStart(2, "0")}/${mes.toString().padStart(2, "0")}/${ano}`;
+  const h2Destino2 = document.getElementById('destino2');
+  h2Destino2.textContent = pesquisaInfo.toName;
+
+  const h2Destino3 = document.getElementById('destino3');
+  h2Destino3.textContent = pesquisaInfo.toName;
+
+  
+  function converterFormatoData(dataString) {
+    // Divida a string em partes usando o delimitador "-"
+    var partes = dataString.split("-");
+
+    // Reorganize as partes para o formato desejado "dd-mm-yyyy"
+    var dataFormatada = partes[2] + "/" + partes[1] + "/" + partes[0];
+
+    return dataFormatada;
   }
 
-  // Suponha que pesquisaInfo.dateIdaName contenha a data de ida no formato "yyyy-mm-dd"
-  const dataIdaYMD = pesquisaInfo.dateIdaName;
+  // Exemplo de uso
+  var dataDefault = pesquisaInfo.dateIdaName;
+  var dataConvert = converterFormatoData(dataDefault);
 
   // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
-  const h2DateIda = document.getElementById('data-ida');
-  h2DateIda.textContent = converterDataYMDParaDMY(dataIdaYMD);
+  const dataida = document.getElementById('data-ida');
+  dataida.innerHTML = dataConvert;
 
-  // Suponha que pesquisaInfo.dateVoltaName contenha a data de volta no formato "yyyy-mm-dd"
-  const dataVoltaYMD = pesquisaInfo.dateVoltaName;
+  console.log("Data Original: " + dataDefault);
+  console.log("Data Convertida: " + dataConvert);
+
+  var dataOriginal = pesquisaInfo.dateVoltaName;
+  var dataConvertida = converterFormatoData(dataOriginal);
+
+  console.log("Data Original: " + dataOriginal);
+  console.log("Data Convertida: " + dataConvertida);
 
   // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
   const datavolta = document.getElementById('data-volta');
-  datavolta.textContent = converterDataYMDParaDMY(dataVoltaYMD);
-
+  datavolta.innerHTML = dataConvertida;
 
   //faz uma verificação de a seleção de ida de volta na index é sim ou não
   const dataid = pesquisaInfo.idaEVoltaName
 
   if(dataid === "-1") {
+    var dataOriginal = pesquisaInfo.dateVoltaName;
+    var dataConvertida = converterFormatoData(dataOriginal);
+
     const datavolta = document.getElementById('data-volta')
-    datavolta.textContent = "Somente Ida" 
+    datavolta.innerText = "Somente Ida" 
   }
   else{
     const datavolta = document.getElementById('data-volta')
-    datavolta.textContent = pesquisaInfo.dateVoltaName;
+    datavolta.innerText= dataConvertida;
   }
 
-  //faz uma verificação de a seleção de classe na index é executiva ou econômica.
   const classe = pesquisaInfo.classeName;
 
   if(classe === "1") {
@@ -61,8 +83,37 @@ if (localStorage.getItem('pesquisaInfo')) {
     classeViagem.textContent = "Executiva";
   }
 
+  const classes = ["Econômico", "Executiva", "VIP"];
+
+  const classe2 = classes[Math.floor(Math.random() * classes.length)];
+
+  while (classe2 === pesquisaInfo.classeName) {
+    classe2 = classes[Math.floor(Math.random() * classes.length)];
+  }
+
+  const classeViagem2 = document.getElementById('class2');
+  classeViagem2.textContent = classe2;
+
+  const classes3 = ["Econômico", "Executiva", "VIP"];
+
+  const classe3 = classes3[Math.floor(Math.random() * classes3.length)];
+
+  while (classe3 === pesquisaInfo.classeName) {
+    classe3 = classes3[Math.floor(Math.random() * classes3.length)];
+  }
+
+  const classeViagem3 = document.getElementById('class3');
+  classeViagem3.textContent = classe3;
+
+
   const h2Passageiro = document.getElementById('qtd-pass');
   h2Passageiro.textContent = pesquisaInfo.passName + " - Passageiro";
+
+  const h2Passageiro2 = document.getElementById('qtd-pass2');
+  h2Passageiro2.textContent = pesquisaInfo.passName + " - Passageiro";
+
+  const h2Passageiro3 = document.getElementById('qtd-pass3');
+  h2Passageiro3.textContent = pesquisaInfo.passName + " - Passageiro";
 
   function gerarValorAleatorioComDuasCasasDecimais() {
     const valorAleatorio = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
@@ -74,115 +125,93 @@ if (localStorage.getItem('pesquisaInfo')) {
   function preencherCampoEAtualizar(valor, elemento) {
     elemento.textContent = valor;
   }
-  
-  document.getElementById('btn1').addEventListener('click', handleClick);
 
+  // Gerar e preencher valor para o campo principal
+  const inputPassagem = document.querySelector("#valor-passagem");
+  const passagem = gerarValorAleatorioComDuasCasasDecimais();
+  preencherCampoEAtualizar(passagem, inputPassagem);
+  passagem.innerText = passagem;
+
+  // Gerar e preencher valor para o campo principal
+  const inputPassagem2 = document.querySelector("#valor-passCard2");
+  const passagem2 = gerarValorAleatorioComDuasCasasDecimais();
+  preencherCampoEAtualizar(passagem2, inputPassagem2);
+  passagem2.innerText = passagem2;
+
+  // Gerar e preencher valor para o campo principal
+  const inputPassagem3 = document.querySelector("#valor-passCard3");
+  const passagem3 = gerarValorAleatorioComDuasCasasDecimais();
+  preencherCampoEAtualizar(passagem3, inputPassagem3);
+  passagem3.innerText = passagem3;
+
+  document.getElementById('btn1').addEventListener('click', handleClick)
+
+  // No seu arquivo ticket.js
   function handleClick(event) {
-      // Recupera os dados do localStorage
-      const storedData = localStorage.getItem('pesquisaInfo');
-  
-      // Verifica se os dados são uma string JSON válida
-      const storedObject = JSON.parse(storedData) || {};
-  
-      // const inputPassagem = document.getElementById('valor-passagem');
-      // const passagem = inputPassagem.value; // Acessar a propriedade 'value'
+    const storedData = localStorage.getItem('pesquisaInfo');
+    const storedObject = JSON.parse(storedData) || {};
 
-      // Gerar e preencher valor para o campo principal
-      const inputPassagem = document.querySelector("#valor-passagem");
-      const passagem = gerarValorAleatorioComDuasCasasDecimais();
-      preencherCampoEAtualizar(passagem, inputPassagem);
-      
-      // Adiciona novas propriedades ao objeto
-      storedObject.botao = event.target.innerText;
-      storedObject.dataAtivo = event.target.getAttribute('data-ativo');
-      storedObject.passagem = passagem; // Atribui o valor, não o elemento
-      
-      // Adiciona propriedades da pesquisaInfo
-      storedObject.fromName = pesquisaInfo.fromName;
-      storedObject.toName = pesquisaInfo.toName;
-      storedObject.dateIdaName = pesquisaInfo.dateIdaName;
-      storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
-      storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-      storedObject.classeName = pesquisaInfo.classeName;
-      storedObject.passName = pesquisaInfo.passName;
-      
-      // Salva o objeto atualizado de volta no localStorage
-      localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-      
-      window.location.href = 'payment.html';
+    storedObject.botao = event.target.innerText;
+    storedObject.dataAtivo = event.target.getAttribute('data-ativo');
+    storedObject.passagem = passagem;
+
+    storedObject.fromName = pesquisaInfo.fromName;
+    storedObject.toName = pesquisaInfo.toName;
+    storedObject.dateIdaName = pesquisaInfo.dateIdaName;
+    storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
+    storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
+    storedObject.classeName = pesquisaInfo.classeName;
+    storedObject.passName = pesquisaInfo.passName;
+
+    localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
+    window.location.href = 'payment.html';
   }
 
-  document.getElementById('btn2').addEventListener('click', handleClick2);
+  document.getElementById('btn2').addEventListener('click', handleClick2)
 
   function handleClick2(event) {
-      // Recupera os dados do localStorage
-      const storedData = localStorage.getItem('pesquisaInfo');
-  
-      // Verifica se os dados são uma string JSON válida
-      const storedObject = JSON.parse(storedData) || {};
-  
-      // const inputPassagem = document.getElementById('valor-passagem');
-      // const passagem = inputPassagem.value; // Acessar a propriedade 'value'
+    const storedData = localStorage.getItem('pesquisaInfo');
+    const storedObject = JSON.parse(storedData) || {};
 
-      const inputPassagem = document.querySelector("#valor-passagem-card2");
-      const passagem = gerarValorAleatorioComDuasCasasDecimais();
-      preencherCampoEAtualizar(passagem, inputPassagem);
-      
-      // Adiciona novas propriedades ao objeto
-      storedObject.botao = event.target.innerText;
-      storedObject.dataAtivo = event.target.getAttribute('data-ativo');
-      storedObject.passagem = passagem; // Atribui o valor, não o elemento
-      
-      // Adiciona propriedades da pesquisaInfo
-      storedObject.fromName = pesquisaInfo.fromName;
-      storedObject.toName = pesquisaInfo.toName;
-      storedObject.dateIdaName = pesquisaInfo.dateIdaName;
-      storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
-      storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-      storedObject.classeName = pesquisaInfo.classeName;
-      storedObject.passName = pesquisaInfo.passName;
-      
-      // Salva o objeto atualizado de volta no localStorage
-      localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-      
-      window.location.href = 'payment.html';
+    storedObject.botao = event.target.innerText;
+    storedObject.dataAtivo = event.target.getAttribute('data-ativo');
+    storedObject.passagem = passagem2; // Use o valor de passagem2
+
+    storedObject.fromName = pesquisaInfo.fromName;
+    storedObject.toName = pesquisaInfo.toName;
+    storedObject.dateIdaName = pesquisaInfo.dateIdaName;
+    storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
+    storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
+    storedObject.classeName = pesquisaInfo.classeName;
+    storedObject.passName = pesquisaInfo.passName;
+
+    localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
+    window.location.href = 'payment.html';
   }
 
-  document.getElementById('btn3').addEventListener('click', handleClick3);
+  document.getElementById('btn3').addEventListener('click', handleClick3)
+  
 
   function handleClick3(event) {
-      // Recupera os dados do localStorage
-      const storedData = localStorage.getItem('pesquisaInfo');
-  
-      // Verifica se os dados são uma string JSON válida
-      const storedObject = JSON.parse(storedData) || {};
-  
-      // const inputPassagem = document.getElementById('valor-passagem');
-      // const passagem = inputPassagem.value; // Acessar a propriedade 'value'
+    const storedData = localStorage.getItem('pesquisaInfo');
+    const storedObject = JSON.parse(storedData) || {};
 
-      const inputPassagem = document.querySelector("#valor-passagem-card3");
-      const passagem = gerarValorAleatorioComDuasCasasDecimais();
-      preencherCampoEAtualizar(passagem, inputPassagem);
-      
-      // Adiciona novas propriedades ao objeto
-      storedObject.botao = event.target.innerText;
-      storedObject.dataAtivo = event.target.getAttribute('data-ativo');
-      storedObject.passagem = passagem; // Atribui o valor, não o elemento
-      
-      // Adiciona propriedades da pesquisaInfo
-      storedObject.fromName = pesquisaInfo.fromName;
-      storedObject.toName = pesquisaInfo.toName;
-      storedObject.dateIdaName = pesquisaInfo.dateIdaName;
-      storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
-      storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-      storedObject.classeName = pesquisaInfo.classeName;
-      storedObject.passName = pesquisaInfo.passName;
-      
-      // Salva o objeto atualizado de volta no localStorage
-      localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-      
-      window.location.href = 'payment.html';
+    storedObject.botao = event.target.innerText;
+    storedObject.dataAtivo = event.target.getAttribute('data-ativo');
+    storedObject.passagem = passagem3; // Use o valor de passagem3
+
+    storedObject.fromName = pesquisaInfo.fromName;
+    storedObject.toName = pesquisaInfo.toName;
+    storedObject.dateIdaName = pesquisaInfo.dateIdaName;
+    storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
+    storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
+    storedObject.classeName = pesquisaInfo.classeName;
+    storedObject.passName = pesquisaInfo.passName;
+
+    localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
+    window.location.href = 'payment.html';
   }
+
   
   // Gerar e preencher valores para os cards
   function gerarValoresAleatoriosParaTresCards() {

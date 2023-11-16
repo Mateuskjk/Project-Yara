@@ -182,35 +182,50 @@ if (localStorage.getItem('pesquisaInfo')) {
   const h3Destino = document.getElementById('destino');
   h3Destino.textContent = pesquisaInfo.toName;
 
-  function converterDataYMDParaDMY(dataYMD) {
-    const partes = dataYMD.split("-");
-    const data = new Date(partes[0], partes[1] - 1, partes[2]); // Mês é baseado em 0 (janeiro é 0)
-    const dia = data.getDate();
-    const mes = data.getMonth() + 1; // Adicione 1 ao mês para corresponder ao formato desejado
-    const ano = data.getFullYear();
-    return `${dia.toString().padStart(2, "0")}/${mes.toString().padStart(2, "0")}/${ano}`;
+  function converterFormatoData(dataString) {
+    // Divida a string em partes usando o delimitador "-"
+    var partes = dataString.split("-");
+
+    // Reorganize as partes para o formato desejado "dd-mm-yyyy"
+    var dataFormatada = partes[2] + "/" + partes[1] + "/" + partes[0];
+
+    return dataFormatada;
   }
   
-  // Suponha que pesquisaInfo.dateIdaName contenha a data de ida no formato "yyyy-mm-dd"
-  const dataIdaYMD = pesquisaInfo.dateIdaName;
-
-  const dataVoltaYMD = pesquisaInfo.dateVoltaName;
-
+  // Exemplo de uso
+  var dataDefault = pesquisaInfo.dateIdaName;
+  var dataConvert = converterFormatoData(dataDefault);
+  
+  // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
+  const dataida = document.getElementById('data-ida');
+  dataida.innerHTML = dataConvert;
+  
+  console.log("Data Original: " + dataDefault);
+  console.log("Data Convertida: " + dataConvert);
+  
+  var dataOriginal = pesquisaInfo.dateVoltaName;
+  var dataConvertida = converterFormatoData(dataOriginal);
+  
+  console.log("Data Original: " + dataOriginal);
+  console.log("Data Convertida: " + dataConvertida);
+  
+  // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
   const datavolta = document.getElementById('data-volta');
-  datavolta.textContent = converterDataYMDParaDMY(dataVoltaYMD);
-
-  const h2DateIda = document.getElementById('data-ida');
-  h2DateIda.textContent = converterDataYMDParaDMY(dataIdaYMD);
-
-  const dataid = pesquisaInfo.idaEVoltaName
+  datavolta.innerHTML = dataConvertida;
+  
+  //faz uma verificação de a seleção de ida de volta na index é sim ou não
+  const dataid = pesquisaInfo.idaEVoltaName;
 
   if(dataid === "-1") {
+    var dataOriginal = pesquisaInfo.dateVoltaName;
+    var dataConvertida = converterFormatoData(dataOriginal);
+
     const datavolta = document.getElementById('data-volta')
-    datavolta.textContent = "Somente Ida" 
+    datavolta.innerText = "Somente Ida" 
   }
   else{
     const datavolta = document.getElementById('data-volta')
-    datavolta.textContent = pesquisaInfo.dateVoltaName;
+    datavolta.innerText= dataConvertida;
   }
 
   const classe = pesquisaInfo.classeName;
@@ -235,13 +250,17 @@ if (localStorage.getItem('pesquisaInfo')) {
     console.log('Objeto recuperado:', storedObject);
 
     // Exemplo de como você pode acessar a propriedade 'passagem' na página de pagamento
-    const passagemValue = storedObject.passagem;
+    const passagemValue = storedObject.passagem
 
     const valorpassagem = document.getElementById('valor-passagem');
     valorpassagem.textContent = passagemValue;
     console.log('Valor da passagem:', passagemValue);
-
-    
   });
+  // Supondo que você tenha um botão com o ID 'copyBtn'
+  const copyBtn = document.getElementById('copyBtn');
 
+  // Adiciona um ouvinte de evento para o botão
+  copyBtn.addEventListener('click', function() {
+      console.log('pix copiado');
+  });
 }
