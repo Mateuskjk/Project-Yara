@@ -4,8 +4,7 @@ import https from 'https';
 import cors from 'cors';
 import router from './routes.js';
 import { createTable } from './controler/Usuarios.js';
-
-
+import { createTableViagens } from './controler/MinhasVIagens.js';
 
 const app = express();
 app.use(express.json());
@@ -14,7 +13,10 @@ app.use(cors());
 createTable();
 app.use(router);
 
-app.listen(3000, () => {
+createTableViagens();
+app.use(router);
+
+app.listen(5500, () => {
   console.log('API rodando.')
 });
 

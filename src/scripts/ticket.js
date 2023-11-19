@@ -100,8 +100,6 @@ if (localStorage.getItem('pesquisaInfo')) {
   const classeViagem3 = document.getElementById('class3');
   classeViagem3.textContent = classe3;
 
-
-
   const h2Passageiro = document.getElementById('qtd-pass');
   h2Passageiro.textContent = pesquisaInfo.passName + " - Passageiro";
 
@@ -168,7 +166,6 @@ if (localStorage.getItem('pesquisaInfo')) {
     window.location.href = 'payment.html';
   }
   
-
   document.getElementById('btn2').addEventListener('click', handleClick2)
 
   function handleClick2(event) {
@@ -193,7 +190,6 @@ if (localStorage.getItem('pesquisaInfo')) {
 
   document.getElementById('btn3').addEventListener('click', handleClick3)
   
-
   function handleClick3(event) {
     const storedData = localStorage.getItem('pesquisaInfo');
     const storedObject = JSON.parse(storedData) || {};
@@ -214,7 +210,6 @@ if (localStorage.getItem('pesquisaInfo')) {
     window.location.href = 'payment.html';
   }
 
-  
   // Gerar e preencher valores para os cards
   function gerarValoresAleatoriosParaTresCards() {
     const valores = [];
