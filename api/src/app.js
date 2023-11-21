@@ -16,7 +16,7 @@ app.use(router);
 createTableViagens();
 app.use(router);
 
-app.listen(5500, () => {
+app.listen(3000, () => {
   console.log('API rodando.')
 });
 

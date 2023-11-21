@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/src/images/Favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/src/images/Favicon/favicon-16x16.png">
   <link rel="manifest" href="/src/images/Favicon/site.webmanifest">
+  <script src="/src/scripts/user.js"></script>
   <link rel="stylesheet" href="../css/user.css">
   <title>Usuário - Yara </title>
 </head>
@@ -57,9 +58,25 @@
         </div>
       </div>
 
-      <h2>Bem-Vindo a sua área exclusiva</h2>
+      <h2 class="text-main">Bem-Vindo a sua área exclusiva</h2>
+
+
       <div class="historico">
-        
+        <table id="table">
+          <tr>
+            <th>ID</th>
+            <th>Origem</th>
+            <th>Destino</th>
+            <th>Data-ida</th>
+            <th>Data-volta</th>
+            <th>Classe</th>
+            <th>Qntd-passageiro</th>
+            <th>Valor</th>
+          </tr>
+
+          <tr id="tableRow"></tr>
+
+        </table>
       </div>
     </section>
 

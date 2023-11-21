@@ -22,29 +22,16 @@ export async function selectViagens(req, res) {
 }
 
 export async function insertViagem(req, res) {
-  let viagem = req.body;
+  const viagem = req.body;
+
   openDb().then(db => {
     db.run('INSERT INTO Viagens (id, destino, origem, dataIda, dataVolta, classViagem, passageiros, valorPassagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [viagem.id, viagem.destino, viagem.origem, viagem.dataIda, viagem.dataVolta, viagem.classViagem, viagem.passageiros, viagem.valorPassagem]);
   });
-  return res.json({
-    "statusCode": 200
-  })
-}
 
-export async function insertViagem(req, res) {
-  let viagem = req.body;
-  const { destino, origem, dataIda, dataVolta, classViagem, passageiros, valorPassagem } = viagem;
-
-  openDb().then(db => {
-    db.run('INSERT INTO Viagens (destino, origem, dataIda, dataVolta, classViagem, passageiros, valorPassagem) VALUES (?, ?, ?, ?, ?, ?, ?)', [destino, origem, dataIda, dataVolta, classViagem, passageiros, valorPassagem]);
-  });
-
-  return res.json({
-    "statusCode": 200
+  res.status(200).json({
+    message: "Viagem salva com sucesso",
   });
 }
-
-
 
 export async function updateViagem(req, res) {
   let viagem = req.body;

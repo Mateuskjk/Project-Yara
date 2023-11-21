@@ -19,11 +19,11 @@ router.put('/destino', updateDestino);
 router.delete('/destino', deleteDestino);
 
 
-router.get('/viagens', selectViagens);
-router.get('/viagem', selectViagem);
-router.post('/viagem', insertViagem);
-router.put('/viagem', updateViagem);
-router.delete('/viagem', deleteViagem);
+router.get('/getViagens', selectViagens);
+router.get('/getViagem', selectViagem);
+router.post('/postViagem', insertViagem);
+router.put('/putViagem', updateViagem);
+router.delete('/deleteViagem', deleteViagem);
 
 
 router.get('/usuarios', selectUsuarios);

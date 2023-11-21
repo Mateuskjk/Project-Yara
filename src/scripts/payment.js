@@ -239,7 +239,7 @@ if (localStorage.getItem('pesquisaInfo')) {
     classeViagem.textContent = "Executiva";
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', async function() {
     // Recupera o objeto do localStorage usando a mesma chave usada na página de origem
     const storedData = localStorage.getItem('pesquisaInfo');
 
