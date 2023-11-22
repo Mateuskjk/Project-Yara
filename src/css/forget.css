@@ -83,6 +83,19 @@
   border-radius: 25px;
 }
 
+.search-bar.highlight {
+  border: 5px solid;
+  border-color: #109010; 
+  transition: 4s;
+  margin-bottom: 100px;
+}
+
+.search-bar.error {
+  border: 5px solid;
+  border-color: #ff0000; 
+  transition: .1.5s;
+}
+
 .search-input {
   display: flex;
   flex-direction: column;
