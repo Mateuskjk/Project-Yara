@@ -7,20 +7,24 @@ btnAvançar.addEventListener("click", (e) => {
 
   const emailUser = inputEmailUser.value;
 
-  const userEmail = {
-    emailUser
+  const emailDB = localStorage.getItem("registerUser")
+  const emailSaved = emailDB.email;
+
+  const userDataEmail = {
+    emailUser,
+    emailSaved
   };
 
-  const userEmailString = JSON.stringify(userEmail);
+  const userEmailString = JSON.stringify(userDataEmail);
   console.log(userEmailString);
 
-  localStorage.setItem("userEmail", userEmailString);
+  localStorage.setItem("userDataEmail", userEmailString);
 
   fetch('http://localhost:3000/usuarios')
     .then((res) => res.json())
     .then((jsonArray) => {
       console.log(jsonArray);
-      const emailFromLocalStorage = localStorage.getItem("userEmail");
+      const emailFromLocalStorage = localStorage.getItem("userDataEmail");
       let foundEmailMatch = false;
 
       if (emailFromLocalStorage) {

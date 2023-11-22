@@ -12,11 +12,13 @@ router.get('/', (req, res) =>{
   })
 })
 
-router.get('/destinos', selectDestinos);
-router.get('/destino', selectDestino);
-router.post('/destino', insertDestino);
-router.put('/destino', updateDestino);
-router.delete('/destino', deleteDestino);
+
+
+router.get('/getDestinos', selectDestinos);
+router.get('/getDestino', selectDestino);
+router.post('/postDestino', insertDestino);
+router.put('/putDestino', updateDestino);
+router.delete('/deleteDestino', deleteDestino);
 
 
 router.get('/getViagens', selectViagens);
@@ -26,10 +28,10 @@ router.put('/putViagem', updateViagem);
 router.delete('/deleteViagem', deleteViagem);
 
 
-router.get('/usuarios', selectUsuarios);
-router.get('/usuario', selectUsuario);
-router.post('/usuario', insertUsuario);
-router.put('/usuario', updateUsuario);
-router.delete('/usuario', deleteUsuario);
+router.get('/getUsuarios', selectUsuarios);
+router.get('/getUsuario', selectUsuario);
+router.post('/postUsuario', insertUsuario);
+router.put('/putUsuario', updateUsuario);
+router.delete('/deleteUsuario', deleteUsuario);
 
 export default router;
