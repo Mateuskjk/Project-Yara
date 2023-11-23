@@ -44,14 +44,8 @@ if (localStorage.getItem('pesquisaInfo')) {
   const dataida = document.getElementById('data-ida');
   dataida.innerHTML = dataConvert;
 
-  console.log("Data Original: " + dataDefault);
-  console.log("Data Convertida: " + dataConvert);
-
   var dataOriginal = pesquisaInfo.dateVoltaName;
   var dataConvertida = converterFormatoData(dataOriginal);
-
-  console.log("Data Original: " + dataOriginal);
-  console.log("Data Convertida: " + dataConvertida);
 
   // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
   const datavolta = document.getElementById('data-volta');
@@ -82,7 +76,7 @@ if (localStorage.getItem('pesquisaInfo')) {
     classeViagem.textContent = "Executiva";
   }
 
-  const classes = ["Econômico", "Executiva", "VIP"];
+  const classes = ["Econômico", "Executiva"];
 
   let classe2;
   do {
@@ -138,77 +132,34 @@ if (localStorage.getItem('pesquisaInfo')) {
   preencherCampoEAtualizar(passagem3, inputPassagem3);
   passagem3.innerText = passagem3;
 
-  document.getElementById('btn1').addEventListener('click', handleClick)
+  // Função genérica para lidar com o clique de qualquer botão
+function handleClick(event, passagem, classeName) {
+  const storedData = localStorage.getItem('pesquisaInfo');
+  const storedObject = JSON.parse(storedData) || {};
 
-  // No seu arquivo ticket.js
-  function handleClick(event) {
-    const storedData = localStorage.getItem('pesquisaInfo');
-    const storedObject = JSON.parse(storedData) || {};
-  
-    storedObject.botao = event.target.innerText;
-    storedObject.dataAtivo = event.target.getAttribute('data-ativo');
-    storedObject.passagem = passagem;
-  
-    // Retrieve the selected class from the clicked button
-    const selectedClass = event.target.parentElement.querySelector('span').textContent;
-    storedObject.classeName = selectedClass;
-  
-    storedObject.fromName = pesquisaInfo.fromName;
-    storedObject.toName = pesquisaInfo.toName;
-    storedObject.dateIdaName = pesquisaInfo.dateIdaName;
-    storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
-    storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-    storedObject.passName = pesquisaInfo.passName;
-  
-    console.log(storedObject);
-  
-    localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-    window.location.href = 'payment.html';
-  }
-  
-  document.getElementById('btn2').addEventListener('click', handleClick2)
+  storedObject.botao = event.target.innerText;
+  storedObject.dataAtivo = event.target.getAttribute('data-ativo');
+  storedObject.passagem = passagem;
+  storedObject.classeName = classeName;
 
-  function handleClick2(event) {
-    const storedData = localStorage.getItem('pesquisaInfo');
-    const storedObject = JSON.parse(storedData) || {};
+  storedObject.fromName = pesquisaInfo.fromName;
+  storedObject.toName = pesquisaInfo.toName;
+  storedObject.dateIdaName = pesquisaInfo.dateIdaName;
+  storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
+  storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
+  storedObject.passName = pesquisaInfo.passName;
 
-    storedObject.botao = event.target.innerText;
-    storedObject.dataAtivo = event.target.getAttribute('data-ativo');
-    storedObject.passagem = passagem2; // Use o valor de passagem2
-    storedObject.classeViagem = classe2;
+  console.log(storedObject);
 
-    storedObject.fromName = pesquisaInfo.fromName;
-    storedObject.toName = pesquisaInfo.toName;
-    storedObject.dateIdaName = pesquisaInfo.dateIdaName;
-    storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
-    storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-    storedObject.passName = pesquisaInfo.passName;
+  localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
+  window.location.href = 'payment.html';
+}
 
-    localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-    window.location.href = 'payment.html';
-  }
+// Adicionar listeners para os botões
+document.getElementById('btn1').addEventListener('click', (event) => handleClick(event, passagem, pesquisaInfo.classeName));
+document.getElementById('btn2').addEventListener('click', (event) => handleClick(event, passagem2, classe2));
+document.getElementById('btn3').addEventListener('click', (event) => handleClick(event, passagem3, classe3));
 
-  document.getElementById('btn3').addEventListener('click', handleClick3)
-  
-  function handleClick3(event) {
-    const storedData = localStorage.getItem('pesquisaInfo');
-    const storedObject = JSON.parse(storedData) || {};
-
-    storedObject.botao = event.target.innerText;
-    storedObject.dataAtivo = event.target.getAttribute('data-ativo');
-    storedObject.passagem = passagem3;
-    storedObject.classeViagem = classe3; // Use o valor de passagem3
-
-    storedObject.fromName = pesquisaInfo.fromName;
-    storedObject.toName = pesquisaInfo.toName;
-    storedObject.dateIdaName = pesquisaInfo.dateIdaName;
-    storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
-    storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-    storedObject.passName = pesquisaInfo.passName;
-
-    localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-    window.location.href = 'payment.html';
-  }
 
   // Gerar e preencher valores para os cards
   function gerarValoresAleatoriosParaTresCards() {

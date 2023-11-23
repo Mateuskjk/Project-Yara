@@ -172,6 +172,65 @@ function isValidExpirationDate(expirationDate) {
   return true;
 }
 
+function validarCPF(cpf) {
+  // Remover caracteres não numéricos
+  cpf = cpf.replace(/\D/g, '');
+
+  // Verificar se o CPF tem 11 dígitos
+  if (cpf.length !== 11) {
+    return false;
+  }
+
+  // Verificar se todos os dígitos são iguais (ex: 111.111.111-11)
+  if (/^(\d)\1+$/.test(cpf)) {
+    return false;
+  }
+
+  // Calcular os dígitos verificadores
+  let soma = 0;
+  let resto;
+
+  for (let i = 1; i <= 9; i++) {
+    soma += parseInt(cpf.charAt(i - 1)) * (11 - i);
+  }
+
+  resto = (soma * 10) % 11;
+
+  if (resto === 10 || resto === 11) {
+    resto = 0;
+  }
+
+  if (resto !== parseInt(cpf.charAt(9))) {
+    return false;
+  }
+
+  soma = 0;
+
+  for (let i = 1; i <= 10; i++) {
+    soma += parseInt(cpf.charAt(i - 1)) * (12 - i);
+  }
+
+  resto = (soma * 10) % 11;
+
+  if (resto === 10 || resto === 11) {
+    resto = 0;
+  }
+
+  if (resto !== parseInt(cpf.charAt(10))) {
+    return false;
+  }
+
+  return true;
+}
+
+// Exemplo de uso
+const cpfValido = '123.456.789-09';
+const cpfInvalido = '111.222.333-44';
+
+console.log("CPF VALIDO", validarCPF(cpfValido));   
+console.log("CPF INVALIDO", validarCPF(cpfInvalido));
+
+
 if (localStorage.getItem('pesquisaInfo')) {
   const pesquisaInfoJSON = localStorage.getItem('pesquisaInfo');
   const pesquisaInfo = JSON.parse(pesquisaInfoJSON);
@@ -255,19 +314,20 @@ if (localStorage.getItem('pesquisaInfo')) {
     valorpassagem.textContent = passagemValue;
     console.log('Valor da passagem:', passagemValue);
 
+    const className = storedObject.classeName;
 
-    // Exemplo de como você pode acessar a propriedade 'classe2' na página de pagamento
-    const className2 = storedObject.classeViagem;
-    const classTrip2 = document.getElementById("class");
-    classTrip2.textContent = className2;
-    console.log('Classe do btn2:', className2);
+    // Ajuste para exibir a classe do botão clicado
+    const classTrip = document.getElementById("class");
 
-    // Exemplo de como você pode acessar a propriedade 'classe3' na página de pagamento
-    const className3 = storedObject.classeViagem;
-    const classTrip3 = document.getElementById("class");
-    classTrip3.textContent = className3;
-    console.log('Classe do btn3:', className3);
+    if (className === "Executiva") {
+        classTrip.textContent = "Executiva";
+    } else {
+        classTrip.textContent = "Econômica";
+    }
+
+    console.log('Classe do btn:', className);
   });
+
   // Supondo que você tenha um botão com o ID 'copyBtn'
   const copyBtn = document.getElementById('copyBtn');
 
