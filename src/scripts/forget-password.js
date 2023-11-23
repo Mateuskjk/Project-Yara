@@ -24,80 +24,89 @@ function mostrarConfSenha(){
   }
 };
 
-const btnAvançarPass = document.querySelector("#enviar");
+const btnAvancarPass = document.querySelector("#enviar");
 
-btnAvançarPass.addEventListener("click", (e) => {
+btnAvancarPass.addEventListener("click", async (e) => {
   e.preventDefault();
 
-  const emailInStored = localStorage.getItem("userDataEmail");
+  // Você já está passando o e-mail através da URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const emailInURL = urlParams.get('email');
+  const emailDecoded = decodeURIComponent(emailInURL);
 
-  if (!emailInStored) {
-    console.error("User email not found in local storage");
+  if (!emailDecoded) {
+    console.error("User email not found in URL");
     return;
   }
 
   const senha = document.querySelector("#pass").value;
   const confSenha = document.querySelector("#Confpass").value;
 
-  const senhaData = {
-    emailUser: emailInStored,
-    senha,
-    confSenha,
-  };
-
-  if (!senhaData) {
-    console.error("User new senhas not found in local storage");
+  if (!senha || !confSenha) {
+    console.error("New passwords not provided");
     return;
   }
 
-  const setNovasSenhas = JSON.stringify(senhaData);
-  localStorage.setItem("senhaData", setNovasSenhas);
-  console.log(setNovasSenhas);
+  try {
+    // Obter o ID do usuário com base no e-mail da URL
+    const userId = await getUserIdByEmail(emailDecoded);
+    console.log('UserID:', userId);
 
-  fetch('http://localhost:3000/getUsuarios').then((res) => res.json()).then((jsonArrays) => {
-    const emailInDB = localStorage.getItem('userDataEmail'); // Corrigido para usar a chave correta
-
-    if (emailInDB === emailInStored) {
-      console.log('emails são iguais');
-       
-      const senhasFromLocalStorage = localStorage.getItem("senhaData");
-       
-      if (senhasFromLocalStorage) {
-        const senhasObject = JSON.parse(senhasFromLocalStorage);
-        console.log(senhasObject)
-       
-        // Encontrar o usuário com base no e-mail
-        const foundUser = jsonArrays.find(user => user.email === emailInStored);
-       
-        if (!foundUser) {
-          const userId = foundUser;
-       
-          // Atualizar a senha do usuário no banco de dados usando o método PUT
-          fetch(`http://localhost:3000/putUsuario/${userId}`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(senhaData),
-          }).then((response) => {
-            if (!response.ok) {
-              throw new Error('Erro ao atualizar a senha. Status: ' + response.status);
-            }
-            return response.json();
-          }).then((data) => {
-            console.log(data);
-            alert("SENHA ATUALIZADA COM SUCESSO!!!!");
-          }).catch((error) => {
-            console.error('ERROR: ', error);
-          });
-        }else {
-          console.error('Usuário não encontrado com o e-mail fornecido.');
-          // Adicione lógica de tratamento para o caso em que o usuário não é encontrado
-        }
+    if (userId !== null) {
+      // Atualizar a senha do usuário no banco de dados usando o método PUT
+      const response = await fetch(`http://localhost:3000/usuario/${userId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          senha,
+          confSenha,
+          id: userId,
+        }),
+      });
+    
+      if (!response.ok) {
+        throw new Error('Erro ao atualizar a senha. Status: ' + response.status);
       }
+    
+      const data = await response.json();
+      console.log(data);
+    
+      // Lógica de sucesso, redirecionamento, etc.
+    } else {
+      console.error('Usuário não encontrado com o e-mail fornecido.');
+      // Adicione lógica de tratamento para o caso em que o usuário não é encontrado
     }
-  }).catch((error) => {
-    console.error('Erro ao buscar usuários:', error);
-    // Adicione lógica de tratamento para o caso em que ocorre um erro ao buscar usuários
-  });
+    
+  } catch (err) {
+    console.error('Erro durante a atualização de senha:', err);
+    // Adicione lógica de tratamento para o caso em que ocorre um erro
+  }
 });
+
+async function getUserIdByEmail(email) {
+  const response = await fetch(`http://localhost:3000/usuarios?email=${email}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Não foi possível obter o ID do usuário.');
+  }
+
+  const userDataArray = await response.json();
+
+  // Verifique se há pelo menos um usuário correspondente
+  if (userDataArray.length > 0) {
+    // Retorne o ID do usuário correspondente
+    return userDataArray.filter((e)=> {
+      return e.email === email;
+    })[0].id;
+  } else {
+    // Se nenhum usuário foi encontrado, retorne null
+    return null;
+  }
+}

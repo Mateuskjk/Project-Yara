@@ -4,55 +4,24 @@ btnAvançar.addEventListener("click", (e) => {
   e.preventDefault();
 
   const inputEmailUser = document.querySelector("#email");
-
-  const emailUser = inputEmailUser.value;
-
-  const emailDB = localStorage.getItem("registerUser")
-  const emailSaved = emailDB.email;
-
-  const userDataEmail = {
-    emailUser,
-    emailSaved
-  };
-
-  const userEmailString = JSON.stringify(userDataEmail);
-  console.log(userEmailString);
-
-  localStorage.setItem("userDataEmail", userEmailString);
+  const emailDB = inputEmailUser.value;
 
   fetch('http://localhost:3000/usuarios')
     .then((res) => res.json())
     .then((jsonArray) => {
-      console.log(jsonArray);
-      const emailFromLocalStorage = localStorage.getItem("userDataEmail");
-      let foundEmailMatch = false;
+      const foundUser = jsonArray.find(user => user.email === emailDB);
 
-      if (emailFromLocalStorage) {
-        const emailsObject = JSON.parse(emailFromLocalStorage);
+      if (foundUser) {
+        document.querySelector('.search-bar').classList.remove('error', 'highlight');
+        document.querySelector('.search-bar').classList.add('highlight');
 
-        for (const json of jsonArray) {
-          if (emailsObject.emailUser === json.email) {
-            foundEmailMatch = true;
-
-            document.querySelector('.search-bar').classList.remove('error', 'highlight');
-            document.querySelector('.search-bar').classList.add('highlight');
-
-            window.location.href = 'forget-password.html';
-            break;
-          }
-        }
-
-        if (!foundEmailMatch) {
-          document.querySelector('.search-bar').classList.remove('highlight');
-          document.querySelector('.search-bar').classList.add('error');
-
-          console.log('os dados não conferem');
-        }
+        // Passa o e-mail diretamente para a próxima página usando parâmetros de consulta na URL
+        window.location.href = `forget-password.html?email=${encodeURIComponent(foundUser.email)}`;
       } else {
         document.querySelector('.search-bar').classList.remove('highlight');
         document.querySelector('.search-bar').classList.add('error');
-
-        console.log('email não encontrado');
+        console.log('E-mail não encontrado no banco de dados');
       }
     });
 });
+
