@@ -72,6 +72,8 @@ btnAvancarPass.addEventListener("click", async (e) => {
     
       const data = await response.json();
       console.log(data);
+
+      Window.location.href = 'login.html';
     
       // Lógica de sucesso, redirecionamento, etc.
     } else {
