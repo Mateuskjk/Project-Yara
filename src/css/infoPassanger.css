@@ -45,103 +45,147 @@
   font-weight: 500;
 }
 
+.register-btn:hover{
+  background-color: #409b93;
+}
+
 .container{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
-  height: 100vh;
+  min-height: 115vh;
+  padding: 0 15%;
   background-color: #408b93;
 }
 
-.form-card{
-  margin: 15px;
-  background-color: #fbfbfb;
-  width: 50%;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container h1 {
+  font-size: 3vw;
+  color: #fff;
 }
 
-.info-form{
+.container span {
+  color: beige;
+}
+
+.search-bar{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 25px;
+}
+
+.search-input {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: auto;
+  padding: 10px;
 }
 
-label{
+.search-input label {
+  text-align: left;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 10px;
+}
+
+.search-input input[type="text"], input[type="password"], input[type="email"] {
+  position: relative;
+  padding: 10px;
+  width: 600px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #c9bdc9;
   font-size: 18px;
 }
 
-input{
-  width: 600px;
-}
-
-
-
-/* body {
+#btn-senha{
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
+  z-index: 0;
+  width: 50px;
+  cursor: pointer; 
+  top: 91%;
+  left: 61%;
+  transform: translate(92%, -61%);
 }
 
-section {
-  background-color: #408b93;
-  width: 50vw; 
-  padding: 20px; 
-  box-sizing: border-box; 
+#btn-Confsenha{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  width: 50px;
+  cursor: pointer; 
+  top: 104%;
+  left: 60.6%;
+  transform: translate(104%, -60.6%);
 }
 
-section h2 {
-  font-size: 25px;
-  color: #fff;
-  margin-bottom: 20px; 
+div i{
+  height: 4%;
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  transform: translate(88%, -50%);
 }
 
-label {
-  font-size: 15px;
-  color: #fff;
+i.bi.bi-eye, .bi-eye-slash {
+  font-size: 26px;
 }
 
-input {
-  width: 100%; /* Ajuste para considerar o padding no width */
-  /* border: 0;
-  border-radius: 5px;
+.addBtn button{
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 8px;
+  margin-top: 30px;
+  margin-bottom: 15px;
   padding: 10px;
-  opacity: 0.65;
-  margin-top: 5px;
-  margin-bottom: 20px; /* Reduzi a margem inferior */
-/* }
-
-.btn-add {
+  background: #fff;
   border: 0;
-  border-radius: 5px;
-  width: 100%;
-  background-color: #1F2831;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 20px; /* Reduzi a margem inferior */
-/* } */
+  cursor: pointer;
+  color: #408b93;
+  font-size: 18px;
+}
 
-/* .btn-save-info {
-  width: 100%; /* Ajuste para ocupar toda a largura disponível */
-  /* background-color: #1F2831;
-  color: #fff;
-  height: 60px; /* Reduzi a altura */
-  /* border: 0;
-}  */ 
 
-/* .save {
+.btnLogin {
   display: flex;
   justify-content: center;
-}  */
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+}
 
+.btnLogin button {
+  width: 600px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background: #408b93;
+  box-shadow: -4px 10px 34px, #c9bdc9;
+  opacity: 0.75;
+  padding: 10px;
+}
+
+.btnLogin button:hover{
+  background-color: #409b93;
+}
 
 .footer{
   margin: 30px 0 10px;

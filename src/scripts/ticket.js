@@ -152,7 +152,7 @@ function handleClick(event, passagem, classeName) {
   console.log(storedObject);
 
   localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-  window.location.href = 'payment.html';
+  window.location.href = 'infoPassanger.html';
 }
 
 // Adicionar listeners para os botões
