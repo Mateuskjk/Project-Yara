@@ -55,8 +55,8 @@ if (localStorage.getItem('pesquisaInfo')) {
   const dataid = pesquisaInfo.idaEVoltaName
 
   if(dataid === "-1") {
-    var dataOriginal = pesquisaInfo.dateVoltaName;
-    var dataConvertida = converterFormatoData(dataOriginal);
+    const dataOriginal = pesquisaInfo.dateVoltaName;
+    const dataConvertida = converterFormatoData(dataOriginal);
 
     const datavolta = document.getElementById('data-volta')
     datavolta.innerText = "Somente Ida" 

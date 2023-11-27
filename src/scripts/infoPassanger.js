@@ -1,81 +1,125 @@
-const btnAccount = document.querySelector('#send');
+// Array para armazenar informações dos passageiros
+let passageiros = [];
 
-btnAccount.addEventListener('click', function (e) {
-  e.preventDefault();
+const addInformationPassenger = document.querySelector('#save');
 
-  const inputFirstName = document.querySelector('#nome');
-  const inputLastName = document.querySelector('#s-nome');
-  const inputEmail = document.querySelector('#email');
-  const inputConfEmail = document.querySelector('#c-email');
-  const inputSenha = document.querySelector('#pass');
-  const inputConfSenha = document.querySelector('#Confpass');
+addInformationPassenger.addEventListener('click', (e) => {
+    // Obter valores dos inputs
+    const nome = document.querySelector('#nome').value;
+    const sobrenome = document.querySelector('#s-nome').value;
+    const cpf = document.querySelector('#cpf').value;
+    const rg = document.querySelector('#rg').value;
+    const idade = document.querySelector('#idade').value;
+    const email = document.querySelector('#email').value;
 
-  const nome = inputFirstName.value;
-  const sobrenome = inputLastName.value;
-  const email = inputEmail.value;
-  const confEmail = inputConfEmail.value;
-  const senha = inputSenha.value;
-  const confSenha = inputConfSenha.value;
+    // Criar objeto com as informações
+    const passageiro = {
+        nome: nome,
+        sobrenome: sobrenome,
+        cpf: cpf,
+        rg: rg,
+        idade: idade,
+        email: email
+    };
 
-  const registerUser = {
-    nome,
-    sobrenome,
-    email,
-    confEmail,
-    senha,
-    confSenha
-  };
+    // Adicionar objeto ao array
+    passageiros.push(passageiro);
 
-  const arqRegister = JSON.stringify(registerUser);
-  localStorage.setItem('registerUser', arqRegister);
+    alert("Informações Salvas de: " + passageiros[passageiros.length - 1].nome);
 
-  window.location.href = "login.html"
+    // Limpar os campos dos inputs após adicionar as informações
+    document.querySelector('#nome').value = '';
+    document.querySelector('#s-nome').value = '';
+    document.querySelector('#cpf').value = '';
+    document.querySelector('#rg').value = '';
+    document.querySelector('#idade').value = '';
+    document.querySelector('#email').value = '';
 
-  // Realize a solicitação POST para o servidor Node.js
-  fetch('http://localhost:3000/usuario', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(registerUser)
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Erro na solicitação. Status: ' + response.status);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Erro:', error);
-    });
-  
+
+    // Exibir o array no console (pode ser removido em produção)
+    console.log(passageiros);
 });
 
-function mostrarSenha(){
-  var inputPass = document.getElementById('pass')
-  var btnShowPass = document.getElementById('btn-senha')
+const sendToDBButton = document.querySelector('#send');
 
-  if(inputPass.type === 'password'){
-    inputPass.setAttribute('type','text')
-    btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
-  } else{
-    inputPass.setAttribute('type','password')
-    btnShowPass.classList.replace('bi-eye-slash','bi-eye')
-  }
-}
+sendToDBButton.addEventListener('click', () => {
+    // Supondo que 'passageiros' seja o array que você deseja enviar para o servidor
+    fetch('http://localhost:3000/postInformationPassenger', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(passageiros),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.statusCode === 200 ? 'Passageiros salvos com sucesso!' : 'Erro ao salvar passageiros.');
+        // Limpar o array local se desejar
+        passageiros = [];
 
-function mostrarConfSenha(){
-  var inputPass = document.getElementById('Confpass')
-  var btnShowPass = document.getElementById('btn-Confsenha')
+        window.location.href = 'payment.html'
+    })
+    .catch(error => console.error('Erro ao enviar para o banco de dados:', error));
+});
 
-  if(inputPass.type === 'password'){
-    inputPass.setAttribute('type','text')
-    btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
-  } else{
-    inputPass.setAttribute('type','password')
-    btnShowPass.classList.replace('bi-eye-slash','bi-eye')
-  }
-}
+
+
+
+
+
+
+// const saveInformationPassenger = document.querySelector('#send');
+
+// saveInformationPassenger.addEventListener('click', function (e) {
+//   e.preventDefault();
+
+//   const namePassenger = document.querySelector('#nome');
+//   const lastNamePassenger = document.querySelector('#s-nome');
+//   const cpfPassenger = document.querySelector('#cpf');
+//   const rgPassenger = document.querySelector('#rg');
+//   const agePassenger = document.querySelector('#idade');
+//   const emailPassenger = document.querySelector('#email');
+
+//   const nome = namePassenger.value;
+//   const sobrenome = lastNamePassenger.value;
+//   const cpf = cpfPassenger.value;
+//   const rg = rgPassenger.value;
+//   const idade = agePassenger.value;
+//   const email = emailPassenger.value;
+
+//   const passengerInformation = {
+//     nome,
+//     sobrenome,
+//     cpf,
+//     rg,
+//     idade,
+//     email
+//   };
+
+//   const archivePassenger = JSON.stringify(passengerInformation);
+//   localStorage.setItem('passengerInformation', archivePassenger);
+
+//   window.location.href = "login.html"
+
+//   // Realize a solicitação POST para o servidor Node.js
+//   fetch('http://localhost:3000/usuario', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(registerUser)
+//   })
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('Erro na solicitação. Status: ' + response.status);
+//       }
+//       return response.json();
+//     })
+//     .then(data => {
+//       console.log(data);
+//     })
+//     .catch(error => {
+//       console.error('Erro:', error);
+//     });
+  
+// });

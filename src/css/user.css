@@ -51,7 +51,7 @@
 
 #container{
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   background-color: #408b93;
 }
 
@@ -73,6 +73,21 @@
   text-align: center;
   padding: 5px;
   margin-top: 20px;
+}
+
+/* Adicione a classe 'hiddenHistorico' inicialmente */
+.hiddenHistorico {
+  display: none;
+}
+
+.hiddenRemarcar {
+  display: none;
+}
+
+
+.text-main{
+  color: #f2f2f2;
+  font-size: 2vw;
 }
 
 .text-item{
@@ -118,6 +133,50 @@ i.bi-journal-bookmark:hover, i.bi-calendar:hover, i.bi-ticket:hover, i.bi-wallet
   margin-left: 20px;
   margin-bottom: 30px;
   font-weight: 500;
+}
+
+.remarcar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 25px;
+}
+
+.search-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+}
+
+.search-input label {
+  text-align: left;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 10px;
+}
+
+.search-input input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+  position: relative;
+  padding: 10px;
+  width: 600px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #c9bdc9;
+  font-size: 18px;
 }
 
 

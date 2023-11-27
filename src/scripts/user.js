@@ -24,4 +24,7 @@ fetch('http://localhost:3000/getViagens')
     });
   });
 
-
+  function redirectPage(url) {
+    // Redireciona para a URL especificada
+    window.location.href = url;
+}
