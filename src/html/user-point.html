@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/src/images/Favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/src/images/Favicon/favicon-16x16.png">
   <link rel="manifest" href="/src/images/Favicon/site.webmanifest">
-  <script src="/src/scripts/user.js"></script>
+  <script src="/src/scripts/user-remarcar.js"></script>
   <link rel="stylesheet" href="../css/user.css">
   <title>Usuário - Yara </title>
 </head>
@@ -36,7 +36,7 @@
           <div class="icon">
             <i class="bi bi-calendar"></i>
           </div>
-          <div class="text-item" onclick="redirectPage('user-remarcar.html')">
+          <div class="text-item">
             <h3>REMARCAR / CANCELAR MINHA VIAGEM</h3>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <div class="icon">
             <i class="bi bi-ticket"></i>
           </div>
-          <div class="text-item" onclick="redirectPage('user-pass.html')" >
+          <div class="text-item"  >
             <h3>MINHAS PASSAGENS</h3>
           </div>
         </div>
@@ -52,7 +52,7 @@
           <div class="icon">
             <i class="bi bi-wallet"></i>
           </div>
-          <div class="text-item" onclick="redirectPage('user-point.html')">
+          <div class="text-item">
             <h3>MEUS PONTOS DE VIAGEM</h3>
           </div>
         </div>
@@ -61,22 +61,24 @@
       <h2 class="text-main">Bem-Vindo a sua área exclusiva</h2>
 
 
-      <div class="historico">
-        <table id="table">
-          <tr>
-            <th>ID</th>
-            <th>Origem</th>
-            <th>Destino</th>
-            <th>Data-ida</th>
-            <th>Data-volta</th>
-            <th>Classe</th>
-            <th>Qntd-passageiro</th>
-            <th>Valor</th>
-          </tr>
-
-          <tr id="tableRow"></tr>
-
-        </table>
+      <!-- Adicione a classe 'hiddenRemarcar' inicialmente -->
+      <div class="remarcar hiddenRemarcar">
+        <div class="card">
+          <form>
+            <div class="search-input">
+              <label >ID da viagem que deseja Cancelar ou Remarcar:</label>
+              <input type="text" id="nome" placeholder="Digite o ID da viagem">
+            </div>
+            <div class="search-input">
+              <label >Data Ida:</label>
+              <input type="date" id="s-nome" placeholder="Último nome">
+            </div>
+            <div class="search-input">
+              <label >Data Volta:</label>
+              <input type="date" id="email" placeholder="Digite seu e-mail">
+            </div>
+          </form>
+        </div>
       </div>
 
     </section>

@@ -7,8 +7,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/src/images/Favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/src/images/Favicon/favicon-16x16.png">
   <link rel="manifest" href="/src/images/Favicon/site.webmanifest">
-  <script src="/src/scripts/user.js"></script>
-  <link rel="stylesheet" href="../css/user.css">
+  <script src="/src/scripts/user-pass.js"></script>
+  <link rel="stylesheet" href="../css/user-pass.css">
   <title>Usuário - Yara </title>
 </head>
 <body>
@@ -36,7 +36,7 @@
           <div class="icon">
             <i class="bi bi-calendar"></i>
           </div>
-          <div class="text-item" onclick="redirectPage('user-remarcar.html')">
+          <div class="text-item">
             <h3>REMARCAR / CANCELAR MINHA VIAGEM</h3>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <div class="icon">
             <i class="bi bi-ticket"></i>
           </div>
-          <div class="text-item" onclick="redirectPage('user-pass.html')" >
+          <div class="text-item"  >
             <h3>MINHAS PASSAGENS</h3>
           </div>
         </div>
@@ -52,7 +52,7 @@
           <div class="icon">
             <i class="bi bi-wallet"></i>
           </div>
-          <div class="text-item" onclick="redirectPage('user-point.html')">
+          <div class="text-item">
             <h3>MEUS PONTOS DE VIAGEM</h3>
           </div>
         </div>
@@ -60,23 +60,68 @@
 
       <h2 class="text-main">Bem-Vindo a sua área exclusiva</h2>
 
+      <div class="pass-container">
+        <div class="pass-area">
+          <div class="pass-top">
+            <span>
+              <img src="/src/images/imagesLogo/logo YARA 2.png" alt="YARA 2">
+            </span>
+            <span>
+              <h3>VIAGEM</h3>
+              <h1>codigo</h1>
+            </span>
+          </div>
 
-      <div class="historico">
-        <table id="table">
-          <tr>
-            <th>ID</th>
-            <th>Origem</th>
-            <th>Destino</th>
-            <th>Data-ida</th>
-            <th>Data-volta</th>
-            <th>Classe</th>
-            <th>Qntd-passageiro</th>
-            <th>Valor</th>
-          </tr>
+          <div class="pass-destiny">
+            <span>
+              <h3 id="origem-pass">origem</h3>
+              <h1 id="silga-pass">SIGLA DO LOCAL</h1>
+            </span>
+            
+            <span>item do meio</span>
 
-          <tr id="tableRow"></tr>
+            <span>
+              <h3 id="destino-pass">destino</h3>
+              <h1 id="silga-pass">SIGLA DO DESTINO</h1>
+            </span>
+          </div>
 
-        </table>
+          <div class="information-extra">
+            <div>
+              <h3>Hora de embarque</h3>
+              <h3>data e hora</h3>
+            </div>
+
+            <div>
+              <h3>Hora de saída</h3>
+              <h3>data e hora</h3>
+            </div>
+
+            <div>
+              <h3>Classe</h3>
+              <h3>tipo da classe</h3>
+            </div>
+          </div>
+
+          <div class="last-info">
+            <div>
+              <h3>PASSAGEIRO</h3>
+              <h1>nome do passageiro</h1>
+            </div>
+
+            <div>
+              <h3>idade</h3>
+              <h1>idade do passageiro</h1>
+            </div>
+          </div>
+
+          <div class="QRcode">
+            <h3>VITQRcode</h3>
+            <div>
+              <img src="/src/images/Payment-QRcode.png" alt="QRcode">
+            </div>
+          </div>
+        </div>
       </div>
 
     </section>
