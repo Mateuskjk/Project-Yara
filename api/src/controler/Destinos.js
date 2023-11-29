@@ -14,7 +14,7 @@ export async function selectDestinos(req, res) {
  }
 
  export async function selectDestino(req, res) {
-  let id = req.body.id;
+  const id = req.body.id;
   openDb().then(db => {
     db.get('SELECT * FROM Destinos WHERE id=?', [id])
     .then(destinos=>res.json(destinos))
@@ -22,7 +22,7 @@ export async function selectDestinos(req, res) {
 }
 
 export async function insertDestino(req, res) {
-  let destino = req.body;
+  const destino = req.body;
   openDb().then(db => {
     db.run('INSERT INTO Destinos (destino) VALUES (?)', [destino.destino]);
   });
@@ -32,7 +32,7 @@ export async function insertDestino(req, res) {
 }
 
 export async function updateDestino(req, res) {
-  let destino = req.body;
+  const destino = req.body;
   openDb().then(db => {
     db.run('UPDATE Destinos SET destino=? WHERE id=?', [destino.destino, destino.id]);
   });
@@ -42,7 +42,7 @@ export async function updateDestino(req, res) {
 }
 
 export async function deleteDestino(req, res) {
-  let id = req.body.id;
+  const id = req.body.id;
   openDb().then(db => {
     db.get('DELETE FROM Destinos WHERE id=?', [id])
     .then(destino=>res.json(destino))

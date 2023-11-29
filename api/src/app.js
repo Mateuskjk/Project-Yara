@@ -3,6 +3,7 @@ import fs from 'fs';
 import https from 'https';
 import cors from 'cors';
 import router from './routes.js';
+import { createTable } from './controler/Destinos.js';
 import { createTableUsuarios } from './controler/Usuarios.js';
 import { createTableInformationPassenger } from './controler/informationPassenger.js';
 import { createTableViagens } from './controler/MinhasVIagens.js';
@@ -10,6 +11,9 @@ import { createTableViagens } from './controler/MinhasVIagens.js';
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+createTable();
+app.use(router);
 
 createTableUsuarios();
 app.use(router);

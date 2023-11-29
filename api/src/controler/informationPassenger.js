@@ -3,7 +3,7 @@ import { openDb } from "../configDB.js";
 export async function createTableInformationPassenger() {
   try {
     const db = await openDb();
-    await db.exec('CREATE TABLE IF NOT EXISTS InformationPassenger ( id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, sobrenome TEXT, cpf TEXT, rg TEXT, idade TEXT, email TEXT)');
+    await db.exec('CREATE TABLE IF NOT EXISTS InformationPassenger ( id INTEGER PRIMARY KEY, nome TEXT, sobrenome TEXT, cpf TEXT, rg TEXT, idade TEXT, email TEXT)');
 
   } catch (error) {
     console.error('Erro ao criar tabela:', error);
@@ -18,7 +18,7 @@ export async function selectInformationPassengers(req, res) {
 }
 
 export async function selectInformationPassenger(req, res) {
-  let id = req.body.id;
+  const id = req.body.id;
   openDb().then(db => {
     db.get('SELECT * FROM InformationPassenger WHERE id=?', [id])
     .then(info=>res.json(info))
