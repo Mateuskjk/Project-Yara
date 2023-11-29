@@ -3,7 +3,7 @@ let passageiros = [];
 
 const addInformationPassenger = document.querySelector('#save');
 
-addInformationPassenger.addEventListener('click', (e) => {
+addInformationPassenger.addEventListener('click', () => {
     // Obter valores dos inputs
     const nome = document.querySelector('#nome').value;
     const sobrenome = document.querySelector('#s-nome').value;
@@ -35,10 +35,20 @@ addInformationPassenger.addEventListener('click', (e) => {
     document.querySelector('#idade').value = '';
     document.querySelector('#email').value = '';
 
-
     // Exibir o array no console (pode ser removido em produção)
     console.log(passageiros);
+
+    // Recuperar o objeto infoticket do sessionStorage
+    const infoticketData = sessionStorage.getItem('infoticket');
+    const infoticket = JSON.parse(infoticketData) || {};
+
+    // Adicionar os dados do passageiro ao objeto infoticket
+    infoticket.passageiro = passageiro;
+
+    // Atualizar o objeto infoticket no sessionStorage
+    sessionStorage.setItem('infoticket', JSON.stringify(infoticket));
 });
+
 
 const sendToDBButton = document.querySelector('#send');
 
@@ -56,70 +66,13 @@ sendToDBButton.addEventListener('click', () => {
         alert(data.statusCode === 200 ? 'Passageiros salvos com sucesso!' : 'Erro ao salvar passageiros.');
         // Limpar o array local se desejar
         passageiros = [];
-
-        window.location.href = 'payment.html'
+        // Redirecionar após o processamento bem-sucedido
+        window.location.href = 'payment.html';
     })
     .catch(error => console.error('Erro ao enviar para o banco de dados:', error));
+
+    sendToDBButton.disabled = true;
 });
 
+window.location.href = 'payment.html';
 
-
-
-
-
-
-// const saveInformationPassenger = document.querySelector('#send');
-
-// saveInformationPassenger.addEventListener('click', function (e) {
-//   e.preventDefault();
-
-//   const namePassenger = document.querySelector('#nome');
-//   const lastNamePassenger = document.querySelector('#s-nome');
-//   const cpfPassenger = document.querySelector('#cpf');
-//   const rgPassenger = document.querySelector('#rg');
-//   const agePassenger = document.querySelector('#idade');
-//   const emailPassenger = document.querySelector('#email');
-
-//   const nome = namePassenger.value;
-//   const sobrenome = lastNamePassenger.value;
-//   const cpf = cpfPassenger.value;
-//   const rg = rgPassenger.value;
-//   const idade = agePassenger.value;
-//   const email = emailPassenger.value;
-
-//   const passengerInformation = {
-//     nome,
-//     sobrenome,
-//     cpf,
-//     rg,
-//     idade,
-//     email
-//   };
-
-//   const archivePassenger = JSON.stringify(passengerInformation);
-//   localStorage.setItem('passengerInformation', archivePassenger);
-
-//   window.location.href = "login.html"
-
-//   // Realize a solicitação POST para o servidor Node.js
-//   fetch('http://localhost:3000/usuario', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(registerUser)
-//   })
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error('Erro na solicitação. Status: ' + response.status);
-//       }
-//       return response.json();
-//     })
-//     .then(data => {
-//       console.log(data);
-//     })
-//     .catch(error => {
-//       console.error('Erro:', error);
-//     });
-  
-// });

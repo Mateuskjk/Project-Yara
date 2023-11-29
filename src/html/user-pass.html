@@ -28,7 +28,7 @@
           <div class="icon">
             <i class="bi bi-journal-bookmark"></i>
           </div>
-          <div class="text-item">
+          <div class="text-item" onclick="redirectPage('user.html')">
             <h3>MEU HISTORICO DE VIAGENS</h3>
           </div>
         </div>
@@ -36,7 +36,7 @@
           <div class="icon">
             <i class="bi bi-calendar"></i>
           </div>
-          <div class="text-item">
+          <div class="text-item" onclick="redirectPage('user-remarcar.html')">
             <h3>REMARCAR / CANCELAR MINHA VIAGEM</h3>
           </div>
         </div>
@@ -44,74 +44,74 @@
           <div class="icon">
             <i class="bi bi-ticket"></i>
           </div>
-          <div class="text-item"  >
+          <div class="text-item" class="text-item" onclick="redirectPage('user-pass.html')">
             <h3>MINHAS PASSAGENS</h3>
-          </div>
-        </div>
-        <div class="item">
-          <div class="icon">
-            <i class="bi bi-wallet"></i>
-          </div>
-          <div class="text-item">
-            <h3>MEUS PONTOS DE VIAGEM</h3>
           </div>
         </div>
       </div>
 
-      <h2 class="text-main">Bem-Vindo a sua área exclusiva</h2>
+      <h2 style="text-align: center; margin-bottom: 15px; font-weight: 500;" class="text-main">Suas passagens mais recente.</h2>
 
       <div class="pass-container">
         <div class="pass-area">
           <div class="pass-top">
             <span>
-              <img src="/src/images/imagesLogo/logo YARA 2.png" alt="YARA 2">
+              <img src="/src/images/imagesLogo/logo YARA 4.png" alt="YARA 2">
             </span>
             <span>
-              <h3>VIAGEM</h3>
-              <h1>codigo</h1>
+              <h4 style="text-align: right; margin-right: 20px;">VIAGEM</h4>
+              <h1 style="text-align: right; margin-right: 20px; color: #409b93;">YR7216</h1>
             </span>
           </div>
+
+          <hr>
 
           <div class="pass-destiny">
             <span>
-              <h3 id="origem-pass">origem</h3>
-              <h1 id="silga-pass">SIGLA DO LOCAL</h1>
+              <h4 style="text-align: left;" id="origem-pass">MANAUS</h4>
+              <h1 style="text-align: left; font-size: 2.5vw; color: #409b93;" id="silga-pass">MAO</h1>
             </span>
             
-            <span>item do meio</span>
+            <span>
+              <img style="width: 60px; margin-top: 23px; margin-left: 20px; margin-right: 20px;" src="/src/images/boat.png" alt="boat-icon">
+            </span>
 
             <span>
-              <h3 id="destino-pass">destino</h3>
-              <h1 id="silga-pass">SIGLA DO DESTINO</h1>
+              <h3 style="text-align: right;" id="destino-pass">BELÉM</h3>
+              <h1 style="text-align: left; font-size: 2.5vw; color: #409b93;" id="silga-pass">BEL</h1>
             </span>
           </div>
+
+          <hr>
 
           <div class="information-extra">
             <div>
-              <h3>Hora de embarque</h3>
-              <h3>data e hora</h3>
+              <h3 style="text-align: left;">IDA:</h3>
+              <h4 style="text-align: left; font-size: 1vw; color: #409b93;">17-11-2023</h4>
             </div>
 
             <div>
-              <h3>Hora de saída</h3>
-              <h3>data e hora</h3>
+              <h3 style="text-align: center;">VOLTA:</h3>
+              <h4 style="text-align: center; font-size: 1vw; color: #409b93;">27-11-2023</h4>
             </div>
 
             <div>
-              <h3>Classe</h3>
-              <h3>tipo da classe</h3>
+              <h3 style="text-align: right;">CLASSE:</h3>
+              <h4 style="text-align: right; font-size: 1vw; color: #409b93;">Econômica</h4>
             </div>
           </div>
 
+          <hr>
+
           <div class="last-info">
             <div>
-              <h3>PASSAGEIRO</h3>
-              <h1>nome do passageiro</h1>
+              <h4 style="text-align: left;">PASSAGEIRO:</h4>
+              <h1 style="text-align: left; font-size: 1.4vw; color: #409b93;">JOÃO S. DO CARMO</h1>
             </div>
 
             <div>
-              <h3>idade</h3>
-              <h1>idade do passageiro</h1>
+              <h4 style="text-align: right;">IDADE:</h4>
+              <h1 style="text-align: right; font-size: 1.4vw; margin-left: 12px; color: #409b93;">12 ANOS</h1>
             </div>
           </div>
 

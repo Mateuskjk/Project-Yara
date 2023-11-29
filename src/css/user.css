@@ -51,13 +51,13 @@
 
 #container{
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   background-color: #408b93;
 }
 
 .selection{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 23px;
 }
@@ -73,6 +73,11 @@
   text-align: center;
   padding: 5px;
   margin-top: 20px;
+}
+
+.historico{
+  max-height: 300px; /* Defina a altura máxima desejada */
+  overflow-y: auto;
 }
 
 /* Adicione a classe 'hiddenHistorico' inicialmente */
@@ -143,7 +148,7 @@ i.bi-journal-bookmark:hover, i.bi-calendar:hover, i.bi-ticket:hover, i.bi-wallet
 
 .card{
   display: flex;
-  width: 50%;
+  width: 35%;
   justify-content: center;
   align-items: center;
   margin-top: 25px;
@@ -179,6 +184,21 @@ i.bi-journal-bookmark:hover, i.bi-calendar:hover, i.bi-ticket:hover, i.bi-wallet
   font-size: 18px;
 }
 
+.btnAlterarCancelar{
+  width: 100%;
+}
+
+.btnAlterarCancelar button{
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  background-color: #408b93;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
 
 
 table {

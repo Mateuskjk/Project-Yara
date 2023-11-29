@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/src/images/Favicon/favicon-16x16.png">
   <link rel="manifest" href="/src/images/Favicon/site.webmanifest">
   <script src="/src/scripts/user-remarcar.js"></script>
-  <link rel="stylesheet" href="../css/user.css">
+  <link rel="stylesheet" href="../css/user-remarcar.css">
   <title>Usuário - Yara </title>
 </head>
 <body>
@@ -28,7 +28,7 @@
           <div class="icon">
             <i class="bi bi-journal-bookmark"></i>
           </div>
-          <div class="text-item">
+          <div class="text-item" onclick="redirectPage('user.html')">
             <h3>MEU HISTORICO DE VIAGENS</h3>
           </div>
         </div>
@@ -36,7 +36,7 @@
           <div class="icon">
             <i class="bi bi-calendar"></i>
           </div>
-          <div class="text-item">
+          <div class="text-item" onclick="redirectPage('user-remarcar.html')">
             <h3>REMARCAR / CANCELAR MINHA VIAGEM</h3>
           </div>
         </div>
@@ -44,21 +44,13 @@
           <div class="icon">
             <i class="bi bi-ticket"></i>
           </div>
-          <div class="text-item"  >
+          <div class="text-item"  onclick="redirectPage('user-pass.html')">
             <h3>MINHAS PASSAGENS</h3>
-          </div>
-        </div>
-        <div class="item">
-          <div class="icon">
-            <i class="bi bi-wallet"></i>
-          </div>
-          <div class="text-item">
-            <h3>MEUS PONTOS DE VIAGEM</h3>
           </div>
         </div>
       </div>
 
-      <h2 class="text-main">Bem-Vindo a sua área exclusiva</h2>
+      <h2 style="text-align: center;" class="text-main">Área exclusiva para remarcar ou cancelar sua viagem.</h2>
 
 
       <!-- Adicione a classe 'hiddenRemarcar' inicialmente -->
@@ -76,6 +68,12 @@
             <div class="search-input">
               <label >Data Volta:</label>
               <input type="date" id="email" placeholder="Digite seu e-mail">
+            </div>
+            <div class="btnAlterarCancelar">
+              <button>CANCELAR VIAGEM</button>
+            </div>
+            <div class="btnAlterarCancelar">
+              <button>ALTERAR VIAGEM</button>
             </div>
           </form>
         </div>

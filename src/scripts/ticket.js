@@ -132,33 +132,49 @@ if (localStorage.getItem('pesquisaInfo')) {
   preencherCampoEAtualizar(passagem3, inputPassagem3);
   passagem3.innerText = passagem3;
 
-  // Função genérica para lidar com o clique de qualquer botão
-function handleClick(event, passagem, classeName) {
-  const storedData = localStorage.getItem('pesquisaInfo');
-  const storedObject = JSON.parse(storedData) || {};
-
-  storedObject.botao = event.target.innerText;
-  storedObject.dataAtivo = event.target.getAttribute('data-ativo');
-  storedObject.passagem = passagem;
-  storedObject.classeName = classeName;
-
-  storedObject.fromName = pesquisaInfo.fromName;
-  storedObject.toName = pesquisaInfo.toName;
-  storedObject.dateIdaName = pesquisaInfo.dateIdaName;
-  storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
-  storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
-  storedObject.passName = pesquisaInfo.passName;
-
-  console.log(storedObject);
-
-  localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-  window.location.href = 'infoPassanger.html';
-}
-
-// Adicionar listeners para os botões
-document.getElementById('btn1').addEventListener('click', (event) => handleClick(event, passagem, pesquisaInfo.classeName));
-document.getElementById('btn2').addEventListener('click', (event) => handleClick(event, passagem2, classe2));
-document.getElementById('btn3').addEventListener('click', (event) => handleClick(event, passagem3, classe3));
+  function handleClick(event, passagem, classeName) {
+    const storedData = localStorage.getItem('pesquisaInfo');
+    const storedObject = JSON.parse(storedData) || {};
+  
+    storedObject.botao = event.target.innerText;
+    storedObject.dataAtivo = event.target.getAttribute('data-ativo');
+    storedObject.passagem = passagem;
+    storedObject.classeName = classeName;
+  
+    storedObject.fromName = pesquisaInfo.fromName;
+    storedObject.toName = pesquisaInfo.toName;
+    storedObject.dateIdaName = pesquisaInfo.dateIdaName;
+    storedObject.dateVoltaName = pesquisaInfo.dateVoltaName;
+    storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
+    storedObject.passName = pesquisaInfo.passName;
+  
+    // Criar o novo objeto infoticket
+    const infoticket = {
+      passagem: passagem,
+      classeName: classeName,
+      fromName: pesquisaInfo.fromName,
+      toName: pesquisaInfo.toName,
+      dateIdaName: pesquisaInfo.dateIdaName,
+      dateVoltaName: pesquisaInfo.dateVoltaName,
+      idaEVoltaName: pesquisaInfo.idaEVoltaName,
+      passName: pesquisaInfo.passName
+    };
+  
+    // Adicionar o objeto infoticket ao sessionStorage
+    sessionStorage.setItem('infoticket', JSON.stringify(infoticket));
+  
+    console.log(storedObject);
+    console.log(infoticket);
+  
+    localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
+    window.location.href = 'infoPassanger.html';
+  }
+  
+  // Adicionar listeners para os botões
+  document.getElementById('btn1').addEventListener('click', (event) => handleClick(event, passagem, pesquisaInfo.classeName));
+  document.getElementById('btn2').addEventListener('click', (event) => handleClick(event, passagem2, classe2));
+  document.getElementById('btn3').addEventListener('click', (event) => handleClick(event, passagem3, classe3));
+  
 
 
   // Gerar e preencher valores para os cards
@@ -178,4 +194,6 @@ document.getElementById('btn3').addEventListener('click', (event) => handleClick
     preencherCampoEAtualizar(valoresAleatorios[i], cards[i]);
   }
 }
+
+
 
