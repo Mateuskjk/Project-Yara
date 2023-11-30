@@ -57,22 +57,22 @@ sendToDBButton.addEventListener('click', () => {
     fetch('http://localhost:3000/postInformationPassenger', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
         },
         body: JSON.stringify(passageiros),
     })
     .then(response => response.json())
-    .then(data => {
+    .then(() => {
         alert(data.statusCode === 200 ? 'Passageiros salvos com sucesso!' : 'Erro ao salvar passageiros.');
         // Limpar o array local se desejar
         passageiros = [];
-        // Redirecionar após o processamento bem-sucedido
-        window.location.href = 'payment.html';
     })
     .catch(error => console.error('Erro ao enviar para o banco de dados:', error));
+
+    // Redirecionar após o processamento bem-sucedido
+    window.location.href = 'payment.html';
 
     sendToDBButton.disabled = true;
 });
 
-window.location.href = 'payment.html';
 

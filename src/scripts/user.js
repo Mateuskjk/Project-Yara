@@ -1,15 +1,15 @@
 // Função para criar uma nova linha da tabela
-function createTableRow(viagem) {
+function createTableRow(infoTicket) {
   const row = document.createElement('tr');
   row.innerHTML = `
-      <td>${viagem.id}</td>
-      <td>${viagem.origem}</td>
-      <td>${viagem.destino}</td>
-      <td>${viagem.dataIda}</td>
-      <td>${viagem.dataVolta}</td>
-      <td>${viagem.classViagem}</td>
-      <td>${viagem.passageiros}</td>
-      <td>${viagem.valorPassagem}</td>
+      <td>${infoTicket.id}</td>
+      <td>${infoTicket.origem}</td>
+      <td>${infoTicket.destino}</td>
+      <td>${infoTicket.dataIda}</td>
+      <td>${infoTicket.dataVolta}</td>
+      <td>${infoTicket.classViagem}</td>
+      <td>${infoTicket.passageiros}</td>
+      <td>${infoTicket.valorPassagem}</td>
   `;
   return row;
 }
@@ -24,7 +24,7 @@ function populateTable() {
         const sortedJson = json.sort((a, b) => b.id - a.id);
 
         // Limpar a tabela antes de popular
-        // tableBody.innerHTML = '';
+        tableBody.innerHTML = '';
 
         console.log('Dados recebidos do servidor:', json);
 

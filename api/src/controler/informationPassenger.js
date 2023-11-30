@@ -42,7 +42,7 @@ export async function insertInformationPassenger(req, res) {
   }
 }
 
-export async function updatenInformationPassenger(req, res) {
+export async function updateInformationPassenger(req, res) {
   try {
     const id = req.params.id; // Capturando o ID da URL
     const infoPassenger = req.body;
@@ -60,7 +60,7 @@ export async function updatenInformationPassenger(req, res) {
 }
 
 
-export async function deletenInformationPassenger(req, res) {
+export async function deleteInformationPassenger(req, res) {
   try {
     const id = req.params.id;
     const db = await openDb();

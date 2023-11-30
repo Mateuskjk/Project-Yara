@@ -2,7 +2,7 @@ import { Router } from "express";
 import { selectDestinos, selectDestino, insertDestino, updateDestino, deleteDestino } from './controler/Destinos.js';
 import { selectUsuarios, selectUsuario, insertUsuario, updateUsuario, deleteUsuario } from './controler/Usuarios.js';
 import { selectViagens, selectViagem, insertViagem, updateViagem, deleteViagem } from "./controler/MinhasVIagens.js";
-import { selectInformationPassengers, selectInformationPassenger, insertInformationPassenger, updatenInformationPassenger, deletenInformationPassenger } from "./controler/informationPassenger.js";
+import { selectInformationPassengers, selectInformationPassenger, insertInformationPassenger, updateInformationPassenger, deleteInformationPassenger } from "./controler/informationPassenger.js";
 
 const router = Router();
 
@@ -38,7 +38,7 @@ router.delete('/usuario', deleteUsuario);
 router.get('/getInformationPassengers', selectInformationPassengers);
 router.get('/getInformationPassenger/:id', selectInformationPassenger);
 router.post('/postInformationPassenger', insertInformationPassenger);
-router.put('/putInformationPassenger/:id', updatenInformationPassenger);
-router.delete('/deleteInformationPassenger', deletenInformationPassenger);
+router.put('/putInformationPassenger/:id', updateInformationPassenger);
+router.delete('/deleteInformationPassenger', deleteInformationPassenger);
 
 export default router;
