@@ -39,14 +39,14 @@ addInformationPassenger.addEventListener('click', () => {
     console.log(passageiros);
 
     // Recuperar o objeto infoticket do sessionStorage
-    const infoticketData = sessionStorage.getItem('infoticket');
+    const infoticketData = localStorage.getItem('infoticket');
     const infoticket = JSON.parse(infoticketData) || {};
 
     // Adicionar os dados do passageiro ao objeto infoticket
-    infoticket.passageiro = passageiro;
+    infoticket.passageiros = passageiros;
 
     // Atualizar o objeto infoticket no sessionStorage
-    sessionStorage.setItem('infoticket', JSON.stringify(infoticket));
+    localStorage.setItem('infoticket', JSON.stringify(infoticket));
 });
 
 

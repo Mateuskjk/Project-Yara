@@ -150,18 +150,19 @@ if (localStorage.getItem('pesquisaInfo')) {
   
     // Criar o novo objeto infoticket
     const infoticket = {
-      passagem: passagem,
-      classeName: classeName,
-      fromName: pesquisaInfo.fromName,
-      toName: pesquisaInfo.toName,
-      dateIdaName: pesquisaInfo.dateIdaName,
-      dateVoltaName: pesquisaInfo.dateVoltaName,
+      valorPassagem: passagem,
+      classViagem: classeName,
+      origem: pesquisaInfo.fromName,
+      destino: pesquisaInfo.toName,
+      dateIda: pesquisaInfo.dateIdaName,
+      dateVolta: pesquisaInfo.dateVoltaName,
       idaEVoltaName: pesquisaInfo.idaEVoltaName,
-      passName: pesquisaInfo.passName
+      passageiros: pesquisaInfo.passName
     };
+
+    let infotickets = [];
   
-    // Adicionar o objeto infoticket ao sessionStorage
-    sessionStorage.setItem('infoticket', JSON.stringify(infoticket));
+    infotickets.push(infoticket);
   
     console.log(storedObject);
     console.log(infoticket);
