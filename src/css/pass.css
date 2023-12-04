@@ -80,7 +80,6 @@ nav{
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  border: 1px solid green;
 }
 
 .info-viagem{
@@ -90,7 +89,6 @@ nav{
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  border: 1px solid yellow;
 }
 
 .info-IO{
@@ -100,7 +98,6 @@ nav{
   align-items: center;
   text-align: center;
   margin-left: 2.5%;
-  border: 1px solid beige;
 }
 
 .info-important{
@@ -110,7 +107,6 @@ nav{
   align-items: center;
   text-align: center;
   margin-left: 2.5%;
-  border: 1px solid black;
 }
 
 .QRcode{
@@ -118,7 +114,6 @@ nav{
   flex-direction: column;
   justify-content: space-around;
   margin-left: 2.5%;
-  border: 1px solid black;
 }
 
 .img-passagem{
@@ -129,7 +124,7 @@ nav{
 }
 .img-QRcode{
   width: 150px;
-  border: 1px solid orange;
+  border: 1px solid black;
 }
 
 

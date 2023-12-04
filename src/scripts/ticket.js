@@ -163,6 +163,8 @@ if (localStorage.getItem('pesquisaInfo')) {
     let infotickets = [];
   
     infotickets.push(infoticket);
+
+    localStorage.setItem('infotickets', JSON.stringify(infotickets));
   
     console.log(storedObject);
     console.log(infoticket);
