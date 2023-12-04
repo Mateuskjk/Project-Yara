@@ -6,7 +6,7 @@ import router from './routes.js';
 import { createTable } from './controler/Destinos.js';
 import { createTableUsuarios } from './controler/Usuarios.js';
 import { createTableInformationPassenger } from './controler/informationPassenger.js';
-import { createTableViagens } from './controler/MinhasVIagens.js';
+// import { sendMail } from './controler/passagem.js';
 
 const app = express();
 app.use(express.json());
@@ -21,8 +21,8 @@ app.use(router);
 createTableInformationPassenger();
 app.use(router)
 
-createTableViagens();
-app.use(router)
+// sendMail();
+// app.use(router)
 
 app.listen(3000, () => {
   console.log('API rodando.')

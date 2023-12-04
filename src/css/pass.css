@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header{
+  width: 100%;
+  height: auto;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10%;
+}
+  
+.logo{
+  width: 140px;
+  height: auto;
+  cursor: pointer;
+}
+  
+/*Botão login*/
+.register-btn{
+  background: #408b93;
+  box-shadow: -4px 10px 34px, #c9bdc9;
+  opacity: 0.75;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.register-btn:hover{
+  background-color: #409b93;
+}
+
+.container{
+  width: 100%;
+  height: auto;
+  background-color: #408b93;
+}
+
+.title{
+  margin-left: 11.5vw;
+  margin-bottom: 5vh;
+  padding-top: 5vh;
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.passagem-form{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  height: 57vh;
+}
+
+.passagem-card{
+  display: flex;
+  width: 75%;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.top-item{
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border: 1px solid green;
+}
+
+.info-viagem{
+  display: flex;
+  width: 35%;
+  margin-left: 2.5%;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border: 1px solid yellow;
+}
+
+.info-IO{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin-left: 2.5%;
+  border: 1px solid beige;
+}
+
+.info-important{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin-left: 2.5%;
+  border: 1px solid black;
+}
+
+.QRcode{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 2.5%;
+  border: 1px solid black;
+}
+
+.img-passagem{
+  width: 150px;
+}
+.img-boat{
+  width: 60px;
+}
+.img-QRcode{
+  width: 150px;
+  border: 1px solid orange;
+}
+
+
+.footer{
+  margin: 30px 0 10px;
+  text-align: center;
+}
+
+.footer a{
+  text-decoration: none;
+  color: #999;
+  font-size:  22px;
+  margin: 0 10px;
+}
+
+.footer hr{
+  background: #999;
+  height: 1px;
+  width: 100%;
+  border: 0;
+  margin: 20px 0;
+}
+
+.footer p{
+  padding-bottom: 15px;
+}
+
+.footer img{
+  width: 25px;
+}
