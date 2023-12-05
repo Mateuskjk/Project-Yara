@@ -47,32 +47,39 @@ addInformationPassenger.addEventListener('click', () => {
 
     // Atualizar o objeto infoticket no sessionStorage
     localStorage.setItem('infoticket', JSON.stringify(infoticket));
+    
 });
 
 
 const sendToDBButton = document.querySelector('#send');
 
 sendToDBButton.addEventListener('click', () => {
-    // Supondo que 'passageiros' seja o array que você deseja enviar para o servidor
-    fetch('http://localhost:3000/postInformationPassenger', {
-        method: 'POST',
-        headers: {
+// Supondo que 'passageiros' seja o array que você deseja enviar para o servidor
+fetch('http://localhost:3000/postInformationPassenger', {
+    method: 'POST',
+    headers: {
         'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(passageiros),
-    })
+    },
+    body: JSON.stringify(passageiros),
+})
     .then(response => response.json())
-    .then(() => {
+    .then(data => {
         alert(data.statusCode === 200 ? 'Passageiros salvos com sucesso!' : 'Erro ao salvar passageiros.');
+        
         // Limpar o array local se desejar
-        passageiros = [];
+        // passageiros = [];
+
+        // Se você quiser manter os dados locais e apenas enviar os novos, 
+        // você pode criar uma nova array para os novos passageiros
+        const novosPassageiros = [];
+
+        // Redirecionar após o processamento bem-sucedido
+        window.location.href = 'payment.html';
+
+        sendToDBButton.disabled = true;
     })
     .catch(error => console.error('Erro ao enviar para o banco de dados:', error));
 
-    // Redirecionar após o processamento bem-sucedido
-    window.location.href = 'payment.html';
-
-    sendToDBButton.disabled = true;
 });
 
 

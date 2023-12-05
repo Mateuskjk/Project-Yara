@@ -133,39 +133,48 @@ const randomCode = generateRandomCode();
 varCodeElement.textContent = randomCode;
   
 fetch('http://localhost:3000/getselectInformationUser')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
 
-    const infotickets = localStorage.getItem('infoticket');
-    const passageiro = infotickets ? JSON.parse(infotickets).nome : null;
-
-    // Verifica se a propriedade 'passageiros' existe e é um array
-    if (data && Array.isArray(data)) {
-      // Verifica se o array não está vazio
-      if (data.length > 0) {
-        // Pega o último passageiro no array
-        const ultimoPassageiro = data[data.length - 1];
-
-        // Agora 'ultimoPassageiro' contém o último objeto adicionado
-        console.log('Último Passageiro:', ultimoPassageiro);
-
-        // Acessa as propriedades do último passageiro
-        console.log('Nome do Último Passageiro:', ultimoPassageiro.nome);
-        console.log('Sobrenome do Último Passageiro:', ultimoPassageiro.sobrenome);
-
-        // Preenche o elemento HTML com a concatenação de nome e sobrenome
-        const passengerElement = document.getElementById('passenger');
-        passengerElement.textContent = `${ultimoPassageiro.nome} ${ultimoPassageiro.sobrenome}`;
-      } else {
-        console.log('O array de passageiros está vazio.');
-      }
-    } else {
-      console.log('A resposta não é um array ou está vazia.');
-    }
-  })
-  .catch(error => {
-    console.error('Erro na requisição:', error);
-  });
+        // Verifica se a propriedade 'passageiros' existe e é um array
+        if (data && Array.isArray(data)) {
+            // Verifica se o array não está vazio
+            if (data.length > 0) {
+                const infotickets = localStorage.getItem('pesquisaInfo');
+                const passName = infotickets ? JSON.parse(infotickets).passName : null;
+            
+                if (passName !== null && typeof passName !== 'undefined') {
+                    console.log('Valor de passName:', passName);
+            
+                    // Restante do seu código aqui...
+            
+                    // Pega os últimos passageiros no array com base no valor de passName
+                    const ultimosPassageiros = data.slice(-passName);
+                    console.log('Últimos passageiros:', ultimosPassageiros);
+            
+                    // Itera sobre os últimos passageiros e realiza as operações desejadas
+                    ultimosPassageiros.forEach((passageiro, index) => {
+                        console.log(`Nome do Último Passageiro ${index + 1}:`, passageiro.nome);
+                        console.log(`Sobrenome do Último Passageiro ${index + 1}:`, passageiro.sobrenome);
+                    });
+            
+                    // Se houver mais de um passageiro, preenche o elemento HTML geral
+                    if (passName > 1) {
+                        const passengerGeneralElement = document.getElementById(`passenger`);
+                        const passageirosNomesCompletos = ultimosPassageiros.map(passageiro => `${passageiro.nome} ${passageiro.sobrenome}`);
+                        passengerGeneralElement.textContent = passageirosNomesCompletos.join(', ');
+                    }
+                } else {
+                    console.log('passName não está definido ou é nulo.');
+                }
+            } else {
+                console.log('O array de passageiros está vazio.');
+            }            
+        }    
+    })
+    .catch(error => {
+        console.error('Erro na requisição:', error);
+    });
 
 

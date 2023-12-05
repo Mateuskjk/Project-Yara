@@ -49,7 +49,6 @@ nav{
 
 .title{
   margin-left: 11.5vw;
-  margin-bottom: 5vh;
   padding-top: 5vh;
   font-size: 25px;
   font-weight: 500;
@@ -59,7 +58,7 @@ nav{
 .passagem-form{
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   width: 100%;
   height: 57vh;
 }
@@ -76,20 +75,46 @@ nav{
 .top-item{
   display: flex;
   flex-direction: column;
-  width: 10%;
+  width: 6%;
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  margin-left: 1.4%;
+  margin-left: 2%;
 }
+
+.top-code{
+  margin-right: 22px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #d90429;
+}
+
+.code-text{
+  font-size: 25px;
+  font-weight: 600;
+  color: #003566;
+}
+
 
 .info-viagem{
   display: flex;
   width: 25%;
-  margin-left: 7%;
+  margin-left: 6%;
   justify-content: space-between;
   align-items: center;
   text-align: center;
+}
+
+.top-text{
+  font-size: 16px;
+  font-weight: 500;
+  color: #d90429;
+}
+
+.subTop-text{
+  font-size: 2.5vw;
+  font-weight: 600;
+  color: #003566;
 }
 
 .info-IO{
@@ -98,7 +123,19 @@ nav{
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  margin-left: 8%;
+  margin-left: 6%;
+}
+
+.info-text{
+  font-size: 18px;
+  font-weight: 500;
+  color: #d90429;
+}
+
+.dateTime-text{
+  font-size: 22px;
+  font-weight: 600;
+  color: #003566;
 }
 
 .info-important{
@@ -107,14 +144,37 @@ nav{
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  margin-left: 8%;
+  margin-left: 5.5%;
 }
 
+.info-passenger{
+  font-weight: 500;
+  font-size: 18px;
+  color: #d90429;
+}
+
+.passenger-text{
+  font-weight: 600;
+  font-size: 20px;
+  color: #003566;
+}
+
+.top-classe{
+  font-weight: 500;
+  font-size: 18px;
+  color: #d90429;
+}
+
+.classe-text{
+  font-weight: 600;
+  font-size: 20px;
+  color: #003566;
+}
 .QRcode{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 7%;
+  margin-left: 5%;
 }
 
 .img-passagem{
@@ -122,6 +182,7 @@ nav{
 }
 .img-boat{
   width: 60px;
+  margin-top: 22px;
 }
 .img-QRcode{
   width: 150px;
