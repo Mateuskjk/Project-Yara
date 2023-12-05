@@ -10,19 +10,41 @@ export async function createTableInformationPassenger() {
   }
 }
 
-export async function selectInformationPassengers(req, res) {
-  openDb().then(db => {
-    db.all('SELECT * FROM InformationPassenger')
-    .then(info=>res.json(info))
-  })
+export async function selectInformationUser(req, res) {
+  try {
+    const { id } = req.query; // Obtenha o parâmetro de consulta "id"
+    const db = await openDb();
+
+    if (id) {
+      // Se um e-mail foi fornecido, filtre os resultados por e-mail
+      const user = await db.get('SELECT * FROM InformationPassenger WHERE id = ?', [id]);
+      res.json(user);
+    } else {
+      // Se nenhum e-mail foi fornecido, retorne todos os usuários
+      const users = await db.all('SELECT * FROM InformationPassenger');
+      res.json(users);
+    }
+  } catch (error) {
+    console.error('Erro ao selecionar usuários:', error);
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
 }
 
-export async function selectInformationPassenger(req, res) {
-  const id = req.body.id;
-  openDb().then(db => {
-    db.get('SELECT * FROM InformationPassenger WHERE id=?', [id])
-    .then(info=>res.json(info))
-  })
+export async function selectInformationUserById(req, res) {
+  try {
+    const id = req.params.id;
+    const db = await openDb();
+    const user = await db.get('SELECT * FROM InformationPassenger WHERE id=?', [id]);
+
+    if (user) {
+      res.json(user);
+    } else {
+      res.status(404).json({ error: 'Usuário não encontrado' });
+    }
+  } catch (error) {
+    console.error('Erro ao selecionar usuário:', error);
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
 }
 
 export async function insertInformationPassenger(req, res) {
@@ -72,3 +94,27 @@ export async function deleteInformationPassenger(req, res) {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
 }
+
+export async function getLastInsertedIdWithInfo(req, res) {
+  try {
+    const db = await openDb();
+
+    // Passo 1: Obter o último ID
+    const resultLastId = await db.get('SELECT MAX(id) AS lastId FROM InformationPassenger');
+    const lastInsertedId = resultLastId.lastId;
+
+    // Passo 2: Obter todas as informações relacionadas ao último ID
+    const resultInfo = await db.get('SELECT * FROM InformationPassenger WHERE id = ?', [lastInsertedId]);
+
+    if (resultInfo) {
+      res.json(resultInfo);
+    } else {
+      res.status(404).json({ error: 'Informações não encontradas para o último ID' });
+    }
+  } catch (error) {
+    console.error('Erro ao obter informações relacionadas ao último ID:', error);
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+}
+
+

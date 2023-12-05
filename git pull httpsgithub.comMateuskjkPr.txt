@@ -1,1 +1,4 @@
 git pull https://github.com/Mateuskjk/Project-Yara.git
+
+
+cd .\api

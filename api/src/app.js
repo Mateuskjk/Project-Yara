@@ -7,6 +7,8 @@ import { createTable } from './controler/Destinos.js';
 import { createTableUsuarios } from './controler/Usuarios.js';
 import { createTableInformationPassenger } from './controler/informationPassenger.js';
 // import { sendMail } from './controler/passagem.js';
+import { createTableHoraViagem } from './controler/HoraViagem.js';
+import { createTableSigla } from './controler/Sigla.js';
 
 const app = express();
 app.use(express.json());
@@ -23,6 +25,13 @@ app.use(router)
 
 // sendMail();
 // app.use(router)
+
+createTableHoraViagem();
+app.use(router)
+
+createTableSigla();
+app.use(router)
+
 
 app.listen(3000, () => {
   console.log('API rodando.')

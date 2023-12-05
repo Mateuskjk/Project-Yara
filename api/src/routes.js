@@ -1,9 +1,11 @@
 import { Router } from "express";
 import { selectDestinos, selectDestino, insertDestino, updateDestino, deleteDestino } from './controler/Destinos.js';
 import { selectUsuarios, selectUsuario, insertUsuario, updateUsuario, deleteUsuario } from './controler/Usuarios.js';
-import { selectInformationPassengers, selectInformationPassenger, insertInformationPassenger, updateInformationPassenger, deleteInformationPassenger } from "./controler/informationPassenger.js";
-
+import { selectInformationUser, selectInformationUserById, insertInformationPassenger, updateInformationPassenger, deleteInformationPassenger } from "./controler/informationPassenger.js";
 // import { sendMail } from "./controler/passagem.js";
+import { selectHoraViagens, selectHoraViagem, insertHoraViagem, updateHoraViagem, deleteHoraViagem } from './controler/HoraViagem.js';
+import { selectSiglas, selectSigla, insertSigla, updateSigla, deleteSigla } from "./controler/Sigla.js";
+import { getLastInsertedIdWithInfo } from "./controler/informationPassenger.js";
 
 const router = Router();
 
@@ -28,11 +30,25 @@ router.post('/usuario', insertUsuario);
 router.put('/usuario/:id', updateUsuario);
 router.delete('/usuario', deleteUsuario);
 
-router.get('/getInformationPassengers', selectInformationPassengers);
-router.get('/getInformationPassenger/:id', selectInformationPassenger);
+router.get('/getselectInformationUser', selectInformationUser);
+router.get('/getselectInformationUserById/:id', selectInformationUserById);
 router.post('/postInformationPassenger', insertInformationPassenger);
 router.put('/putInformationPassenger/:id', updateInformationPassenger);
 router.delete('/deleteInformationPassenger', deleteInformationPassenger);
+
+router.get('/getSelectHoraViagens', selectHoraViagens);
+router.get('/getSelectHoraViagem', selectHoraViagem);
+router.post('/InsertHoraViagem', insertHoraViagem);
+router.put('/putUpdateHoraViagem', updateHoraViagem);
+router.delete('/deleteDeleteHoraViagem', deleteHoraViagem);
+
+router.get('/getSelectSiglas', selectSiglas);
+router.get('/getSelectSigla', selectSigla);
+router.post('/postInsertSigla', insertSigla);
+router.put('/putUpdateSigla', updateSigla);
+router.delete('/deleteDeleteSigla', deleteSigla);
+
+router.get('/lastInsertedId/:id', getLastInsertedIdWithInfo);
 
 // router.run(sendMail());
 
