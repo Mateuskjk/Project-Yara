@@ -31,7 +31,7 @@ if (localStorage.getItem('pesquisaInfo')) {
     var partes = dataString.split("-");
 
     // Reorganize as partes para o formato desejado "dd-mm-yyyy"
-    var dataFormatada = partes[2] + "/" + partes[1] + "/" + partes[0];
+    var dataFormatada = partes[2] + "-" + partes[1] + "-" + partes[0];
 
     return dataFormatada;
   }

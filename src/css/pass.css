@@ -80,6 +80,7 @@ nav{
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  margin-left: 1.4%;
 }
 
 .info-viagem{
@@ -97,7 +98,7 @@ nav{
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  margin-left: 7%;
+  margin-left: 8%;
 }
 
 .info-important{
@@ -106,7 +107,7 @@ nav{
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  margin-left: 7%;
+  margin-left: 8%;
 }
 
 .QRcode{
