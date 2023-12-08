@@ -6,7 +6,7 @@ import router from './routes.js';
 import { createTable } from './controler/Destinos.js';
 import { createTableUsuarios } from './controler/Usuarios.js';
 import { createTableInformationPassenger } from './controler/informationPassenger.js';
-// import { sendMail } from './controler/passagem.js';
+import { sendMail } from './controler/passagem.js';
 import { createTableHoraViagem } from './controler/HoraViagem.js';
 import { createTableSigla } from './controler/Sigla.js';
 
@@ -23,8 +23,8 @@ app.use(router);
 createTableInformationPassenger();
 app.use(router)
 
-// sendMail();
-// app.use(router)
+sendMail();
+app.use(router)
 
 createTableHoraViagem();
 app.use(router)

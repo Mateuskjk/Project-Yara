@@ -492,7 +492,7 @@ nav .bars-menu{
 
 .name-region{
   font-weight: bold;
-  color: #3cb057;
+  color: #003566;
 }
 
 #listarDestinos{
@@ -519,7 +519,7 @@ nav .bars-menu{
 }
 
 #listarDestinos li a span{
-  color: #3cb057;
+  color: #003566;
 }
 
 #listarDestinosVolta{
@@ -535,7 +535,7 @@ nav .bars-menu{
 }
 
 #listarDestinosVolta li a span{
-  color: #3cb057;
+  color: #003566;
 }
 
 .destino-name{
