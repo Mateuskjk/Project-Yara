@@ -14,6 +14,34 @@ startButton.addEventListener('click', function() {
   });
 });
 //======================================================
+// Obtenha a data atual em formato ISO (YYYY-MM-DD)
+const hoje = new Date().toISOString().split('T')[0];
+
+// Defina a data mínima inicialmente para a ida
+document.getElementById('date1').min = hoje;
+
+// Adicione um ouvinte de evento para o elemento de entrada de data para a ida
+document.getElementById('date1').addEventListener('change', function() {
+  // Obtém a data selecionada para a ida pelo usuário
+  const dataIdaSelecionada = this.value;
+
+  // Atualiza a data mínima dinamicamente para a volta com a data selecionada para a ida
+  document.getElementById('volta').min = dataIdaSelecionada;
+});
+
+
+// Defina a data mínima inicialmente para a volta
+document.getElementById('volta').min = hoje;
+
+// Adicione um ouvinte de evento para o elemento de entrada de data para a volta
+document.getElementById('volta').addEventListener('change', function() {
+  // Obtém a data selecionada para a volta pelo usuário
+  const dataVoltaSelecionada = this.value;
+
+  // Atualiza a data mínima dinamicamente para a volta com a data selecionada para a volta
+  document.getElementById('volta').min = dataVoltaSelecionada;
+});
+
 
 
 //link 1 leva a uma seção do site ====================
@@ -144,6 +172,9 @@ btn.addEventListener("click", function (e) {
     } else {
       alert("Por favor, preencha todos os campos corretamente.");
     }
+
+
+
 });
 
 // Realiza a solicitação para obter os destinos da URL
