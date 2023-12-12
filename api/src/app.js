@@ -11,6 +11,13 @@ import { createTableHoraViagem } from './controler/HoraViagem.js';
 import { createTableSigla } from './controler/Sigla.js';
 
 const app = express();
+const port = process.env.PORT || 3002;
+
+const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+server.keepAliveTimeout = 140 * 1000;
+server.headersTimeout = 140 * 1000;
+
 app.use(express.json());
 app.use(cors());
 
