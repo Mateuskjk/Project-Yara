@@ -199,12 +199,19 @@ if (localStorage.getItem('pesquisaInfo')) {
     const storedData = localStorage.getItem('pesquisaInfo');
     const storedObject = JSON.parse(storedData) || {};
     
-    const company = document.querySelector('#boat-name').value;
+    const company = document.querySelector('#boat-name');
+    const ltda = company.textContent
+    console.log(ltda)
+
     const companyName = {
-      company: company
+      company: ltda
     }
 
-    localStorage.setItem('companyName', JSON.stringify(companyName));
+    console.log(companyName)
+
+    const empresa = JSON.stringify(companyName);
+
+    localStorage.setItem('companyName', empresa);
   
     storedObject.botao = event.target.innerText;
     storedObject.dataAtivo = event.target.getAttribute('data-ativo');

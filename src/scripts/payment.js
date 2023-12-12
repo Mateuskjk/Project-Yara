@@ -342,7 +342,9 @@ if (localStorage.getItem('pesquisaInfo')) {
   });
 }
 
-localStorage.getItem('companyName')
+const empresa = localStorage.getItem('companyName');
+const company = JSON.parse(empresa);
+console.log("nome da companhia", company)
 
-const ltda = document.querySelector('#Company').value
-ltds.textContent = companyName.company
+const ltda = document.querySelector('#company')
+ltda.innerHTML = company.company
