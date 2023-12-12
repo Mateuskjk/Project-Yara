@@ -36,13 +36,12 @@ if (localStorage.getItem('pesquisaInfo')) {
     return dataFormatada;
   }
 
-  // Exemplo de uso
-  var dataDefault = pesquisaInfo.dateIdaName;
-  var dataConvert = converterFormatoData(dataDefault);
+  var dataOri = pesquisaInfo.dateIdaName;
+  var dataconvert = converterFormatoData(dataOri)
 
   // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
   const dataida = document.getElementById('data-ida');
-  dataida.innerHTML = dataConvert;
+  dataida.innerHTML = dataconvert;
 
   var dataOriginal = pesquisaInfo.dateVoltaName;
   var dataConvertida = converterFormatoData(dataOriginal);
@@ -65,6 +64,67 @@ if (localStorage.getItem('pesquisaInfo')) {
     const datavolta = document.getElementById('data-volta')
     datavolta.innerText= dataConvertida;
   }
+
+  //
+    var dataOriginal = pesquisaInfo.dateIdaName;
+    var dataConvertida = converterFormatoData(dataOriginal);
+
+    // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
+    const dataida2 = document.getElementById('data-ida2');
+    dataida2.innerHTML = dataConvertida;
+  
+    var dataOriginal = pesquisaInfo.dateVoltaName;
+    var dataConvertida = converterFormatoData(dataOriginal);
+  
+    // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
+    const datavolta2 = document.getElementById('data-volta2');
+    datavolta2.innerHTML = dataConvertida;
+  
+    //faz uma verificação de a seleção de ida de volta na index é sim ou não
+    const dataid2 = pesquisaInfo.idaEVoltaName
+  
+    if(dataid2 === "-1") {
+      const dataOriginal = pesquisaInfo.dateVoltaName;
+      const dataConvertida = converterFormatoData(dataOriginal);
+  
+      const datavolta = document.getElementById('data-volta2')
+      datavolta.innerText = "Somente Ida" 
+    }
+    else{
+      const datavolta = document.getElementById('data-volta2')
+      datavolta.innerText= dataConvertida;
+    }
+  //
+
+  var dataO = pesquisaInfo.dateIdaName;
+  var dataCon = converterFormatoData(dataO);
+
+  // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
+  const dataida3 = document.getElementById('data-ida3');
+  dataida3.innerHTML = dataCon;
+
+  var dataO = pesquisaInfo.dateVoltaName;
+  var dataCon = converterFormatoData(dataO);
+
+  // Use a função para converter e exibir a data no formato "dd/mm/yyyy"
+  const datavolta3 = document.getElementById('data-volta3');
+  datavolta3.innerHTML = dataCon;
+
+  //faz uma verificação de a seleção de ida de volta na index é sim ou não
+  const dataid3 = pesquisaInfo.idaEVoltaName
+
+  if(dataid3 === "-1") {
+    const dataOriginal = pesquisaInfo.dateVoltaName;
+    const dataConvertida = converterFormatoData(dataOriginal);
+
+    const datavolta = document.getElementById('data-volta3')
+    datavolta.innerText = "Somente Ida" 
+  }
+  else{
+    const datavolta = document.getElementById('data-volta3')
+    datavolta.innerText= dataConvertida;
+  }
+  //
 
   const classe = pesquisaInfo.classeName;
 
@@ -132,9 +192,19 @@ if (localStorage.getItem('pesquisaInfo')) {
   preencherCampoEAtualizar(passagem3, inputPassagem3);
   passagem3.innerText = passagem3;
 
+  
+
+
   function handleClick(event, passagem, classeName) {
     const storedData = localStorage.getItem('pesquisaInfo');
     const storedObject = JSON.parse(storedData) || {};
+    
+    const company = document.querySelector('#boat-name').value;
+    const companyName = {
+      company: company
+    }
+
+    localStorage.setItem('companyName', JSON.stringify(companyName));
   
     storedObject.botao = event.target.innerText;
     storedObject.dataAtivo = event.target.getAttribute('data-ativo');
@@ -148,6 +218,9 @@ if (localStorage.getItem('pesquisaInfo')) {
     storedObject.idaEVoltaName = pesquisaInfo.idaEVoltaName;
     storedObject.passName = pesquisaInfo.passName;
   
+    // Recuperar ou inicializar a matriz de infotickets
+    let infotickets = JSON.parse(localStorage.getItem('infotickets')) || [];
+  
     // Criar o novo objeto infoticket
     const infoticket = {
       valorPassagem: passagem,
@@ -159,11 +232,11 @@ if (localStorage.getItem('pesquisaInfo')) {
       idaEVoltaName: pesquisaInfo.idaEVoltaName,
       passageiros: pesquisaInfo.passName
     };
-
-    let infotickets = [];
   
+    // Adicionar o novo objeto à matriz
     infotickets.push(infoticket);
-
+  
+    // Armazenar a matriz atualizada de infotickets
     localStorage.setItem('infotickets', JSON.stringify(infotickets));
   
     console.log(storedObject);
@@ -177,6 +250,7 @@ if (localStorage.getItem('pesquisaInfo')) {
   document.getElementById('btn1').addEventListener('click', (event) => handleClick(event, passagem, pesquisaInfo.classeName));
   document.getElementById('btn2').addEventListener('click', (event) => handleClick(event, passagem2, classe2));
   document.getElementById('btn3').addEventListener('click', (event) => handleClick(event, passagem3, classe3));
+  
   
 
 

@@ -83,7 +83,7 @@ nav{
 
   .loc-main{
     width: 10%;
-    margin-left: 3%;
+    margin-left: 4%;
     /* border: 1px solid black; */
   }
 
@@ -130,8 +130,13 @@ nav{
     font-weight: 500;
   }
 
+  .boat-name{
+    margin-right: 2vw;
+  }
+
   .value-main{
     width: 15%;
+    margin-left: 3%;
   }
 
   .i-vlr h4{
@@ -151,7 +156,7 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 3%;
+    margin-right: 2%;
   }
 
   .btn-next{

@@ -227,8 +227,8 @@ function validarCPF(cpf) {
 const cpfValido = '123.456.789-09';
 const cpfInvalido = '111.222.333-44';
 
-console.log("CPF VALIDO", validarCPF(cpfValido));   
-console.log("CPF INVALIDO", validarCPF(cpfInvalido));
+// console.log("CPF VALIDO", validarCPF(cpfValido));   
+// console.log("CPF INVALIDO", validarCPF(cpfInvalido));
 
 
 if (localStorage.getItem('pesquisaInfo')) {
@@ -246,7 +246,7 @@ if (localStorage.getItem('pesquisaInfo')) {
     var partes = dataString.split("-");
 
     // Reorganize as partes para o formato desejado "dd-mm-yyyy"
-    var dataFormatada = partes[2] + "/" + partes[1] + "/" + partes[0];
+    var dataFormatada = partes[2] + "-" + partes[1] + "-" + partes[0];
 
     return dataFormatada;
   }
@@ -298,7 +298,11 @@ if (localStorage.getItem('pesquisaInfo')) {
     classeViagem.textContent = "Executiva";
   }
 
+  const passenger = document.querySelector('#qntd-passenger')
+  passenger.textContent = pesquisaInfo.passName;
+
   document.addEventListener('DOMContentLoaded', async function() {
+    
     // Recupera o objeto do localStorage usando a mesma chave usada na página de origem
     const storedData = localStorage.getItem('pesquisaInfo');
 
@@ -333,6 +337,12 @@ if (localStorage.getItem('pesquisaInfo')) {
 
   // Adiciona um ouvinte de evento para o botão
   copyBtn.addEventListener('click', function() {
-      console.log('pix copiado');
+    console.log('pix copiado');
+    
   });
 }
+
+localStorage.getItem('companyName')
+
+const ltda = document.querySelector('#Company').value
+ltds.textContent = companyName.company
