@@ -2,12 +2,12 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "assets/app.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/app.js",
+    "dev": "nodemon assets/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js"
+    "start": "node assets/app.js"
   },
   "author": "",
   "license": "ISC",
