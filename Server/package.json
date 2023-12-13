@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon assets/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jasmine-browser-runner runSpecs",
     "start": "node assets/app.js"
   },
   "author": "",
@@ -30,5 +30,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "devDependencies": {
+    "jasmine": "^5.1.0",
+    "jasmine-browser-runner": "^2.3.0",
+    "jasmine-core": "^5.1.1"
   }
 }

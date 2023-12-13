@@ -1,4 +1,12 @@
+//github
 git pull https://github.com/Mateuskjk/Project-Yara.git
+git clone https://github.com/Mateuskjk/Project-Yara.git
 
 
-cd .\api
+//jasmine
+for node.js: jasmine
+for browsers: jasmine-browser-runner runSpecs
+
+
+//acess the root past
+cd .\Server
