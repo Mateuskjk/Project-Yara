@@ -198,21 +198,7 @@ if (localStorage.getItem('pesquisaInfo')) {
   function handleClick(event, passagem, classeName) {
     const storedData = localStorage.getItem('pesquisaInfo');
     const storedObject = JSON.parse(storedData) || {};
-    
-    const company = document.querySelector('#company-name');
-    const ltda = company.textContent
-    console.log(ltda)
 
-    const companyName = {
-      company: ltda
-    }
-
-    console.log(companyName)
-
-    const empresa = JSON.stringify(companyName);
-
-    localStorage.setItem('companyName', empresa);
-  
     storedObject.botao = event.target.innerText;
     storedObject.dataAtivo = event.target.getAttribute('data-ativo');
     storedObject.passagem = passagem;
@@ -258,9 +244,6 @@ if (localStorage.getItem('pesquisaInfo')) {
   document.getElementById('btn2').addEventListener('click', (event) => handleClick(event, passagem2, classe2));
   document.getElementById('btn3').addEventListener('click', (event) => handleClick(event, passagem3, classe3));
   
-  
-
-
   // Gerar e preencher valores para os cards
   function gerarValoresAleatoriosParaTresCards() {
     const valores = [];
@@ -279,5 +262,10 @@ if (localStorage.getItem('pesquisaInfo')) {
   }
 }
 
+fetch('http://localhost:3000/companhias')
+  .then(response => response.json())
+  .then(information => {
+    console.log(information)
+  })
 
 
