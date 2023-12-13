@@ -9,6 +9,7 @@ import { createTableInformationPassenger } from './controler/informationPassenge
 import { sendMail } from './controler/passagem.js';
 import { createTableHoraViagem } from './controler/HoraViagem.js';
 import { createTableSigla } from './controler/Sigla.js';
+import { createTableCompanhia } from './controler/Companhias.js';
 
 const app = express();
 const port = process.env.PORT || 3002;
@@ -30,13 +31,16 @@ app.use(router);
 createTableInformationPassenger();
 app.use(router)
 
-sendMail();
-app.use(router)
+// sendMail();
+// app.use(router)
 
 createTableHoraViagem();
 app.use(router)
 
 createTableSigla();
+app.use(router)
+
+createTableCompanhia();
 app.use(router)
 
 

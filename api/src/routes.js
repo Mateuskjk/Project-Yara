@@ -2,7 +2,7 @@ import { Router } from "express";
 import { selectDestinos, selectDestino, insertDestino, updateDestino, deleteDestino } from './controler/Destinos.js';
 import { selectUsuarios, selectUsuario, insertUsuario, updateUsuario, deleteUsuario } from './controler/Usuarios.js';
 import { selectInformationUser, selectInformationUserById, insertInformationPassenger, updateInformationPassenger, deleteInformationPassenger } from "./controler/informationPassenger.js";
-// import { sendMail } from "./controler/passagem.js";
+import { Companhias, Companhia, ptCompanhia, udtCompanhia, delCompanhia } from "./controler/Companhias.js";
 import { selectHoraViagens, selectHoraViagem, insertHoraViagem, updateHoraViagem, deleteHoraViagem } from './controler/HoraViagem.js';
 import { selectSiglas, selectSigla, insertSigla, updateSigla, deleteSigla } from "./controler/Sigla.js";
 import { getLastInsertedIdWithInfo } from "./controler/informationPassenger.js";
@@ -15,8 +15,6 @@ router.get('/', (req, res) =>{
     "msg": "Api rodando"
   })
 })
-
-
 
 router.get('/destinos', selectDestinos);
 router.get('/destino', selectDestino);
@@ -50,6 +48,10 @@ router.delete('/deleteDeleteSigla', deleteSigla);
 
 router.get('/lastInsertedId/:id', getLastInsertedIdWithInfo);
 
-// router.run(sendMail());
+router.get('/companhias', Companhias);
+router.get('/companhia', Companhia);
+router.post('/ptcompanhia', ptCompanhia);
+router.put('/uptcompanhia', udtCompanhia);
+router.delete('/delcompanhia', delCompanhia);
 
 export default router;

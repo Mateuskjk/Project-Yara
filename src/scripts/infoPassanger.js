@@ -74,12 +74,12 @@ fetch('http://localhost:3000/postInformationPassenger', {
         const novosPassageiros = [];
 
         // Redirecionar após o processamento bem-sucedido
-        window.location.href = 'payment.html';
-
+        
         sendToDBButton.disabled = true;
     })
     .catch(error => console.error('Erro ao enviar para o banco de dados:', error));
-
+    
+    window.location.href = 'payment.html';
 });
 
 

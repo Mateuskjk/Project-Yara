@@ -199,7 +199,7 @@ if (localStorage.getItem('pesquisaInfo')) {
     const storedData = localStorage.getItem('pesquisaInfo');
     const storedObject = JSON.parse(storedData) || {};
     
-    const company = document.querySelector('#boat-name');
+    const company = document.querySelector('#company-name');
     const ltda = company.textContent
     console.log(ltda)
 

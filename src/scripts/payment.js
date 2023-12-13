@@ -347,4 +347,4 @@ const company = JSON.parse(empresa);
 console.log("nome da companhia", company)
 
 const ltda = document.querySelector('#company')
-ltda.innerHTML = company.company
+ltda.textContent = company.company
