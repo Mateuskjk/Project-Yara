@@ -50,15 +50,16 @@ nav{
 }
 
 .credit-card-form{
-  width: 76%;
+  width: 50%;
   height: 100%;
+  margin-top: 2.5vh;
 }
 
 .form-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  max-width: 800px;
+  max-width: 580px;
   margin: 0 auto;
   background-color: #fff;
   padding: 50px;
@@ -113,13 +114,15 @@ input[type="radio"] {
 }
 
 .side-bar-info{
-  width: 35%;
+  width: 50%;
   height: 100%;
-  margin-right: 20px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 #sideBar{
-  width: 100%;
+  width: 500px;
   height: 100%;
   padding: 15px;
   background-color: #fff;
@@ -128,7 +131,8 @@ input[type="radio"] {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   margin-bottom: 730px;
-  margin-top: 7vh;
+  margin-top: 5vh;
+  
 }
 
 .sidebtn-form{
@@ -173,7 +177,7 @@ input[type="date"] {
 
 #pixForm{
   display: hidden;
-  width: 100%;
+  width: 800px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -182,7 +186,7 @@ input[type="date"] {
 }
 
 #pix-card-container{
-  width: 63%;
+  width: 74%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -192,6 +196,7 @@ input[type="date"] {
   border-radius: 25px;
   margin-top: 20px;
   margin-bottom: 40px;
+  margin-right: 40px;
 }
 
 .qrCode-img{

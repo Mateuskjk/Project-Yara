@@ -250,7 +250,7 @@ if (localStorage.getItem('pesquisaInfo')) {
     console.log(infoticket);
   
     localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
-    window.location.href = 'infoPassanger.html';
+    window.location.href = 'infoPassenger.html';
   }
   
   // Adicionar listeners para os botões

@@ -61,6 +61,7 @@
 }
 
 .container h1 {
+  margin-top: 4vh;
   font-size: 3vw;
   color: #fff;
 }
@@ -71,10 +72,11 @@
 
 .search-bar{
   display: flex;
-  width: 50%;
+  width: 400;
   justify-content: center;
   align-items: center;
   margin-top: 25px;
+  margin-bottom: 4vh;
   padding: 20px;
   background-color: #fff;
   border-radius: 25px;
@@ -100,7 +102,7 @@
 .search-input input[type="text"], input[type="password"], input[type="email"] {
   position: relative;
   padding: 10px;
-  width: 600px;
+  width: 520px;
   outline: none;
   border: none;
   border-bottom: 1px solid #c9bdc9;
@@ -114,7 +116,7 @@
   z-index: 0;
   width: 50px;
   cursor: pointer; 
-  top: 91%;
+  top: 92%;
   left: 61%;
   transform: translate(92%, -61%);
 }
@@ -134,13 +136,19 @@
 div i{
   height: 4%;
   position: absolute;
-  top: 88%;
+  top: 50%;
   left: 50%;
-  transform: translate(88%, -50%);
+  transform: translate(50%, -50%);
 }
 
-i.bi.bi-eye, .bi-eye-slash {
-  font-size: 26px;
+#auxiliar > i{
+  margin-top: 9vh;
+  font-size: 28px;
+}
+
+i.bi.bi-eye {
+  margin-top: 5vh;
+  font-size: 28px;
 }
 
 .forget-me{
@@ -148,7 +156,7 @@ i.bi.bi-eye, .bi-eye-slash {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 8px;
+  margin-left: 38px;
   margin-top: 30px;
   margin-bottom: 15px;
   padding: 5px;

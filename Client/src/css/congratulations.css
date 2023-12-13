@@ -54,7 +54,7 @@
   align-items: center;
   flex-direction: row;
   width: 100%;
-  min-height: 88vh;
+  min-height: 50vh;
   background-color: #408b93;
 }
 
@@ -75,7 +75,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 4%;
+  margin-bottom: 2%;
 }
 
 .texto h1, h2 {

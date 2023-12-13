@@ -58,6 +58,7 @@
   min-height: 89vh;
   padding: 0 15%;
   background-color: #408b93;
+  margin-bottom: 4vh;
 }
 
 .container h1 {
@@ -75,6 +76,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 25px;
+  margin-bottom: 3.5vh;
   padding: 20px;
   background-color: #fff;
   border-radius: 25px;
@@ -100,7 +102,7 @@
 #search-inputs input[type="text"], input[type="password"]{
   position: relative;
   padding: 10px;
-  width: 600px;
+  width: 500px;
   outline: none;
   border: none;
   border-bottom: 1px solid #c9bdc9;
@@ -133,19 +135,20 @@
 }
 
 div i{
-  height: 4%;
+  height: 5%;
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
-  transform: translate(50%, -50%);
+  transform: translate(70%, -50%);
 }
 
 i.bi.bi-eye, .bi-eye-slash {
+  margin-top: 9vh;
   font-size: 26px;
 }
 
 .forget-me{
-  width: 605px;
+  width: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -176,7 +179,7 @@ i.bi.bi-eye, .bi-eye-slash {
 }
 
 .btnLogin button {
-  width: 600px;
+  width: 500px;
   border-radius: 25px;
   border: none;
   outline: none;
