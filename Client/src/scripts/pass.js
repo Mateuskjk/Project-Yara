@@ -51,6 +51,11 @@ if (classe === "1") {
   classeViagem.textContent = "Executiva";
 }
 
+const empresa = infotickets.cardID;
+
+const companhias = document.getElementById('company')
+companhias.textContent = empresa
+
 fetch('http://localhost:3000/getSelectHoraViagens')
   .then(res => res.json())
   .then(dataArray => {
@@ -146,9 +151,7 @@ fetch('http://localhost:3000/getselectInformationUser')
             
                 if (passName !== null && typeof passName !== 'undefined') {
                     console.log('Valor de passName:', passName);
-            
-                    // Restante do seu código aqui...
-            
+      
                     // Pega os últimos passageiros no array com base no valor de passName
                     const ultimosPassageiros = data.slice(-passName);
                     console.log('Últimos passageiros:', ultimosPassageiros);

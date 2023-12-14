@@ -25,7 +25,6 @@ if (localStorage.getItem('pesquisaInfo')) {
   const h2Destino3 = document.getElementById('destino3');
   h2Destino3.textContent = pesquisaInfo.toName;
 
-  
   function converterFormatoData(dataString) {
     // Divida a string em partes usando o delimitador "-"
     var partes = dataString.split("-");
@@ -64,7 +63,6 @@ if (localStorage.getItem('pesquisaInfo')) {
     const datavolta = document.getElementById('data-volta')
     datavolta.innerText= dataConvertida;
   }
-
   //
     var dataOriginal = pesquisaInfo.dateIdaName;
     var dataConvertida = converterFormatoData(dataOriginal);
@@ -95,7 +93,6 @@ if (localStorage.getItem('pesquisaInfo')) {
       datavolta.innerText= dataConvertida;
     }
   //
-
   var dataO = pesquisaInfo.dateIdaName;
   var dataCon = converterFormatoData(dataO);
 
@@ -125,7 +122,6 @@ if (localStorage.getItem('pesquisaInfo')) {
     datavolta.innerText= dataConvertida;
   }
   //
-
   const classe = pesquisaInfo.classeName;
 
   if (classe === "1") {
@@ -192,32 +188,16 @@ if (localStorage.getItem('pesquisaInfo')) {
   preencherCampoEAtualizar(passagem3, inputPassagem3);
   passagem3.innerText = passagem3;
 
-  
-
-
-  function handleClick(event, passagem, classeName) {
+  function handleClick(event, passagem, classeName, cardID, cardText) {
     const storedData = localStorage.getItem('pesquisaInfo');
     const storedObject = JSON.parse(storedData) || {};
-    
-    const company = document.querySelector('#company-name');
-    const ltda = company.textContent
-    console.log(ltda)
-
-    const companyName = {
-      company: ltda
-    }
-
-    console.log(companyName)
-
-    const empresa = JSON.stringify(companyName);
-
-    localStorage.setItem('companyName', empresa);
-  
+      
     storedObject.botao = event.target.innerText;
     storedObject.dataAtivo = event.target.getAttribute('data-ativo');
     storedObject.passagem = passagem;
     storedObject.classeName = classeName;
-  
+    storedObject.cardID = cardID;
+    storedObject.cardID = cardText;
     storedObject.fromName = pesquisaInfo.fromName;
     storedObject.toName = pesquisaInfo.toName;
     storedObject.dateIdaName = pesquisaInfo.dateIdaName;
@@ -252,15 +232,52 @@ if (localStorage.getItem('pesquisaInfo')) {
     localStorage.setItem('pesquisaInfo', JSON.stringify(storedObject));
     window.location.href = 'infoPassenger.html';
   }
+  // URL do banco de dados
+  const url = 'http://localhost:3000/companhias';
+  
+  // Variáveis para armazenar os dados
+  let company_name = "";
+  let company_name2 = "";
+  let company_name3 = "";
+  
+  // Função para obter dados aleatórios
+  function getRandomCompany(data) {
+    const randomIndex = Math.floor(Math.random() * data.length);
+    return data[randomIndex].empresa;
+  }
+
+  let cardOne, cardTwo, cardThree;
+  
+  // Função para realizar o fetch no banco de dados
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // Atribuir dados aleatórios às variáveis
+      company_name = getRandomCompany(data);
+      company_name2 = getRandomCompany(data);
+      company_name3 = getRandomCompany(data);
+  
+      cardOne = document.querySelector('#company-name')
+      cardOne.textContent = company_name;
+  
+      cardTwo = document.querySelector('#company-name2')
+      cardTwo.textContent = company_name2;
+  
+      cardThree = document.querySelector('#company-name3')
+      cardThree.textContent = company_name3;
+  
+      // Aqui você pode realizar qualquer outra ação com os dados
+      console.log("company_name:", company_name);
+      console.log("company_name2:", company_name2);
+      console.log("company_name3:", company_name3);
+    })
+    .catch(error => console.error('Erro ao obter dados:', error));
   
   // Adicionar listeners para os botões
-  document.getElementById('btn1').addEventListener('click', (event) => handleClick(event, passagem, pesquisaInfo.classeName));
-  document.getElementById('btn2').addEventListener('click', (event) => handleClick(event, passagem2, classe2));
-  document.getElementById('btn3').addEventListener('click', (event) => handleClick(event, passagem3, classe3));
+  document.getElementById('btn1').addEventListener('click', (event) => handleClick(event, passagem, pesquisaInfo.classeName, 'cardOne', cardOne.textContent));
+  document.getElementById('btn2').addEventListener('click', (event) => handleClick(event, passagem2, classe2, 'cardTwo', cardTwo.textContent));
+  document.getElementById('btn3').addEventListener('click', (event) => handleClick(event, passagem3, classe3, 'cardThree', cardThree.textContent));
   
-  
-
-
   // Gerar e preencher valores para os cards
   function gerarValoresAleatoriosParaTresCards() {
     const valores = [];
@@ -278,6 +295,3 @@ if (localStorage.getItem('pesquisaInfo')) {
     preencherCampoEAtualizar(valoresAleatorios[i], cards[i]);
   }
 }
-
-
-

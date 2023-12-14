@@ -27,8 +27,6 @@ pixRadio.addEventListener('change', habilitarDesabilitarCampos);
 // Chame a função para configurar o estado inicial com base na opção selecionada
 habilitarDesabilitarCampos();
 
-
-
 /*=============================================== */
 document.querySelector('form').addEventListener('submit', function (e) {
   if (document.querySelector('.btn-form').disabled) {
@@ -227,10 +225,6 @@ function validarCPF(cpf) {
 const cpfValido = '123.456.789-09';
 const cpfInvalido = '111.222.333-44';
 
-// console.log("CPF VALIDO", validarCPF(cpfValido));   
-// console.log("CPF INVALIDO", validarCPF(cpfInvalido));
-
-
 if (localStorage.getItem('pesquisaInfo')) {
   const pesquisaInfoJSON = localStorage.getItem('pesquisaInfo');
   const pesquisaInfo = JSON.parse(pesquisaInfoJSON);
@@ -318,18 +312,10 @@ if (localStorage.getItem('pesquisaInfo')) {
     valorpassagem.textContent = passagemValue;
     console.log('Valor da passagem:', passagemValue);
 
-    const className = storedObject.classeName;
-
-    // Ajuste para exibir a classe do botão clicado
-    const classTrip = document.getElementById("class");
-
-    if (className === "Executiva") {
-        classTrip.textContent = "Executiva";
-    } else {
-        classTrip.textContent = "Econômica";
-    }
-
-    console.log('Classe do btn:', className);
+    const empresa = storedObject.cardID;
+    const company = document.getElementById('company');
+    company.textContent = empresa;
+    console.log('Nome da Companhia/Empresa:', empresa);
   });
 
   // Supondo que você tenha um botão com o ID 'copyBtn'
@@ -341,10 +327,3 @@ if (localStorage.getItem('pesquisaInfo')) {
     
   });
 }
-
-const empresa = localStorage.getItem('companyName');
-const company = JSON.parse(empresa);
-console.log("nome da companhia", company)
-
-const ltda = document.querySelector('#company')
-ltda.textContent = company.company
