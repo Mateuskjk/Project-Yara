@@ -31,8 +31,8 @@ app.use(router);
 createTableInformationPassenger();
 app.use(router)
 
-// sendMail();
-// app.use(router)
+sendMail();
+app.use(router)
 
 createTableHoraViagem();
 app.use(router)

@@ -7,6 +7,8 @@ import { selectHoraViagens, selectHoraViagem, insertHoraViagem, updateHoraViagem
 import { selectSiglas, selectSigla, insertSigla, updateSigla, deleteSigla } from "./controler/Sigla.js";
 import { getLastInsertedIdWithInfo } from "./controler/informationPassenger.js";
 
+// import { sendMail } from "./controler/passagem.js";
+
 const router = Router();
 
 router.get('/', (req, res) =>{
@@ -53,5 +55,7 @@ router.get('/companhia', Companhia);
 router.post('/ptcompanhia', ptCompanhia);
 router.put('/uptcompanhia', udtCompanhia);
 router.delete('/delcompanhia', delCompanhia);
+
+// router.run(sendMail)
 
 export default router;
